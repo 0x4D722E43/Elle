@@ -7,8 +7,8 @@ package registrazionevoti.dataContainer.users;
 
 /**
  *
- * @author pc
+ * @author Caronte
  */
-public class Studente {
+public class Studente extends UserData{
     
 }
