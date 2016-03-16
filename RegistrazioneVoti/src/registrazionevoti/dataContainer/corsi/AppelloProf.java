@@ -6,15 +6,14 @@
 package registrazionevoti.dataContainer.corsi;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 
 /**
  *
- * @author Caronte
+ * @author pc
  */
-public class Appello {
-    private ArrayList<String> matricoleIscritti;
-    private String descrizione;
-    private Date data;
-    private String aula;
+public class AppelloProf extends AppelloStu{
+    private ArrayList<String> matIscritti;
+    private HashMap<String,Integer> Voti;//<Matricola,voto>
+    private String nomeMateria;
 }

@@ -6,13 +6,14 @@
 package registrazionevoti.dataContainer.corsi;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
  * @author Caronte
  */
-public class Materia {
-    private String Nome;
-    private int cfu;
-    private ArrayList<AppelloStu> appelli;
+public class AppelloStu {
+    private String descrizione;
+    private Date data;
+    private String aula;
 }
