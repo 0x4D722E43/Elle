@@ -10,6 +10,30 @@ package registrazionevoti.dataContainer.users;
  *  del utente e conterra tutti i dati utili all' UI
  * @author Caronte
  */
-public class UserData {
+public abstract class UserData {
+    private User type;
+    private String nome;
+    private String codFiscale;
     
+    protected UserData(String nome,String codFiscale){
+        this.nome=nome;
+        this.codFiscale=codFiscale;           
+    }
+    
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getCodFiscale() {
+        return codFiscale;
+    }
+
+    
+    protected void setUserType(User type){
+        this.type = type;
+    }
+    public  User getType(){
+        return this.type;
+    }
 }

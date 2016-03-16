@@ -12,5 +12,10 @@ package registrazionevoti.dataContainer.users;
  *  
  */
 public class Professore extends UserData {
+
+    public Professore(String nome,String codF) {
+        super(nome,codF);
+        super.setUserType(User.PROFESSOR);
+    }
     
 }
