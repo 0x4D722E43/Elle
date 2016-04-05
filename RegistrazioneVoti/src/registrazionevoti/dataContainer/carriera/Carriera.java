@@ -6,7 +6,7 @@
 package registrazionevoti.dataContainer.carriera;
 
 import java.util.ArrayList;
-import registrazionevoti.dataContainer.corsi.Materia;
+import registrazionevoti.dataContainer.corsi.Corso;
 
 /**
  * 
@@ -16,6 +16,6 @@ import registrazionevoti.dataContainer.corsi.Materia;
 public class Carriera {
     private String matricola;
     private int annoInCorso;
-    private ArrayList<Materia> materie;
+    private ArrayList<Corso> materie;
     
 }
