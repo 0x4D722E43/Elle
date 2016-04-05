@@ -11,7 +11,7 @@ import java.util.ArrayList;
  *
  * @author Caronte
  */
-public class Materia {
+public class Corso {
     private String Nome;
     private int cfu;
     private ArrayList<AppelloStu> appelli;

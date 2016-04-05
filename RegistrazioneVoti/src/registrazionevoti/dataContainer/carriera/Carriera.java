@@ -13,7 +13,7 @@ import registrazionevoti.dataContainer.corsi.Materia;
  *
  * @author Caronte
  */
-public class Libretto {
+public class Carriera {
     private String matricola;
     private int annoInCorso;
     private ArrayList<Materia> materie;

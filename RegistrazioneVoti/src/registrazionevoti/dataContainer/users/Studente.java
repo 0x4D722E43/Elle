@@ -5,14 +5,14 @@
  */
 package registrazionevoti.dataContainer.users;
 
-import registrazionevoti.dataContainer.carriera.Libretto;
+import registrazionevoti.dataContainer.carriera.Carriera;
 
 /**
  *
  * @author Caronte
  */
 public class Studente extends UserData{
-    private Libretto libretto;
+    private Carriera libretto;
     public Studente(String nome,String codF){
         super(nome,codF);
         super.setUserType(User.STUDENT);
