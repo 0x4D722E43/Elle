@@ -16,4 +16,24 @@ public class AppelloStu {
     private String descrizione;
     private Date data;
     private String aula;
+    
+    AppelloStu(String descrizione,Date data,String aula){
+        this.descrizione = descrizione;
+        this.data = data;
+        this.aula = aula;
+        
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+
+    public Date getData() {
+        return data;
+    }
+
+    public String getAula() {
+        return aula;
+    }
+    
 }
