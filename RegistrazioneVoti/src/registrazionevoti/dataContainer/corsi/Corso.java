@@ -12,8 +12,26 @@ import java.util.ArrayList;
  * @author Caronte
  */
 public class Corso {
-    private String Nome;
+    private String nome;
     private int cfu;
     private ArrayList<AppelloStu> appelli;
+    Corso(String nome, Integer cfu){
+        this.nome = nome;
+        this.cfu = cfu;
+        this.appelli = new ArrayList<>();
+                
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getCfu() {
+        return cfu;
+    }
+
+    public ArrayList<AppelloStu> getAppelli() {
+        return appelli;
+    }
     
 }

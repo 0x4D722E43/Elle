@@ -17,7 +17,7 @@ public class AppelloStu {
     private Date data;
     private String aula;
     
-    AppelloStu(String descrizione,Date data,String aula){
+   public  AppelloStu(String descrizione,Date data,String aula){
         this.descrizione = descrizione;
         this.data = data;
         this.aula = aula;

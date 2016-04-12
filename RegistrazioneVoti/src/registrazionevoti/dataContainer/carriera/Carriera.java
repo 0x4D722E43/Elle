@@ -16,6 +16,6 @@ import registrazionevoti.dataContainer.corsi.Corso;
 public class Carriera {
     private String matricola;
     private int annoInCorso;
-    private ArrayList<Corso> materie;
+    private ArrayList<Corso> corsi;
     
 }

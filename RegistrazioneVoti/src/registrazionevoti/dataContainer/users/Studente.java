@@ -17,4 +17,12 @@ public class Studente extends UserData{
         super(nome,codF);
         super.setUserType(User.STUDENT);
     }
+    public void setCarriera(Carriera libretto ){
+        this.libretto = libretto;
+    }
+
+    public Carriera getLibretto() {
+        return libretto;
+    }
+    
 }
