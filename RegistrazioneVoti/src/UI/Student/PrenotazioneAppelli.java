@@ -20,7 +20,8 @@ import registrazionevoti.dataContainer.corsi.Corso;
  */
 public class PrenotazioneAppelli {
     private String htmlString="",tableStr;
-    PrenotazioneAppelli(Carriera libretto){
+    public PrenotazioneAppelli(Carriera libretto) throws IOException{
+        this.getTemplate();
         for(Corso c:libretto.getCorsi()){
             String nome= c.getNome();
             for(AppelloStu a:c.getAppelli()){
