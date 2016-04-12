@@ -15,4 +15,5 @@ public class Corso {
     private String Nome;
     private int cfu;
     private ArrayList<AppelloStu> appelli;
+    
 }
