@@ -5,11 +5,16 @@
  */
 package registrazionevoti;
 
+import com.sun.net.httpserver.HttpExchange;
+import com.sun.net.httpserver.HttpHandler;
+import com.sun.net.httpserver.HttpServer;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.OutputStream;
+import java.net.InetSocketAddress;
 
 /**
  *
@@ -20,13 +25,23 @@ public class RegistrazioneVoti {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) throws FileNotFoundException, IOException {
-        File htmlTemplateFile = new File("HtmlTemplate/prenotazioneAppelli.html");
-        FileReader fr = new FileReader(htmlTemplateFile);
-        BufferedReader br = new BufferedReader(fr); 
-        while(br.ready()){
-            System.out.println(br.readLine());
+    public static void main(String[] args) throws Exception {
+        HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
+        server.createContext("/test", new MyHandler());
+        server.setExecutor(null); // creates a default executor
+        server.start();
+    }
+
+    static class MyHandler implements HttpHandler {
+        @Override
+        public void handle(HttpExchange t) throws IOException {
+            String response = "This is the response";
+            t.sendResponseHeaders(200, response.length());
+            OutputStream os = t.getResponseBody();
+            os.write(response.getBytes());
+            os.close();
         }
     }
+    
     
 }
