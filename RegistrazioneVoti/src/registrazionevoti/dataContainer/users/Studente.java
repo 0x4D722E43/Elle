@@ -13,6 +13,7 @@ import registrazionevoti.dataContainer.carriera.Carriera;
  */
 public class Studente extends UserData{
     private Carriera libretto;
+    
     public Studente(String nome,String codF){
         super(nome,codF);
         super.setUserType(User.STUDENT);

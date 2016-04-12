@@ -17,5 +17,30 @@ public class Carriera {
     private String matricola;
     private int annoInCorso;
     private ArrayList<Corso> corsi;
+
+    public Carriera(String matricola, int annoInCorso) {
+        this.matricola = matricola;
+        this.annoInCorso = annoInCorso;
+        
+    }
+
+    public String getMatricola() {
+        return matricola;
+    }
+
+    public int getAnnoInCorso() {
+        return annoInCorso;
+    }
+
+    public ArrayList<Corso> getCorsi() {
+        return corsi;
+    }
+    
+    
+    public void aggiungiCorso(Corso corso){
+        corsi.add(corso);
+    }
+    
+    
     
 }
