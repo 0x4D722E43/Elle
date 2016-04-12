@@ -6,6 +6,7 @@
 package registrazionevoti.dataContainer.corsi;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 /**
@@ -16,4 +17,7 @@ public class AppelloProf extends AppelloStu{
     private ArrayList<String> matIscritti;
     private HashMap<String,Integer> Voti;//<Matricola,voto>
     private String nomeMateria;
+    AppelloProf(String descrizione,Date data,String aula){
+        super(descrizione,data,aula);
+    }
 }
