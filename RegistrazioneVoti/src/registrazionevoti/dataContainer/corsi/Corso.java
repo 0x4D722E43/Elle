@@ -16,7 +16,7 @@ public class Corso {
     private int cfu;
     private ArrayList<AppelloStu> appelli;
     
-    Corso(String nome, Integer cfu){
+    public Corso(String nome, Integer cfu){
         this.nome = nome;
         this.cfu = cfu;
         this.appelli = new ArrayList<>();            
@@ -32,6 +32,10 @@ public class Corso {
 
     public ArrayList<AppelloStu> getAppelli() {
         return appelli;
+    }
+    
+    public void aggiungiAppello(AppelloStu appello){
+        appelli.add(appello);
     }
     
 }

@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetSocketAddress;
 import registrazionevoti.dataContainer.carriera.Carriera;
+import registrazionevoti.dataContainer.corsi.Corso;
 
 /**
  *
@@ -29,7 +30,7 @@ public class basicPrenotazione {
     static class MyHandler implements HttpHandler {
         @Override
         public void handle(HttpExchange t) throws IOException {
-            Carriera libretto;
+            Carriera libretto = TestFactory.initCarriera();
             String response = (new PrenotazioneAppelli(libretto)).toHtml();
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
