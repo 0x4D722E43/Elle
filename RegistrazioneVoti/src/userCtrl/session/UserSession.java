@@ -5,19 +5,32 @@
  */
 package userCtrl.session;
 
+import DB.MapHandler;
+import registrazionevoti.dataContainer.corsi.Corso;
 import registrazionevoti.dataContainer.users.UserData;
 
 /**
  *
  * @author cl410671
  */
-public abstract class UserSession {
-    
-    public void login(String codF,String pass){
-        
+public class UserSession {
+    String codF,pass;
+    MapHandler db;
+    public UserSession(){
+        this.db = new MapHandler();
+    }
+    public void login(String codF,String pass) throws Exception{
+        this.codF = codF;
+        this.pass = pass;
+        if(!db.isAuser(codF, pass))
+            throw new Exception("utente non valido");
     }
     public UserData getUser(){
-        
+        return db.getUser(codF, pass);
+    }
+
+    void updateCorso(Corso corso) {
+        db.setCorso(corso);
     }
     
 }
