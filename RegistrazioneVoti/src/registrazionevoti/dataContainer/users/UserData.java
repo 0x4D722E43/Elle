@@ -34,6 +34,12 @@ public abstract class UserData {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
+
     
     protected void setUserType(User type){
         this.type = type;
