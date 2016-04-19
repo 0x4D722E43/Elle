@@ -5,7 +5,7 @@
  */
 package http;
 
-import UI.Student.PrenotazioneAppelli;
+import UI.Web.student.PrenotazioneAppelli;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
