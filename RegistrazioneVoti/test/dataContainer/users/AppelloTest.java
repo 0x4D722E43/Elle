@@ -12,14 +12,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import registrazionevoti.dataContainer.corsi.AppelloStu;
+import registrazionevoti.dataContainer.corsi.Appello;
 
 /**
  *
  * @author cl410671
  */
 public class AppelloTest {
-    AppelloStu app;
+    Appello app;
     public AppelloTest() {
     }
     
@@ -33,7 +33,7 @@ public class AppelloTest {
     
     @Before
     public void setUp() {
-        app = new AppelloStu("Prova Scritta",new Date("11/11/2016 9:30"),"Ef1");
+        app = new Appello("Appello Scritto", new Date("05/21/2016 09:00"), "Aula 2");
     }
     
     @After
