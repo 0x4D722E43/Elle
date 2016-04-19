@@ -14,6 +14,7 @@ public abstract class UserData {
     private User type;
     private String nome;
     private String codFiscale;
+    private String password;
     
     protected UserData(String nome,String codFiscale){
         this.nome=nome;
@@ -27,6 +28,10 @@ public abstract class UserData {
 
     public String getCodFiscale() {
         return codFiscale;
+    }
+
+    public String getPassword() {
+        return password;
     }
 
     
