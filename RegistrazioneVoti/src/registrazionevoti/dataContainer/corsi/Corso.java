@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class Corso {
     private String nome;
     private int cfu;
-    private ArrayList<AppelloStu> appelli;
+    private ArrayList<Appello> appelli;
     
     public Corso(String nome, Integer cfu){
         this.nome = nome;
@@ -30,11 +30,11 @@ public class Corso {
         return cfu;
     }
 
-    public ArrayList<AppelloStu> getAppelli() {
+    public ArrayList<Appello> getAppelli() {
         return appelli;
     }
     
-    public void aggiungiAppello(AppelloStu appello){
+    public void aggiungiAppello(Appello appello){
         appelli.add(appello);
     }
     
