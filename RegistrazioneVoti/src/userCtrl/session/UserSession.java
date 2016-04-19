@@ -6,6 +6,7 @@
 package userCtrl.session;
 
 import DB.MapHandler;
+import registrazionevoti.dataContainer.corsi.Corso;
 import registrazionevoti.dataContainer.users.UserData;
 
 /**
@@ -26,6 +27,10 @@ public class UserSession {
     }
     public UserData getUser(){
         return db.getUser(codF, pass);
+    }
+
+    void updateCorso(Corso corso) {
+        db.setCorso(corso);
     }
     
 }
