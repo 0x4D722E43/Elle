@@ -11,7 +11,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import registrazionevoti.dataContainer.carriera.Carriera;
-import registrazionevoti.dataContainer.corsi.AppelloStu;
+import registrazionevoti.dataContainer.corsi.Appello;
 import registrazionevoti.dataContainer.corsi.Corso;
 
 /**
@@ -24,7 +24,7 @@ public class PrenotazioneAppelli {
         this.getTemplate();
         for(Corso c:libretto.getCorsi()){
             String nome= c.getNome();
-            for(AppelloStu a:c.getAppelli()){
+            for(Appello a:c.getAppelli()){
                 tableStr += app2html(nome,a.getDescrizione(),a.getData().toGMTString());
             }
         }
