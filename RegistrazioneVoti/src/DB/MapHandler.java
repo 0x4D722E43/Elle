@@ -56,5 +56,10 @@ public class MapHandler extends DBhandler{
         MapHandler m = new MapHandler();
         m.stampaMap();
     }
+
+    @Override
+    public UserData getUser(String codF, String pass) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
