@@ -5,18 +5,10 @@
  */
 package userCtrl.session;
 
-import registrazionevoti.dataContainer.users.UserData;
-
 /**
  *
  * @author cl410671
  */
-public abstract class UserSession {
-    public void login(String codF,String pass){
-        
-    }
-    public UserData getUser(){
-        
-    }
+public class UserFactory {
     
 }
