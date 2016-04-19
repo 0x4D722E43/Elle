@@ -12,7 +12,7 @@ import registrazionevoti.dataContainer.users.UserData;
  *
  * @author cl410671
  */
-public abstract class UserSession {
+public class UserSession {
     String codF,pass;
     MapHandler db;
     public UserSession(){
