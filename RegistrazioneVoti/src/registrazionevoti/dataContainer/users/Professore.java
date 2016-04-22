@@ -17,5 +17,7 @@ public class Professore extends UserData {
         super(nome,codF);
         super.setUserType(User.PROFESSOR);
     }
+
+
     
 }

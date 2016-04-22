@@ -21,6 +21,7 @@ public class Carriera {
     public Carriera(String matricola, int annoInCorso) {
         this.matricola = matricola;
         this.annoInCorso = annoInCorso;
+        this.corsi = new ArrayList<>();
         
     }
 

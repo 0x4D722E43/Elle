@@ -7,7 +7,9 @@ package userCtrl.session;
 
 import DB.MapHandler;
 import registrazionevoti.dataContainer.corsi.Corso;
+import registrazionevoti.dataContainer.users.User;
 import registrazionevoti.dataContainer.users.UserData;
+import registrazionevoti.dataFactory.UserFactory;
 
 /**
  *
@@ -16,21 +18,26 @@ import registrazionevoti.dataContainer.users.UserData;
 public class UserSession {
     String codF,pass;
     MapHandler db;
+    UserFactory uFactory;
     public UserSession(){
         this.db = new MapHandler();
+        this.uFactory = new UserFactory(this.db);
     }
     public void login(String codF,String pass) throws Exception{
         this.codF = codF;
         this.pass = pass;
-        if(!db.isAuser(codF, pass))
+        if(!db.isUser(codF, pass)){            
             throw new Exception("utente non valido");
+        }else{
+            uFactory.newUser(this.codF);
+        }
     }
     public UserData getUser(){
-        return db.getUser(codF, pass);
+        return uFactory.getUser();
+    }
+    public User getUserType(){
+        return uFactory.getUserType();
     }
 
-    void updateCorso(Corso corso) {
-        db.setCorso(corso);
-    }
     
 }

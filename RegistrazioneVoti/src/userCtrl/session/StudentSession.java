@@ -14,8 +14,14 @@ import registrazionevoti.dataContainer.users.Studente;
  */
 public class StudentSession extends UserSession{
     
-    public void signAppello(Corso corso,int appello) {
-        corso.getAppelli().get(appello).registraStudente(((Studente)super.getUser()).getLibretto().getMatricola());
-        super.updateCorso(corso);
+    public void signInAppello(String codAppello) {
+        db.signInStudent2App(codF, codAppello);
+    }
+    public void signOutAppello(String codAppello) {
+        db.signOutStudent2App(codF, codAppello);
+    }
+    @Override
+    public Studente getUser(){
+        return (Studente)super.getUser();
     }
 }
