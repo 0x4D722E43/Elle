@@ -6,12 +6,24 @@
 package UI.Web.student;
 
 import UI.UICtrl;
+import UI.uiErrors;
+import registrazionevoti.dataContainer.users.UserData;
 
 /**
  *
  * @author cl410671
  */
 public class WebCtrl extends UICtrl {
+
+    @Override
+    public void setUserData(UserData user) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void showError(uiErrors uiErrors) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     
 }

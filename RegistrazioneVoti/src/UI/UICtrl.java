@@ -5,9 +5,20 @@
  */
 package UI;
 
+import Utils.VarWagon;
+import java.util.Observable;
+import registrazionevoti.dataContainer.users.UserData;
+
 /**
  *
  * @author cl410671
  */
-public abstract class UICtrl {
+public abstract class UICtrl extends Observable {
+    protected void notifyObs(VarWagon data){
+        this.setChanged();
+        this.notifyObservers(data);
+    }
+    public abstract void setUserData(UserData user);
+
+    public abstract void showError(uiErrors uiErrors) ;
 }
