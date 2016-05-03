@@ -84,4 +84,9 @@ public class Appello {
         return nomeCorso;
     }
 
+    public String contaIscritti(){
+        String iscritti = Integer.toString(matIscritti.size());
+        return iscritti;
+    }
+    
 }
