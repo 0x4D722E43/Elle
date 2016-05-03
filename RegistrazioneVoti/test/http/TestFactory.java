@@ -20,18 +20,18 @@ public class TestFactory {
     public static Carriera initCarriera(){
         Carriera libretto = new Carriera("657483",2);
         
-        Corso c1 = new Corso("Basi di dati",6);
+        Corso c1 = new Corso("30001","Basi di dati",6);
         c1.aggiungiAppello(new Appello("scritto",new Date("01/02/2016 9:00"),"A2"));
         c1.aggiungiAppello(new Appello("SQL",new Date("20/02/2016 12:00"),"B2"));
         c1.aggiungiAppello(new Appello("orale",new Date("01/04/2016 11:00"),"C6"));
         libretto.aggiungiCorso(c1);
         
-        Corso c2 = new Corso("Analisi II",9);
+        Corso c2 = new Corso("10001","Analisi II",9);
         c2.aggiungiAppello(new Appello("scritto",new Date("06/02/2016 9:00"),"EF1"));
         c2.aggiungiAppello(new Appello("orale",new Date("21/02/2016 11:00"),"EF4"));
         libretto.aggiungiCorso(c2);
         
-        Corso c3 = new Corso("IMAD",12);
+        Corso c3 = new Corso("30002","IMAD",12);
         c3.aggiungiAppello(new Appello("scritto",new Date("01/02/2016 9:00"),"A2"));
         c3.aggiungiAppello(new Appello("scritto",new Date("26/04/2016 12:00"),"C1"));
         c3.aggiungiAppello(new Appello("scritto",new Date("25/12/2016 22:00"),"V7"));

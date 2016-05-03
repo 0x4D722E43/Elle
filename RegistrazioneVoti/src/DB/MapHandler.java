@@ -4,6 +4,7 @@ import Utils.VarWagon;
 import dataForTest.UserDataGenerator;
 import java.util.HashMap;
 import java.util.Map;
+import registrazionevoti.dataContainer.corsi.Appello;
 import registrazionevoti.dataContainer.corsi.Corso;
 import registrazionevoti.dataContainer.users.UserData;
 
@@ -58,12 +59,29 @@ public class MapHandler extends DBhandler{
         vars.setVar("Nome", corso.getNome());
         vars.setVar("cfu", Integer.toString(corso.getCfu()));
         return vars;
+        
+        //TODO: quando avremo collegato i corsi con i prof bisogna aggiungere .setVar("prof titolare")
    
     }
 
     @Override
     public VarWagon getAppelloInfo(String codAppello) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        VarWagon vars = new VarWagon();
+        Appello appello;
+        for(String corso : databaseCorsi.keySet()){
+            for(int i=0; i<(databaseCorsi.get(corso)).getAppelli().size();i++){
+                if((databaseCorsi.get(corso)).getAppelli().get(i).getCodAppello().equalsIgnoreCase(codAppello)){
+                    appello = (databaseCorsi.get(corso)).getAppelli().get(i);
+                    vars.setVar("codAppello", appello.getCodAppello());
+                    vars.setVar("descrizione", appello.getDescrizione());
+                    vars.setVar("data", appello.getData().toString());
+                    vars.setVar("aula", appello.getAula());
+                    vars.setVar("numIscritti", appello.contaIscritti());
+                            
+                }
+            }
+        }
+        return vars;
     }
 
     @Override

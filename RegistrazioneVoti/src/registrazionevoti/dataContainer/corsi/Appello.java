@@ -15,6 +15,7 @@ import java.util.HashMap;
  */
 public class Appello {
 
+    private String codAppello;
     private String descrizione;
     private Date data;
     private String aula;
@@ -22,18 +23,20 @@ public class Appello {
     private HashMap<String, Integer> voti;//<Matricola,voto>
     private String nomeCorso;
 
-    public Appello(String descrizione, Date data, String aula) {
+    public Appello(String codAppello, String descrizione, Date data, String aula) {
         this.descrizione = descrizione;
         this.data = data;
         this.aula = aula;
+        this.codAppello = codAppello;
     }
 
-    public Appello(String descrizione, Date data, String aula, HashMap<String, Integer> voti, String nomeCorso) {
+    public Appello(String codAppello, String descrizione, Date data, String aula, HashMap<String, Integer> voti, String nomeCorso) {
         this.descrizione = descrizione;
         this.data = data;
         this.aula = aula;
         this.voti = voti;
         this.nomeCorso = nomeCorso;
+        this.codAppello = codAppello;
     }
 
     public void setVoto(String matricola, Integer voto) throws Exception {
@@ -48,6 +51,11 @@ public class Appello {
         this.matIscritti.add(matricola);
     }
 
+    public String getCodAppello() {
+        return codAppello;
+    }
+
+    
     public String getDescrizione() {
         return descrizione;
     }

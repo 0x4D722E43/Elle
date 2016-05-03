@@ -21,7 +21,7 @@ class CorsoStudentFactory {
     }
 
     CorsoStudentFactory newCorso(String co) {
-        corso = new Corso(db.getCorsoInfo(co).getVar("nome"),
+        corso = new Corso(db.getCorsoInfo(co).getVar("codCorso"),db.getCorsoInfo(co).getVar("nome"),
                           Integer.parseInt(db.getCorsoInfo(co).getVar("cfu")));
         for(String app:db.getAppListOfCorso(co)){
             corso.aggiungiAppello(appFactory.newAppello(app).getAppello());

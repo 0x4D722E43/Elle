@@ -68,20 +68,20 @@ public class UserDataGenerator {
         Map<String,Corso> db = new HashMap<>();
         
         Corso c1 = new Corso("30001","Basi di dati",6);
-        c1.aggiungiAppello(new Appello("scritto",new Date("01/02/2016 9:00"),"A2"));
-        c1.aggiungiAppello(new Appello("SQL",new Date("20/02/2016 12:00"),"B2"));
-        c1.aggiungiAppello(new Appello("orale",new Date("01/04/2016 11:00"),"C6"));
+        c1.aggiungiAppello(new Appello("BD001","scritto",new Date("01/02/2016 9:00"),"A2"));
+        c1.aggiungiAppello(new Appello("BD002","SQL",new Date("20/02/2016 12:00"),"B2"));
+        c1.aggiungiAppello(new Appello("BD003","orale",new Date("01/04/2016 11:00"),"C6"));
         
         
         Corso c2 = new Corso("10001","Analisi II",9);
-        c2.aggiungiAppello(new Appello("scritto",new Date("06/02/2016 9:00"),"EF1"));
-        c2.aggiungiAppello(new Appello("orale",new Date("21/02/2016 11:00"),"EF4"));
+        c2.aggiungiAppello(new Appello("AN2001","scritto",new Date("06/02/2016 9:00"),"EF1"));
+        c2.aggiungiAppello(new Appello("AN2002","orale",new Date("21/02/2016 11:00"),"EF4"));
         
         
         Corso c3 = new Corso("30002","IMAD",12);
-        c3.aggiungiAppello(new Appello("scritto",new Date("01/02/2016 9:00"),"A2"));
-        c3.aggiungiAppello(new Appello("scritto",new Date("26/04/2016 12:00"),"C1"));
-        c3.aggiungiAppello(new Appello("scritto",new Date("25/12/2016 22:00"),"V7"));
+        c3.aggiungiAppello(new Appello("IM001","scritto",new Date("01/02/2016 9:00"),"A2"));
+        c3.aggiungiAppello(new Appello("IM002","scritto",new Date("26/04/2016 12:00"),"C1"));
+        c3.aggiungiAppello(new Appello("IM003","scritto",new Date("25/12/2016 22:00"),"V7"));
         
         db.put("30001", c1);
         db.put("10001", c2);

@@ -20,7 +20,7 @@ class AppelloStudentFactory {
         this.db = db;
     }
     AppelloStudentFactory newAppello(String codAppello) {
-        app = new Appello(db.getAppelloInfo(codAppello).getVar("descrizione"),
+        app = new Appello(db.getAppelloInfo(codAppello).getVar("codAppello"),db.getAppelloInfo(codAppello).getVar("descrizione"),
                 new Date(db.getAppelloInfo(codAppello).getVar("data")),
                 db.getAppelloInfo(codAppello).getVar("aula"));
         return this;
