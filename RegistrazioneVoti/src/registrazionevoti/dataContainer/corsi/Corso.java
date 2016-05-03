@@ -12,11 +12,14 @@ import java.util.ArrayList;
  * @author Caronte
  */
 public class Corso {
+    
+    private String codCorso;
     private String nome;
     private int cfu;
     private ArrayList<Appello> appelli;
     
-    public Corso(String nome, Integer cfu){
+    public Corso(String codCorso, String nome, Integer cfu){
+        this.codCorso = codCorso;
         this.nome = nome;
         this.cfu = cfu;
         this.appelli = new ArrayList<>();            
@@ -29,6 +32,12 @@ public class Corso {
     public int getCfu() {
         return cfu;
     }
+
+    public String getCodCorso() {
+        return codCorso;
+    }
+    
+    
 
     public ArrayList<Appello> getAppelli() {
         return appelli;

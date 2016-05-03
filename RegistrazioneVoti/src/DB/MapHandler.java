@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package DB;
 
 import Utils.VarWagon;
 import dataForTest.UserDataGenerator;
 import java.util.HashMap;
 import java.util.Map;
+import registrazionevoti.dataContainer.corsi.Corso;
 import registrazionevoti.dataContainer.users.UserData;
 
 
@@ -18,23 +14,25 @@ import registrazionevoti.dataContainer.users.UserData;
  */
 public class MapHandler extends DBhandler{
 
-    private Map<String, UserData> database;
+    private Map<String, UserData> databaseUser;
+    private Map<String, Corso> databaseCorsi;
     
     public MapHandler(){
-        database = UserDataGenerator.createDB();
+        databaseUser = UserDataGenerator.createDBuser();
+        databaseCorsi = UserDataGenerator.createDBcorsi();
         
     }
 
 
 
     public Map<String, UserData> getDatabase() {
-        return database;
+        return databaseUser;
     }
 
     @Override
     public boolean isUser(String codF, String pass) {
-        for (String key:database.keySet()){
-            UserData user = database.get(key);
+        for (String key:databaseUser.keySet()){
+            UserData user = databaseUser.get(key);
             if(user.getCodFiscale().equalsIgnoreCase(codF)&&user.getPassword().equals(pass)){
                 return true;
             }
@@ -45,7 +43,7 @@ public class MapHandler extends DBhandler{
     @Override
     public VarWagon getUserInfo(String codF) {
         VarWagon vars = new VarWagon();
-        UserData user = database.get(codF);
+        UserData user = databaseUser.get(codF);
         vars
                 .setVar("Nome",user.getNome() )
                 .setVar("CodF", user.getCodFiscale());
@@ -54,7 +52,12 @@ public class MapHandler extends DBhandler{
 
     @Override
     public VarWagon getCorsoInfo(String codCorso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        VarWagon vars = new VarWagon();
+        Corso corso = databaseCorsi.get(codCorso);
+        vars.setVar("codCorso", corso.getCodCorso());
+        vars.setVar("Nome", corso.getNome());
+        vars.setVar("cfu", Integer.toString(corso.getCfu()));
+        return vars;
    
     }
 

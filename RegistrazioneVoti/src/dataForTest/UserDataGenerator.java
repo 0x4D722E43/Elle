@@ -5,8 +5,11 @@
  */
 package dataForTest;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import registrazionevoti.dataContainer.corsi.Appello;
+import registrazionevoti.dataContainer.corsi.Corso;
 import registrazionevoti.dataContainer.users.Professore;
 import registrazionevoti.dataContainer.users.Studente;
 import registrazionevoti.dataContainer.users.UserData;
@@ -17,7 +20,7 @@ import registrazionevoti.dataContainer.users.UserData;
  */
 public class UserDataGenerator {
     
-    public static Map<String, UserData> createDB(){
+    public static Map<String, UserData> createDBuser(){
         
         Map<String, UserData> db = new HashMap<>();
         
@@ -55,7 +58,35 @@ public class UserDataGenerator {
         db.put("4444", p4);
         db.put("5555", p5);
         
+        
         return db;
         
+    }
+    
+    public static Map<String, Corso> createDBcorsi(){
+        
+        Map<String,Corso> db = new HashMap<>();
+        
+        Corso c1 = new Corso("30001","Basi di dati",6);
+        c1.aggiungiAppello(new Appello("scritto",new Date("01/02/2016 9:00"),"A2"));
+        c1.aggiungiAppello(new Appello("SQL",new Date("20/02/2016 12:00"),"B2"));
+        c1.aggiungiAppello(new Appello("orale",new Date("01/04/2016 11:00"),"C6"));
+        
+        
+        Corso c2 = new Corso("10001","Analisi II",9);
+        c2.aggiungiAppello(new Appello("scritto",new Date("06/02/2016 9:00"),"EF1"));
+        c2.aggiungiAppello(new Appello("orale",new Date("21/02/2016 11:00"),"EF4"));
+        
+        
+        Corso c3 = new Corso("30002","IMAD",12);
+        c3.aggiungiAppello(new Appello("scritto",new Date("01/02/2016 9:00"),"A2"));
+        c3.aggiungiAppello(new Appello("scritto",new Date("26/04/2016 12:00"),"C1"));
+        c3.aggiungiAppello(new Appello("scritto",new Date("25/12/2016 22:00"),"V7"));
+        
+        db.put("30001", c1);
+        db.put("10001", c2);
+        db.put("30002", c3);
+        
+        return db;
     }
 }
