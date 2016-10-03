@@ -23,6 +23,11 @@ public class University implements Observer{
         archive = new Archive();
         factManager = new FactoriesManager(archive);        
     }
+
+    public FactoriesManager getFactManager() {
+        return factManager;
+    }
+    
     public void add(Faculty f){
         archive.add(f);
     }

@@ -13,48 +13,57 @@ import java.util.HashMap;
  * @author Gianluca
  */
 public abstract class AbstractFactory<E> {
+
     protected Archive archive;
     protected E product;
-    protected HashMap<String,Object> parameters;
+    protected HashMap<String, Object> parameters;
     protected String[] parList;
     protected Class[] parClass;
     protected Integer ID;
+
     public AbstractFactory(Archive archive) {
         this.archive = archive;
         this.parameters = new HashMap<>();
         this.setParameters();
     }
-    public  void setParameter(String name,Object par) throws Exception{
+
+    public void setParameter(String name, Object par) throws Exception {
         boolean notInList = true;
-        for(int i=0;i<parList.length;i++){
-            if(parList[i].equalsIgnoreCase(name))
+        for (int i = 0; i < parList.length; i++) {
+            if (parList[i].equalsIgnoreCase(name)) {
                 notInList = false;
-                if(parClass[i].isInstance(par)){
-                    this.parameters.put(name,par);
-                }else{
+                if (parClass[i].isInstance(par)) {
+                    this.parameters.put(name, par);
+                } else {
                     throw new Exception("Parameter not valid");
                 }
+            }
         }
-        if(notInList){
+        if (notInList) {
             throw new Exception("Parameter not valid");
         }
-            
-      
+
     }
-    public ArrayList<String> getParList(){
+
+    public ArrayList<String> getParList() {
         return new ArrayList<>(parameters.keySet());
     }
-    protected void setParameters(){
-        for(String s:parList){
+
+    protected void setParameters() {
+        for (String s : parList) {
             parameters.put(s, null);
         }
         this.ID = null;
     }
-    public void newOne(){
+
+    public void newOne() {
         this.setParameters();
-        
+
     }
+
     public abstract void delete(E e) throws Exception;
+
     public abstract void edit(E e) throws Exception;
+
     public abstract E save() throws Exception;
 }

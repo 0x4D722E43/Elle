@@ -14,7 +14,7 @@ import java.util.HashMap;
 public class FactoriesManager {
 
 
-    enum type{
+    public enum type{
         STUDENT,TEACHER,COURSE,TEST,STUDY_PLAN,
         STUDY_COURSE,FACULTY
     }
