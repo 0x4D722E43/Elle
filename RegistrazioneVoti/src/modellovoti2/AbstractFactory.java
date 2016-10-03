@@ -33,7 +33,7 @@ public abstract class AbstractFactory<E> {
             if (parList[i].equalsIgnoreCase(name)) {
                 notInList = false;
                 if (parClass[i].isInstance(par)) {
-                    this.parameters.put(name, par);
+                    this.parameters.put(name.toLowerCase(), par);
                 } else {
                     throw new Exception("Parameter not valid");
                 }
