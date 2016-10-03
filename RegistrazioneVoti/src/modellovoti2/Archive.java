@@ -95,6 +95,8 @@ public class Archive {
     }
     void add(AnnualPlan sp){
         studyPlans.add(sp);
+        courseInAnnualPlan.put(sp, new ArrayList<Course>());
+        
     }
     void add(CourseTest ct){
         tests.add(ct);
@@ -231,55 +233,88 @@ public class Archive {
     }
 
     Integer getNewStudentID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int max = 0;
+        for(Student s:this.getStudents()){
+            if(s.getMat()>=max) max = s.getMat();
+        }
+        return max+1;
     }
 
     Integer getNewCourseID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int max=0;
+        for(Course c:this.getCourses()){
+            if(c.getID()>= max ) max = c.getID();
+        }
+        return max+1;
     }
 
-    void joinToTest(Student stu, CourseTest aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void joinToTest(Student stu, CourseTest ct) {
+        ratingInCourseTest.get(ct).put(stu, null);
     }
 
-    void unjoinFromTest(Student stu, CourseTest aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void unjoinFromTest(Student stu, CourseTest ct) {
+        ratingInCourseTest.get(ct).remove(stu);
     }
 
-    void assignRate(CourseTest.Rating rate, Student stu, CourseTest aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void assignRate(CourseTest.Rating rate, Student stu, CourseTest ct) {
+        ratingInCourseTest.get(ct).put(stu, rate);
     }
 
-    boolean isValutated(CourseTest aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    boolean isValutated(CourseTest ct) {
+        for(Student s:ratingInCourseTest.get(ct).keySet()){
+            if(ratingInCourseTest.get(ct).get(s) == null ) return false;
+        }
+        return true;
     }
 
-    CourseTest.Rating getRates(CourseTest aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    CourseTest.Rating getRating(Student stu,CourseTest ct) {
+        return ratingInCourseTest.get(ct).get(stu);
     }
 
-    Course getCourse(CourseTest aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Course getCourse(CourseTest ct) {
+        for(Course c:testsInCourse.keySet()){
+            if(testsInCourse.get(c).contains(ct)) return c;
+        }
+        return null;
     }
 
-    void addToCourse(CourseTest product, Course course) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    void addToCourse(CourseTest ct, Course c) {
+        testsInCourse.get(c).add(ct);
     }
 
     Integer getNewTestID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int max=0;
+        for(CourseTest ct:ratingInCourseTest.keySet()){
+            if(ct.getID()>=max) max = ct.getID();
+        }
+        return max+1;
     }
 
     Integer getNewAnnualPlanID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int max=0;
+        for(AnnualPlan ap:courseInAnnualPlan.keySet()){
+            if(ap.getID()>= max) max = ap.getID();
+        }
+        return max+1;
     }
 
-    Faculty getFaculty(StudyCourse aThis) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    Faculty getFaculty(StudyCourse sc) {
+        for(Faculty f:studyCourseInFaculty.keySet()){
+            if(studyCourseInFaculty.get(f).contains(sc)) return f;
+        }
+        return null;
     }
 
     Integer getNewStudyCourseID() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int max=0;
+        for(StudyCourse sc:studentsInStudyCourse.keySet()){
+            if(sc.getID()>=max) max = sc.getID();
+        }
+        return max+1;
+    }
+
+    private ArrayList<Course> getCourses() {
+        return courses;
     }
 
 

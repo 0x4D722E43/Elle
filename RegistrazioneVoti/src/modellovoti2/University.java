@@ -21,8 +21,7 @@ public class University implements Observer{
     private FactoriesManager factManager;
     public University(){
         archive = new Archive();
-        factManager = new FactoriesManager(archive);
-        
+        factManager = new FactoriesManager(archive);        
     }
     public void add(Faculty f){
         archive.add(f);

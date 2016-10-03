@@ -40,7 +40,7 @@ public class CourseTest {
         return archive.isValutated(this);
     }
     public Rating getRate(Student stu){
-        return archive.getRates(this);
+        return archive.getRating(stu,this);
     }
     public Integer getID(){
         return ID;

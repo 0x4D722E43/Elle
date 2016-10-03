@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author Gianluca
  */
-class StudentFactory extends AbstractFactory<Student> {
+public class StudentFactory extends AbstractFactory<Student> {
 
     public StudentFactory(Archive a) {
         super(a);

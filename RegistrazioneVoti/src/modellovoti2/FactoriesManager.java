@@ -34,7 +34,7 @@ public class FactoriesManager {
         factories.put(type.STUDY_COURSE, new StudyCourseFactory(a));
         factories.put(type.FACULTY,new FacultyFactory(a));
     }
-    AbstractFactory getFactory(type t){
+    public AbstractFactory getFactory(type t){
         return factories.get(t);
     }
     
