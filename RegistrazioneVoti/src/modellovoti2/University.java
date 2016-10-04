@@ -21,8 +21,30 @@ public class University{
         factManager = new FactoriesManager(archive);        
     }
 
+    @Deprecated
     public FactoriesManager getFactManager() {
         return factManager;
+    }
+    public FacultyFactory getFacultyFact(){
+        return (FacultyFactory)factManager.getFactory(FactoriesManager.type.FACULTY);
+    }
+    public StudentFactory getStudentFact(){
+        return (StudentFactory)factManager.getFactory(FactoriesManager.type.STUDENT);
+    }
+    public TeacherFactory getTeacherFact(){
+        return (TeacherFactory)factManager.getFactory(FactoriesManager.type.TEACHER);
+    }
+    public CourseFactory getCourseFact(){
+        return (CourseFactory)factManager.getFactory(FactoriesManager.type.COURSE);
+    }
+    public StudyCourseFactory getStudyCourseFact(){
+        return (StudyCourseFactory)factManager.getFactory(FactoriesManager.type.STUDY_COURSE);
+    }
+    public AnnualPlanFactory getAnnualPlanFact(){
+        return (AnnualPlanFactory)factManager.getFactory(FactoriesManager.type.STUDY_PLAN);
+    }
+    public CourseTestFactory getTestFact(){
+        return (CourseTestFactory)factManager.getFactory(FactoriesManager.type.TEST);
     }
     
     public void add(Faculty f){
