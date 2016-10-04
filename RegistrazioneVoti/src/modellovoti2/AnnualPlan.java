@@ -25,6 +25,9 @@ public class AnnualPlan {
     void setID(Integer id){
         this.ID = id;
     }
+    void setArchive(Archive a){
+        this.archive = a;
+    }
     
     public void addCourse(Course course){
         this.archive.addToAnnualPlan(course,this);

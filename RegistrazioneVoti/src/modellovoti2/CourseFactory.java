@@ -44,6 +44,7 @@ public class CourseFactory extends AbstractFactory<Course> {
         product = new Course((String)parameters.get("name"),
                 (Integer)parameters.get("credits"));
         product.setID(ID);
+        product.setArchive(archive);
     }
     
 }

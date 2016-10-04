@@ -37,6 +37,7 @@ public class TeacherFactory extends AbstractFactory<Teacher> {
                 (String)parameters.get(parList[2]), (Date)parameters.get(parList[3]),(Date) parameters.get(parList[4]));
         if(ID == null) ID = archive.getNewStudentID();
         product.setMat(ID);
+        product.setArchive(archive);
     }
 
     @Override

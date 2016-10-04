@@ -21,6 +21,31 @@ public class University{
         factManager = new FactoriesManager(archive);        
     }
 
+    
+    public void add(Faculty f){
+        archive.add(f);
+    }
+    public void remove(Faculty f){
+        archive.remove(f);
+    }
+    public Teacher getTeacherByCF(String cf){
+        return archive.getTeacherByCF(cf);
+    }
+    public Student getStudentByCF(String cf){
+       return archive.getStudentByCF(cf);
+    }
+
+    public ArrayList<Faculty> getFacolties() {
+        return archive.getFacolties();
+    }
+    ArrayList<Student> getStudents() {
+        return archive.getStudents();
+    }
+    ArrayList<Teacher> getTeachers(){
+        return archive.getTeachers();
+    }
+    //FACTORIES
+    
     @Deprecated
     public FactoriesManager getFactManager() {
         return factManager;
@@ -46,28 +71,4 @@ public class University{
     public CourseTestFactory getTestFact(){
         return (CourseTestFactory)factManager.getFactory(FactoriesManager.type.TEST);
     }
-    
-    public void add(Faculty f){
-        archive.add(f);
-    }
-    public void remove(Faculty f){
-        archive.remove(f);
-    }
-    public Teacher getTeacherByCF(String cf){
-        return archive.getTeacherByCF(cf);
-    }
-    public Student getStudentByCF(String cf){
-       return archive.getStudentByCF(cf);
-    }
-
-    public ArrayList<Faculty> getFacolties() {
-        return archive.getFacolties();
-    }
-    ArrayList<Student> getStudents() {
-        return archive.getStudents();
-    }
-    ArrayList<Teacher> getTeachers(){
-        return archive.getTeachers();
-    }
-
 }

@@ -60,6 +60,10 @@ public class CourseTest {
     public Date getEndTime() {
         return endTime;
     }
+
+    void setArchive(Archive archive) {
+        this.archive = archive;
+    }
     
     public class Rating {
         private Integer value;

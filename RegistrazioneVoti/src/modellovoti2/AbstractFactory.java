@@ -60,7 +60,12 @@ public abstract class AbstractFactory<E> {
         this.setParameters();
 
     }
-
+    public String[] getParametersName(){
+        return parList;
+    }
+    public Class[] getParametersClass(){
+        return parClass;
+    }
     public abstract void delete(E e) throws Exception;
 
     public abstract void edit(E e) throws Exception;

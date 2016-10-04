@@ -87,6 +87,10 @@ public class Course {
         this.ID = ID;
     }
 
+    void setArchive(Archive archive) {
+        this.archive =archive;
+    }
+
 
     
     

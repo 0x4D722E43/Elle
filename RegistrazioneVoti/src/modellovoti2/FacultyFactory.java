@@ -43,6 +43,7 @@ public class FacultyFactory extends AbstractFactory<Faculty> {
     private void doSave() {
         product = new Faculty((String)parameters.get("name"));
         product.setID(this.ID);
+        product.setArchive(archive);
        
     }
     

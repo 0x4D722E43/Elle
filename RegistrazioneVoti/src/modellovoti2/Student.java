@@ -14,6 +14,7 @@ import java.util.Date;
  */
 public class Student extends Person{
     Integer year;
+    Archive archive;
     StudyCourse studyCourse;
     ArrayList<CourseTest> tests;
     Student(String name, String surname, String CF, Date birth, Date subscription) {
@@ -45,6 +46,10 @@ public class Student extends Person{
     @Override
     public boolean equals(Object obj) {
         return ((Person)obj).equals(this);
+    }
+
+    void setArchive(Archive archive) {
+        this.archive = archive;
     }
   
     

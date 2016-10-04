@@ -51,6 +51,7 @@ public class CourseTestFactory extends AbstractFactory<CourseTest> {
         if(ID == null) this.ID = archive.getNewTestID();
         product.setID(ID);
         archive.addToCourse(product,(Course)parameters.get("course"));
+        product.setArchive(archive);
     }
 
 

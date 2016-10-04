@@ -44,6 +44,8 @@ public class AnnualPlanFactory extends AbstractFactory<AnnualPlan> {
         product = new AnnualPlan((String)this.parameters.get("name"));
         if(ID == null) this.ID = archive.getNewAnnualPlanID();
         product.setID(ID);
+        product.setArchive(archive);
+        
     }
     
 }
