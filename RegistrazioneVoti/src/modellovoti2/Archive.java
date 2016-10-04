@@ -80,6 +80,7 @@ public class Archive {
     }
     void add(Faculty f){
         faculties.add(f);
+        studyCourseInFaculty.put(f,new ArrayList<StudyCourse>());
     }
 
     void add(Course c) {

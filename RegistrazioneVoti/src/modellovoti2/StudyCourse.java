@@ -49,7 +49,7 @@ public class StudyCourse {
 
 
     public void put(Integer year, AnnualPlan sp) {
-        archive.putInStudyCourse(sp,year,this);
+        archive.putInStudyCourse(sp,year-1,this);
     }
     
 
