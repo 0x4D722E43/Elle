@@ -42,9 +42,11 @@ public class Test03 {
         pianiAnnuali = new ArrayList<>();
         initFaculty();
         initCourses();
-        initAnnualPlan();
-        
+        initAnnualPlan();        
         initStudyCourse();
+        for(Course c:uni.getFacolties().get(0).getCourses()){
+            System.out.println(c.getName());
+        }
     }
 
     void initFaculty() {
