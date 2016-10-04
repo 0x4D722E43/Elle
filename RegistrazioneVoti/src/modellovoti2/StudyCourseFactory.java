@@ -9,9 +9,9 @@ package modellovoti2;
  *
  * @author Gianluca
  */
-class StudyCourseFactory extends AbstractFactory<StudyCourse> {
+public class StudyCourseFactory extends AbstractFactory<StudyCourse> {
 
-    public StudyCourseFactory(Archive a) {
+    StudyCourseFactory(Archive a) {
         super(a);
     }
     @Override

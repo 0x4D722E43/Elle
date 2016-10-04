@@ -9,7 +9,7 @@ package modellovoti2;
  *
  * @author Gianluca
  */
-class CourseFactory extends AbstractFactory<Course> {
+public class CourseFactory extends AbstractFactory<Course> {
 
     public CourseFactory(Archive a) {
         super(a);

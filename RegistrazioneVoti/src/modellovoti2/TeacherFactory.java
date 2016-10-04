@@ -11,9 +11,9 @@ import java.util.Date;
  *
  * @author Gianluca
  */
-class TeacherFactory extends AbstractFactory<Teacher> {
+public class TeacherFactory extends AbstractFactory<Teacher> {
 
-    public TeacherFactory(Archive a) {
+     TeacherFactory(Archive a) {
         super(a);
     }
     @Override

@@ -5,18 +5,15 @@
  */
 package modellovoti2;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author Gianluca
  */
-public class University implements Observer{
+public class University{
     private Archive archive;
     private FactoriesManager factManager;
     public University(){
@@ -50,12 +47,5 @@ public class University implements Observer{
     ArrayList<Teacher> getTeachers(){
         return archive.getTeachers();
     }
-    @Override
-    public void update(Observable o, Object o1) {
-        System.out.println(o1);
-    }
-
-
-
 
 }

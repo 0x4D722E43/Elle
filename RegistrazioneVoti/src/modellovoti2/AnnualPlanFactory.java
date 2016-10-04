@@ -9,7 +9,7 @@ package modellovoti2;
  *
  * @author Gianluca
  */
-class AnnualPlanFactory extends AbstractFactory<AnnualPlan> {
+public class AnnualPlanFactory extends AbstractFactory<AnnualPlan> {
 
     public AnnualPlanFactory(Archive a) {
         super(a);

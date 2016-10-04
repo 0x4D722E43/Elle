@@ -11,9 +11,9 @@ import java.util.Date;
  *
  * @author Gianluca
  */
-class CourseTestFactory extends AbstractFactory<CourseTest> {
+public class CourseTestFactory extends AbstractFactory<CourseTest> {
 
-    public CourseTestFactory(Archive a) {
+    CourseTestFactory(Archive a) {
         super(a);
     }
     @Override
