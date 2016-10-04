@@ -82,11 +82,11 @@ public class Archive {
         faculties.add(f);
     }
 
-    void add(Course e) {
-        courses.add(e);
-        studentsInCourse.put(e, new ArrayList<Student>());
-        teachersInCourse.put(e,new ArrayList<Teacher>());
-        testsInCourse.put(e, new ArrayList<CourseTest>());
+    void add(Course c) {
+        courses.add(c);
+        studentsInCourse.put(c, new ArrayList<Student>());
+        teachersInCourse.put(c,new ArrayList<Teacher>());
+        testsInCourse.put(c, new ArrayList<CourseTest>());
     }
     void add(StudyCourse sc){
         studyCourses.add(sc);
@@ -100,18 +100,27 @@ public class Archive {
     }
     void add(CourseTest ct){
         tests.add(ct);
+        ratingInCourseTest.put(ct, new HashMap<Student,Rating>());
     }
     void remove(CourseTest ct){
         tests.remove(ct);
+        ratingInCourseTest.remove(ct);
     }
     void remove(AnnualPlan sp){
         studyPlans.remove(sp);
+        courseInAnnualPlan.remove(sp);
     }
     void remove(StudyCourse sc){
         studyCourses.remove(sc);
+        studentsInStudyCourse.remove(sc);
+        annulPlanInStudyCourse.remove(sc);
     }
     void remove(Course c) {
         courses.remove(c);
+        studentsInCourse.remove(c);
+        teachersInCourse.remove(c);
+        testsInCourse.remove(c);
+        
     }
     
     void remove(Faculty f){
