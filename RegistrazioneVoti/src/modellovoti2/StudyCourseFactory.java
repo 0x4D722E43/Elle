@@ -45,8 +45,9 @@ public class StudyCourseFactory extends AbstractFactory<StudyCourse> {
         product = new StudyCourse((String)parameters.get("name"), (Integer)parameters.get("years"));
         if(ID==null) this.ID = archive.getNewStudyCourseID();
         product.setID(ID);
-        product.setFaculty((Faculty)parameters.get("faculty"));
         product.setArchive(archive);
+        product.setFaculty((Faculty)parameters.get("faculty"));
+        
     }
     
 }
