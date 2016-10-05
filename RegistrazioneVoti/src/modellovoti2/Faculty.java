@@ -18,7 +18,7 @@ public class Faculty {
     private Integer ID;
     
     
-    public Faculty(String name){
+    Faculty(String name){
         this.name = name;
         
     }

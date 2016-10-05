@@ -23,6 +23,10 @@ public class Teacher extends Person {
         this.archive = a;
     }    
 
+    /**
+     *
+     * @return the list of courses assigned to teacher
+     */
     public ArrayList<Course> getCourses() {
         return archive.getCourse(this);
     }

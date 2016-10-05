@@ -16,7 +16,7 @@ public class AnnualPlan {
                 // Decorator
     private Archive archive;
     private Integer ID;
-    public AnnualPlan(String name){
+    AnnualPlan(String name){
         this.name = name;      
     }
     void setName(String name) {

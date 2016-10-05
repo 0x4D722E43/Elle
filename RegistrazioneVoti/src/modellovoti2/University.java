@@ -38,12 +38,7 @@ public class University{
     public ArrayList<Faculty> getFacolties() {
         return archive.getFacolties();
     }
-    ArrayList<Student> getStudents() {
-        return archive.getStudents();
-    }
-    ArrayList<Teacher> getTeachers(){
-        return archive.getTeachers();
-    }
+
     //FACTORIES
     
     @Deprecated

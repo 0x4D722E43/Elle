@@ -19,7 +19,7 @@ public class Course {
     String name;
     Archive archive;
 
-    public Course(String name,Integer credits) {
+    Course(String name,Integer credits) {
         this.name = name;
         this.credits = credits;
     }
@@ -28,26 +28,59 @@ public class Course {
         this.credits = credits;
     }
 
-    
+    /**
+     * assign a teacher to course
+     * @param teacher
+     */
     public void addTeacher(Teacher t){
         archive.addTeacher(t,this);
     }
+
+    /**
+     * Remove a teacher assigned to course
+     * @param teacher
+     */
     public void rmTeacher(Teacher t){
         archive.rmTeacher(t,this);
     }
+
+    /**
+     *
+     * @param test
+     */
     public void addTest(CourseTest ct){
         archive.addTest(ct,this);
     }
+
+    /**
+     *
+     * @param test 
+     */
     public void rmTest(CourseTest ct){
         archive.rmTest(ct,this);
     }
+
+    /**
+     *
+     * @return tests list of tests assigned to course
+     * @see CourseTest
+     */
     public ArrayList<CourseTest> getTests() {
         return archive.getTests(this);
     }
 
+    /**
+     *
+     * @return teachers list
+     */
     public ArrayList<Teacher> getTeachers() {
         return archive.getTeachers(this);
     }
+
+    /**
+     *
+     * @return
+     */
     public Integer getCredits(){
         return credits;
     }

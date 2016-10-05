@@ -29,15 +29,19 @@ public class Student extends Person{
         this.year = year;
     }
     
-    
-    
-    public AnnualPlan getStudyPlan() throws Exception {
+    /**
+     *
+     * @return the study plan of current year of study
+     * @throws Exception
+     */
+    public AnnualPlan getAnnualPlan() throws Exception {
         return studyCourse.getAnnualPlan(year);
     }
 
-    public Person getUserInfo() {
-        return (Person)this;
-    }
+    /**
+     *
+     * @return the student's study course
+     */
     public StudyCourse getStudyCourse() {
         return studyCourse;
     }
@@ -45,7 +49,7 @@ public class Student extends Person{
 
     @Override
     public boolean equals(Object obj) {
-        return ((Person)obj).equals(this);
+        return ((Student)obj).getMat().equals(this.mat);
     }
 
     void setArchive(Archive archive) {

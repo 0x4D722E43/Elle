@@ -17,28 +17,58 @@ public class CourseTest {
     Date startTime,endTime;
     Integer ID;
 
-    public CourseTest(String room, Date startTime, Date endTime) {
+    CourseTest(String room, Date startTime, Date endTime) {
         this.room = room;
         this.startTime = startTime;
         this.endTime = endTime;
     }
+    
+    /**
+     *
+     * @return the relative course
+     */
     public Course getCourse(){
         return archive.getCourse(this);
     }
 
-    public void addStudent(Student stu){
+    /**
+     *Join a student from the test
+     * @param student
+     */
+    public void join(Student stu){
         archive.joinToTest(stu,this);
     }
-    public void rmStudent(Student stu){
+
+    /**
+     * Unjoin a student from the test
+     * @param student
+     */
+    public void unjoin(Student stu){
         archive.unjoinFromTest(stu,this);
     }
+    
+    /**
+     * Assign a rate to a student
+     * @param student
+     * @param rate
+     */
     public void assignRate(Student stu,Rating rate){
         archive.assignRate(rate,stu,this);
     }
 
+    /**
+     *
+     * @return if is assigned a rate to all the student
+     */
     public boolean isValutated() {
         return archive.isValutated(this);
     }
+    
+    /**
+     *
+     * @param student
+     * @return the rate of the student
+     */
     public Rating getRate(Student stu){
         return archive.getRating(stu,this);
     }
@@ -49,14 +79,26 @@ public class CourseTest {
         this.ID = id;
     }
 
+    /**
+     *
+     * @return the classroom where test is located
+     */
     public String getClassRoom() {
         return this.room;
     }
 
+    /**
+     *
+     * @return the starting time of test
+     */
     public Date getStartTime() {
         return startTime;
     }
 
+    /**
+     *
+     * @return the ending time of test
+     */
     public Date getEndTime() {
         return endTime;
     }

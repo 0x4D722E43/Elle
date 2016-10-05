@@ -21,12 +21,18 @@ public abstract class AbstractFactory<E> {
     protected Class[] parClass;
     protected Integer ID;
 
-    public AbstractFactory(Archive archive) {
+    AbstractFactory(Archive archive) {
         this.archive = archive;
         this.parameters = new HashMap<>();
         this.setParameters();
     }
 
+    /**
+     *
+     * @param name the name of the parameter
+     * @param parameter the parameter
+     * @throws Exception
+     */
     public void setParameter(String name, Object par) throws Exception {
         boolean notInList = true;
         for (int i = 0; i < parList.length; i++) {
@@ -45,9 +51,6 @@ public abstract class AbstractFactory<E> {
 
     }
 
-    public ArrayList<String> getParList() {
-        return new ArrayList<>(parameters.keySet());
-    }
 
     protected void setParameters() {
         for (String s : parList) {
@@ -56,13 +59,26 @@ public abstract class AbstractFactory<E> {
         this.ID = null;
     }
 
+    /**
+     * Reset the parameters setted
+     */
     public void newOne() {
         this.setParameters();
 
     }
+
+    /**
+     *
+     * @return the names of parameters
+     */
     public String[] getParametersName(){
         return parList;
     }
+
+    /**
+     *
+     * @return the classes of parameters
+     */
     public Class[] getParametersClass(){
         return parClass;
     }
