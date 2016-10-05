@@ -165,7 +165,7 @@ public class Archive {
     }
 
     void putInStudyCourse(AnnualPlan ap, Integer year,StudyCourse sc) {
-        annulPlanInStudyCourse.get(sc).add(year, ap);
+        annulPlanInStudyCourse.get(sc).add(year-1, ap);
     }
 
     ArrayList<Student> getStudents(StudyCourse sc) {
@@ -173,11 +173,13 @@ public class Archive {
     }
 
     AnnualPlan getAnnualPlan(StudyCourse sc, Integer year) {
-        return annulPlanInStudyCourse.get(sc).get(year);
+        return annulPlanInStudyCourse.get(sc).get(year-1);
     }
 
     void addToAnnualPlan(Course course, AnnualPlan ap) {
-        courseInAnnualPlan.get(ap).add(course);
+        ArrayList<Course> tmp = courseInAnnualPlan.get(ap);
+        tmp.add(course);
+        courseInAnnualPlan.put(ap, tmp);
     }
 
     void rmFromAnnualCourse(Course course, AnnualPlan ap) {
@@ -196,7 +198,12 @@ public class Archive {
        for(StudyCourse sc:annulPlanInStudyCourse.keySet()) if(annulPlanInStudyCourse.get(sc).contains(ap)) return sc;
        return null;
     }
-
+    StudyCourse getStudyCourse(Student s){
+        for(StudyCourse sc:studentsInStudyCourse.keySet()){
+            if(studentsInStudyCourse.get(sc).contains(s)) return sc;
+        }
+        return null;
+    }
     void rmFromFaculty(StudyCourse sc, Faculty f) {
         studyCourseInFaculty.get(f).remove(sc);
     }
@@ -266,8 +273,8 @@ public class Archive {
         ratingInCourseTest.get(ct).remove(stu);
     }
 
-    void assignRate(CourseTest.Rating rate, Student stu, CourseTest ct) {
-        ratingInCourseTest.get(ct).put(stu, rate);
+    void assignRate(CourseTest.Rating rate, Student student,CourseTest ct) {
+        ratingInCourseTest.get(ct).put(student, rate);
     }
 
     boolean isValutated(CourseTest ct) {
@@ -325,6 +332,10 @@ public class Archive {
 
     private ArrayList<Course> getCourses() {
         return courses;
+    }
+
+    ArrayList<Student> getJoined(CourseTest ct) {
+        return new ArrayList<>(ratingInCourseTest.get(ct).keySet());
     }
 
 

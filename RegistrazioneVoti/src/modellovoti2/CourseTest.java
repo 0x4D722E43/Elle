@@ -5,7 +5,9 @@
  */
 package modellovoti2;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Objects;
 
 /**
  *
@@ -52,8 +54,8 @@ public class CourseTest {
      * @param student
      * @param rate
      */
-    public void assignRate(Student stu,Rating rate){
-        archive.assignRate(rate,stu,this);
+    public void assignRate(Student stu,Integer rate){
+        archive.assignRate(new Rating(rate),stu,this);
     }
 
     /**
@@ -62,6 +64,14 @@ public class CourseTest {
      */
     public boolean isValutated() {
         return archive.isValutated(this);
+    }
+
+    /**
+     *
+     * @return Students joined to test
+     */
+    public ArrayList<Student> getJoined(){
+        return archive.getJoined(this);
     }
     
     /**
@@ -109,16 +119,19 @@ public class CourseTest {
     
     public class Rating {
         private Integer value;
-        private Student student;
         private Date data;
         private Integer status;//0 in sospeso, 1 accettato, 2 rifiutato;
 
-        Rating(Integer value, Student student) {
+        Rating(Integer value) {
             this.value = value;
-            this.student = student;
             this.data = new Date();
         }
-
+        public Integer getValue(){
+            return value;
+        }
+        public Integer getStatus(){
+            return status;
+        }
         public void suspend(){
             status = 3;
         }
@@ -138,4 +151,30 @@ public class CourseTest {
             }
     }
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 71 * hash + Objects.hashCode(this.ID);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final CourseTest other = (CourseTest) obj;
+        if (!Objects.equals(this.ID, other.ID)) {
+            return false;
+        }
+        return true;
+    }
+    
 }

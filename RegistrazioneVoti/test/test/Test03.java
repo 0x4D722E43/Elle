@@ -5,6 +5,9 @@
  */
 package test;
 
+import com.thoughtworks.xstream.XStream;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.logging.Level;
@@ -47,6 +50,9 @@ public class Test03 {
         initCourses();
         initAnnualPlan();
         initStudyCourse();
+        initStudents();
+        initTeachers();
+        toXML(uni);
     }
 
     void initFaculty() {
@@ -109,7 +115,18 @@ public class Test03 {
         }
 
     }
-
+    void toXML(University uni){
+        PrintWriter out = null;
+        try {
+            XStream xs = new XStream();
+            out = new PrintWriter("D://uni.xml");
+            out.print(xs.toXML(uni));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Test03.class.getName()).log(Level.SEVERE, null, ex);
+        } finally {
+            out.close();
+        }
+    }
     void initAnnualPlan() {
         try {
             AnnualPlanFactory apf = uni.getAnnualPlanFact();

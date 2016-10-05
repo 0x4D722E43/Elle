@@ -79,10 +79,18 @@ public class Course {
 
     /**
      *
-     * @return
+     * @return the cfu ammount of course
      */
     public Integer getCredits(){
         return credits;
+    }
+
+    /**
+     *
+     * @return if the course has available tests
+     */
+    public boolean hasAvailableTests() {
+        return !getTests().isEmpty();
     }
     public Integer getID() {
         return ID; //To change body of generated methods, choose Tools | Templates.
@@ -123,6 +131,8 @@ public class Course {
     void setArchive(Archive archive) {
         this.archive =archive;
     }
+
+
 
 
     

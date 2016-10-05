@@ -78,7 +78,7 @@ public class StudyCourse {
      * @param ap annual plan
      */
     public void put(Integer year, AnnualPlan ap) {
-        archive.putInStudyCourse(ap,year-1,this);
+        archive.putInStudyCourse(ap,year,this);
     }
     
     /**
