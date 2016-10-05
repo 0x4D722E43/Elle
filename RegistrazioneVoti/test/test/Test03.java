@@ -119,7 +119,7 @@ public class Test03 {
         PrintWriter out = null;
         try {
             XStream xs = new XStream();
-            out = new PrintWriter("D://uni.xml");
+            out = new PrintWriter("uni.xml");
             out.print(xs.toXML(uni));
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Test03.class.getName()).log(Level.SEVERE, null, ex);
@@ -167,6 +167,7 @@ public class Test03 {
         SimpleDateFormat sdf = new SimpleDateFormat("DD-MM-YY");
         for (int i = 0; i < 50; i++) {
             try {
+                sf.newOne();
                 sf.setParameter("Name", "Giovanni" + Integer.toString(i));
                 sf.setParameter("Surname", "Capobianco" + Integer.toString(i));
                 sf.setParameter("CF", "CPBGVN91M08D2" + Integer.toString(i) + "N");

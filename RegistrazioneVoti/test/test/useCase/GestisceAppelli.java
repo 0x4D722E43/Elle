@@ -7,7 +7,6 @@ package test.useCase;
 
 import com.thoughtworks.xstream.XStream;
 import java.io.File;
-import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -66,7 +65,7 @@ public class GestisceAppelli {
     // @Test
     // public void hello() {}
     @Test
-    public void Gestisce (){
+    public void regularScenario(){
         String cf = "CPBGVN91M08D20N";
         CourseTestFactory ctf = uni.getTestFact();
         Teacher t = uni.getTeacherByCF(cf);
@@ -99,10 +98,12 @@ public class GestisceAppelli {
         //il prof li ha corretti
         HashMap<Student,Integer> rs = new HashMap<>();
         for(Student s:ct.getJoined()){
-            Integer vote = ThreadLocalRandom.current().nextInt(3, 31);
+            Integer vote = ThreadLocalRandom.current().nextInt(18, 31);
             rs.put(s, vote);
             ct.assignRate(s, vote);
         }
+        System.out.println(rs);
+        
         for(Student s:ct.getJoined()){
             assertEquals(rs.get(s), ct.getRate(s).getValue());
         }
