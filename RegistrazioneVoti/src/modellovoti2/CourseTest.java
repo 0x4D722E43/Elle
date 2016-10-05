@@ -125,6 +125,7 @@ public class CourseTest {
         Rating(Integer value) {
             this.value = value;
             this.data = new Date();
+            this.status = 0;
         }
         public Integer getValue(){
             return value;

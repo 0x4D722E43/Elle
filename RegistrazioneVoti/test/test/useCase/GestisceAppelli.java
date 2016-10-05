@@ -108,5 +108,16 @@ public class GestisceAppelli {
         }
         //GLI STUDENTI VEDONO IL VOTO
         //E lo ACCETTANO/RIFIUTANO
+        assertTrue("Test valutated", ct.isValutated());
+        int i=0;
+        for(i=0;i<ss.size();i++){
+            assertNotNull(ct.getRate(ss.get(i)));
+            if(i%2==0) ct.getRate(ss.get(i)).accept();
+            if(i%2==1) ct.getRate(ss.get(i)).refuse();
+        }
+        for(i=0;i<ss.size();i++){
+            if(i%2==0) assertEquals(new Integer(1),ct.getRate(ss.get(i)).getStatus());
+            if(i%2==1) assertEquals(new Integer(2),ct.getRate(ss.get(i)).getStatus());
+        }
     }
 }
