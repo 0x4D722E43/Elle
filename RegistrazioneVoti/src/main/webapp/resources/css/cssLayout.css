@@ -1,0 +1,53 @@
+.ui-layout-north .ui-layout-unit-content {
+    background-color:#0288d1;
+    color:#FFFFFF;
+    margin-left: 25px;
+}
+
+.ui-layout-north {
+    background-color:#0288d1;    
+}
+
+.ui-layout-west .ui-layout-unit-content {
+    background-color:#03a9f4;
+    color:#212121;
+    margin-left:10px;
+}
+
+.ui-layout-west {
+    background-color:#03a9f4;
+}
+
+.ui-layout-center .ui-layout-unit-content {
+    background-color:whitesmoke;
+}
+
+.ui-layout-south .ui-layout-unit-content {
+    background-color:whitesmoke;
+    text-align: right;
+}
+
+.ui-layout-south, .ui-layout-center {
+    background-color:whitesmoke;
+}
+
+.ui-layout-west a:link, .ui-layout-center a:link, .ui-layout-south a:link{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.ui-layout-center a:link:hover, .ui-layout-south a:link:hover{
+    color: #0288d1;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.ui-layout-west a:link:hover {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+

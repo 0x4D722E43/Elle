@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<entity-mappings 
+    xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd" 
+    version="2.1">
+    
+    <package>progettoelle.registrazionevoti.domain</package>
+    
+    <mapped-superclass class="progettoelle.registrazionevoti.domain.BaseEntity" access="FIELD">
+        <attributes>
+            <id name="id">
+                <column name="ID" updatable="false"/>
+                <generated-value strategy="IDENTITY"/>
+            </id>
+        </attributes>
+    </mapped-superclass>
+    
+    <entity name="Faculty" class="progettoelle.registrazionevoti.domain.Faculty" access="FIELD">
+        <table name="FACOLTA"/>
+        <attributes>
+            <basic name="name">
+                <column name="FACOLTA" unique="true" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+    <entity name="DegreeCourse" class="progettoelle.registrazionevoti.domain.DegreeCourse" access="FIELD">
+        <table name="CORSI_DI_LAUREA"/>
+        <attributes>
+            <basic name="name">
+                <column name="NOME" unique="true" nullable="false"/>
+            </basic>
+            <many-to-one name="faculty">
+                <join-column name="FACOLTA" nullable="false"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+    
+    <entity name="RegisteredUser" class="progettoelle.registrazionevoti.domain.RegisteredUser" access="FIELD">
+        <table name="UTENTI"/>
+        <inheritance strategy="JOINED"/>
+        <discriminator-column name="RUOLO"/>
+        <attributes>
+            <basic name="email">
+                <column name="EMAIL" unique="true" nullable="false"/>
+            </basic>
+            <basic name="passwordHash">
+                <column name="PASSWORD" nullable="false"/>
+            </basic>
+            <basic name="name">
+                <column name="NOME" nullable="false"/>
+            </basic>
+            <basic name="surname">
+                <column name="COGNOME" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+    <entity name="Professor" class="progettoelle.registrazionevoti.domain.Professor" access="FIELD">
+        <table name="PROFESSORI"/>
+        <discriminator-value>PROFESSORE</discriminator-value>
+        <attributes>
+            <many-to-one name="faculty">
+                <join-column name="FACOLTA" nullable="false"/>
+            </many-to-one>
+            <basic name="officeLocation">
+                <column name="POSIZIONE_UFFICIO"/>
+            </basic>
+            <basic name="officeHours">
+                <column name="ORE_RICEVIMENTO"/>
+            </basic>
+            <basic name="websiteLink">
+                <column name="LINK_SITO"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+    <entity name="Student" class="progettoelle.registrazionevoti.domain.Student" access="FIELD">
+        <table name="STUDENTI"/>
+        <discriminator-value>STUDENTE</discriminator-value>
+        <attributes>
+            <basic name="matriculationNumber">
+                <column name="MATRICOLA" nullable="false"/>
+            </basic>
+            <many-to-one name="degreeCourse">
+                <join-column name="CORSO_DI_LAUREA" nullable="false"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+    
+    <entity name="Course" class="progettoelle.registrazionevoti.domain.Course" access="FIELD">
+        <table name="CORSI"/>
+        <attributes>
+            <basic name="name">
+                <column name="NOME" unique="true" nullable="false"/>
+            </basic>
+            <basic name="credits">
+                <column name="CFU" nullable="false"/>
+            </basic>
+            <many-to-one name="professor">
+                <join-column name="PROFESSORE" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="degreeCourse">
+                <join-column name="CORSO_DI_LAUREA" nullable="false"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+    
+    <entity name="Enrollment" class="progettoelle.registrazionevoti.domain.Enrollment" access="FIELD">
+        <table name="ISCRIZIONI_CORSI"/>
+        <attributes>
+            <many-to-one name="student">
+                <join-column name="STUDENTE" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="course">
+                <join-column name="CORSO" nullable="false"/>
+            </many-to-one>
+            <basic name="completed">
+                <column name="SUPERATO" nullable="false"/>
+            </basic>
+            <basic name="grade">
+                <column name="VOTO"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+    <entity name="Exam" class="progettoelle.registrazionevoti.domain.Exam" access="FIELD">
+        <table name="ESAMI"/>
+        <attributes>
+            <many-to-one name="course">
+                <join-column name="CORSO" nullable="false"/>
+            </many-to-one>
+            <basic name="date">
+                <temporal>TIMESTAMP</temporal>
+                <column name="DATA_APPELLO" nullable="false"/>
+            </basic>
+            <basic name="room">
+                <column name="AULA" nullable="false"/>
+            </basic>
+            <basic name="description">
+                <column name="DESCRIZIONE"/>
+            </basic>
+            <basic name="bookingOpen">
+                <column name="ISCRIZIONI_APERTE" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+    <entity name="ExamResult" class="progettoelle.registrazionevoti.domain.ExamResult" access="FIELD">
+        <table name="ESITI"/>
+        <attributes>
+            <many-to-one name="student">
+                <join-column name="STUDENTE" nullable="false"/>
+            </many-to-one>
+            <many-to-one name="exam">
+                <join-column name="APPELLO" nullable="false"/>
+            </many-to-one>
+            <basic name="grade">
+                <column name="VOTO"/>
+            </basic>
+            <basic name="status">
+                <enumerated>STRING</enumerated>
+                <column name="STATUS" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+    
+</entity-mappings>
+

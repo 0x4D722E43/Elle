@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Context path="/RegistrazioneVoti">
+    
+    <Resource 
+        name="jdbc/MYSQLRegistrazioneVoti" 
+        auth="Container" 
+        type="javax.sql.DataSource"
+	maxTotal="100" 
+        maxIdle="30" 
+        maxWaitMillis="10000"
+        username="progetto" 
+        password="progetto" 
+        driverClassName="com.mysql.jdbc.Driver"
+        url="jdbc:mysql://localhost:3306/registrazionevotidb?useSSL=false"/>
+    
+    <Realm 
+        className="org.apache.catalina.realm.DataSourceRealm" 
+        dataSourceName="jdbc/MYSQLRegistrazioneVoti"
+        userTable="UTENTI" 
+        userNameCol="EMAIL" 
+        userCredCol="PASSWORD"
+        userRoleTable="UTENTI" 
+        roleNameCol="RUOLO" 
+        localDataSource="true" >
+        
+        <CredentialHandler
+            className="org.apache.catalina.realm.MessageDigestCredentialHandler"
+            algorithm="md5" />
+    
+    </Realm>
+
+</Context>
