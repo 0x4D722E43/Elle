@@ -9,8 +9,8 @@
         <ui:composition template="/index.xhtml" >
             <ui:define name="title">Login</ui:define>
             <ui:define name="content">
-                <h3>Login</h3>
-                <h:form id="login" onsubmit="action='j_security_check';" prependId="false">
+                <p:panel header="Login">
+                    <h:form id="login" onsubmit="action='j_security_check';" prependId="false">
                     <h:panelGrid id="grid" columns="2" cellpadding="5">
                         <p:outputLabel for="j_username" value="Username "/>
                         <p:inputText id="j_username" />
@@ -20,7 +20,8 @@
                     </h:panelGrid>
                     
                     <p:commandButton id="submit" value="Accedi" ajax="false"/>
-                </h:form>
+                    </h:form>
+                </p:panel>
             </ui:define>
         </ui:composition>
     </body>

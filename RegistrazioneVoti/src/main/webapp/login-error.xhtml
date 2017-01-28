@@ -3,12 +3,16 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html 
     xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets">
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui">
     
     <ui:composition template="/index.xhtml">
         <ui:define name="title">Login Error</ui:define>
+        
         <ui:define name="content">
-            Le credenziali inserite non sono corrette    
+            <p:panel header="Login Error">
+                Le credenziali inserite non sono corrette 
+            </p:panel>
         </ui:define>
     </ui:composition>
 </html>

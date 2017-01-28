@@ -10,36 +10,37 @@
         <ui:composition template="/index.xhtml" >
             <ui:define name="title">Registrati</ui:define>
             <ui:define name="content">
-                <h:form>
-                    <h3>Registra Professore</h3>
-                    <h:panelGrid id="grid" columns="4" cellpadding="5">
-                        <p:outputLabel for="email" value="Email:" />
-                        <p:inputText id="email" required="true" requiredMessage="Il campo email non può essere vuoto"/>
-                        <p:message for="email" />
-                        <p:watermark for="email" value="@unipv.it" />
+                <p:panel header="Registra Professore">
+                    <h:form>
+                        <h:panelGrid id="grid" columns="4" cellpadding="5">
+                            <p:outputLabel for="email" value="Email:" />
+                            <p:inputText id="email" required="true" requiredMessage="Il campo email non può essere vuoto"/>
+                            <p:message for="email" />
+                            <p:watermark for="email" value="@unipv.it" />
                         
-                        <p:outputLabel for="name" value="Nome:" />
-                        <p:inputText id="name" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
-                        <p:message for="name"/>
-                        <p:column/>
+                            <p:outputLabel for="name" value="Nome:" />
+                            <p:inputText id="name" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
+                            <p:message for="name"/>
+                            <p:column/>
  
-                        <p:outputLabel for="surname" value="Cognome:" />
-                        <p:inputText id="surname" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
-                        <p:message for="surname"/>
-                        <p:column/>
+                            <p:outputLabel for="surname" value="Cognome:" />
+                            <p:inputText id="surname" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
+                            <p:message for="surname"/>
+                            <p:column/>
                     
-                        <p:outputLabel for="fac" value="Facoltà:" />
-                        <p:selectOneMenu id="fac" required="true" requiredMessage="Seleziona una Facoltà">
-                            <f:converter converterId="omnifaces.SelectItemsConverter"/>
-                            <f:selectItem itemLabel="Seleziona una Facoltà" noSelectionOption="true"/>
-                            <f:selectItems var="faculty" itemValue="#{faculty}" itemLabel="#{faculty.name}"/>
-                        </p:selectOneMenu> 
-                        <p:message for="fac"/>
-                        <p:column/>
-                    </h:panelGrid>
+                            <p:outputLabel for="fac" value="Facoltà:" />
+                            <p:selectOneMenu id="fac" required="true" requiredMessage="Seleziona una Facoltà">
+                                <f:converter converterId="omnifaces.SelectItemsConverter"/>
+                                <f:selectItem itemLabel="Seleziona una Facoltà" noSelectionOption="true"/>
+                                <f:selectItems var="faculty" itemValue="#{faculty}" itemLabel="#{faculty.name}"/>
+                            </p:selectOneMenu> 
+                            <p:message for="fac"/>
+                            <p:column/>
+                        </h:panelGrid>
  
-                    <p:commandButton id="submitButton" value="Registrati" update="grid" />
-                </h:form>
+                        <p:commandButton id="submitButton" value="Registrati" update="grid" />
+                    </h:form>
+                </p:panel>
             </ui:define>
         </ui:composition>
     </body>
