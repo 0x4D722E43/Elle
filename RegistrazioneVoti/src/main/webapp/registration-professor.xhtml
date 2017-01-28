@@ -11,7 +11,7 @@
             <ui:define name="title">Registrati</ui:define>
             <ui:define name="content">
                 <h:form>
-                    <h3>Registra Studente</h3>
+                    <h3>Registra Professore</h3>
                     <h:panelGrid id="grid" columns="3" cellpadding="5">
                         <p:outputLabel for="email" value="Email:" />
                         <p:inputText id="email" required="true" requiredMessage="Il campo email non può essere vuoto"/>
@@ -24,18 +24,14 @@
                         <p:outputLabel for="surname" value="Cognome:" />
                         <p:inputText id="surname" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
                         <p:message for="surname"/>
- 
-                        <p:outputLabel for="mat" value="Matricola:" />
-                        <p:inputText id="mat" required="true" requiredMessage="Il campo matricola non può essere vuoto"/>
-                        <p:message for="mat"/>
                     
-                        <p:outputLabel for="degCor" value="Corso di Laurea:" />
-                        <p:selectOneMenu id="degCor" required="true" requiredMessage="Seleziona un Corso di Laurea">
+                        <p:outputLabel for="fac" value="Facoltà:" />
+                        <p:selectOneMenu id="fac" required="true" requiredMessage="Seleziona una Facoltà">
                             <f:converter converterId="omnifaces.SelectItemsConverter"/>
-                            <f:selectItem itemLabel="Seleziona Corso di Laurea" noSelectionOption="true"/>
-                            <f:selectItems var="degreeCourse" itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
+                            <f:selectItem itemLabel="Seleziona una Facoltà" noSelectionOption="true"/>
+                            <f:selectItems var="faculty" itemValue="#{faculty}" itemLabel="#{faculty.name}"/>
                         </p:selectOneMenu> 
-                        <p:message for="degCor"/>
+                        <p:message for="fac"/>
                     </h:panelGrid>
  
                     <p:commandButton id="submitButton" value="Registrati" update="grid" />
