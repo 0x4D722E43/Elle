@@ -8,12 +8,27 @@
       xmlns:p="http://primefaces.org/ui">
     <body>
         <ui:composition template="/resources/template/template_main.xhtml" >
-            <ui:define name="title">AreaRiservata</ui:define>
-            <ui:define name="nav"><ui:include src="navigation.xhtml"/></ui:define>
-            <ui:define name="content">
-                Hello #{studentSession.student.name}
+            <ui:define name="title">RegistrazioneVoti</ui:define>
+            
+            <ui:define name="nav">
+                <h:form>
+                    <p:menu>
+                        <p:submenu label="Hello #{studentSession.student.name}">
+                            <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
+                            <p:menuitem value="Corsi" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Esami" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Prenotazioni" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Esiti" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Storico Esami" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Logout" action="#{studentSession.logout}" immediate="true" icon="ui-icon-closethick"/>
+                        </p:submenu>
+                    </p:menu>
             </ui:define>
-            <ui:define name="footer"><ui:include src="footer.xhtml"/></ui:define>
+            
+            <ui:define name="content">
+                
+            </ui:define>
+            
         </ui:composition>
     </body>
 </html>
