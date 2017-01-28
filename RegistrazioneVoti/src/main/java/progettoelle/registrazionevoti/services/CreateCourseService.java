@@ -20,8 +20,8 @@ public final class CreateCourseService {
         this.courseRepository = courseRepository;
     }
     
-    public List<DegreeCourse> getPossibleDegreeCourses(Professor professor) throws DataLayerException {
-        return degreeCourseRepository.findDegreeCourseByFaculty(professor.getFaculty());
+    public List<DegreeCourse> getPossibleDegreeCourses() throws DataLayerException {
+        return degreeCourseRepository.findAllDegreeCourses();
     }
 
     public void createCourse(String name, int credits, Professor professor, DegreeCourse degreeCourse) throws ValidationException, DataLayerException {

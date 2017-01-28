@@ -8,8 +8,8 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
-import progettoelle.registrazionevoti.domain.Faculty;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MockEmailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -30,8 +30,6 @@ public class StudentRegistrationController {
     private String name;
     private String surname;
     private String matriculationNumber;
-    private Faculty selectedFaculty;
-    private List<Faculty> availableFaculties;
     private DegreeCourse selectedDegreeCourse;
     private List<DegreeCourse> availableDegreeCourses;
 
@@ -42,7 +40,7 @@ public class StudentRegistrationController {
     @PostConstruct
     public void initializeAvailableFaculties() {
         try {
-            availableFaculties = service.getPossibleFaculties();
+            availableDegreeCourses = service.getPossibleDegreeCourses();
         } catch (DataLayerException ex) {
             Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -51,23 +49,26 @@ public class StudentRegistrationController {
     public String registerStudent() {
         try {
             service.registerStudent(email, name, surname, matriculationNumber, selectedDegreeCourse);
+            
         } catch (ValidationException ex) {
             FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Errore", ex.getMessage());
             FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+            return null;
         } catch (DataLayerException ex) {
             Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
+        
         } catch (MailException ex) {
             Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return "studenteregister_confirmed?faces-redirect=true";
+        return "studentregister_confirmed?faces-redirect=true";
     }
 
-    public void filterDegree() {
-        try {
-            availableDegreeCourses = service.getPossibleDegreeCourses(selectedFaculty);
-        } catch (DataLayerException ex) {
-            Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getName() {
@@ -94,27 +95,6 @@ public class StudentRegistrationController {
         this.matriculationNumber = matriculationNumber;
     }
 
-    public Faculty getSelectedFaculty() {
-        return selectedFaculty;
-    }
-
-    public void setSelectedFaculty(Faculty selectedFaculty) {
-        this.selectedFaculty = selectedFaculty;
-        try {
-            availableDegreeCourses = service.getPossibleDegreeCourses(selectedFaculty);
-        } catch (DataLayerException ex) {
-            Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-
-    public List<Faculty> getAvailableFaculties() {
-        return availableFaculties;
-    }
-
-    public void setAvailableFaculties(List<Faculty> availableFaculties) {
-        this.availableFaculties = availableFaculties;
-    }
-
     public DegreeCourse getSelectedDegreeCourse() {
         return selectedDegreeCourse;
     }
@@ -130,13 +110,5 @@ public class StudentRegistrationController {
     public void setAvailableDegreeCourses(List<DegreeCourse> availableDegreeCourses) {
         this.availableDegreeCourses = availableDegreeCourses;
     }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    
 }

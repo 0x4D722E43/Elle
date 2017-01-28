@@ -6,16 +6,16 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <body>
         <ui:composition template="resources/template/template_main.xhtml" >
-            <ui:define name="title">AreaRiservata</ui:define>
+            <ui:define name="title">RegistrazioneVoti</ui:define>
             <ui:define name="nav">
                 <p>
                     <br><h:link value="Portale Studente" outcome="student/home"/></br>
                     <br><h:link value="Portale Professore" outcome="professor/home"/></br>
-                     <br><h:link value="Portale Professore" outcome="register"/></br>
+                    <br><h:link value="Registra Studente" outcome="registration-student"/></br>
+                    <br><h:link value="Registra Professore" outcome="registration-professor"/></br>
                 </p>
             </ui:define>
-            <ui:define name="content">Benvenuto nell'Area Riservata</ui:define>
-            <ui:define name="footer">progettoL</ui:define>
+            <ui:define name="content">Benvenuto nella piattaforma di registrazione voti</ui:define>
         </ui:composition>
     </body>
 </html>

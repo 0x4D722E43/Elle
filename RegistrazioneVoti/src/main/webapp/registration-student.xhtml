@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="/index.xhtml" >
+            <ui:define name="title">Registrati</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <div class="ui-g">
+                        <div class="ui-g-2">Email: </div>
+                        <div class="ui-g-2">
+                            <p:inputText  value="" 
+                                required="true"
+                                requiredMessage="Il campo email non può essere vuoto"/>
+                        </div>
+                        <div class="ui-g-8"/>
+                        <div class="ui-g-2">Nome: </div>
+                        <div class="ui-g-2">
+                            <p:inputText value="" 
+                                required="true"
+                                requiredMessage="Il campo nome non può essere vuoto"/>
+                        </div>
+                        <div class="ui-g-8"/>
+                        <div class="ui-g-2">Cognome: </div>
+                        <div class="ui-g-2">
+                            <p:inputText value="" 
+                                required="true"
+                                requiredMessage="Il campo cognome non può essere vuoto">
+                            </p:inputText>
+                        </div>
+                        <div class="ui-g-8"/>
+                        <div class="ui-g-2">Matricola: </div>
+                        <div class="ui-g-2">
+                            <p:inputText value="" 
+                                required="true"
+                                requiredMessage="Il campo cognome non può essere vuoto">
+                            </p:inputText>
+                        </div>
+                        <div class="ui-g-8"/>
+                        <div class="ui-g-2">Corso di Laurea: </div>
+                        <div class="ui-g-2">
+                            <p:selectOneMenu value=""
+                                required="true"
+                                requiredMessage="Selezionare il Corso di Laurea">
+                                <f:converter converterId="omnifaces.SelectItemsConverter"/>
+                                <f:selectItem itemLabel="Seleziona Corso di Laurea" noSelectionOption="true"/>
+                                <f:selectItems value="" var="degreeCourse"
+                                    itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
+                            </p:selectOneMenu> 
+                        </div>
+                    </div> 
+                    <p:commandButton value="Registrati" action="#{createCourseBean.createCourse}" update="messages"/>
+                    <p:growl id="messages" life="5000"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

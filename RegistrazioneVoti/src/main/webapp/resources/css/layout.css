@@ -1,0 +1,28 @@
+.ui-layout-north .ui-layout-unit-content {
+    background-color:blueviolet;
+    color:blueviolet;
+    margin-left: 25px;
+}
+
+.ui-layout-north {
+    background-color:blueviolet;    
+}
+
+.ui-layout-west .ui-layout-unit-content {
+    background-color:brown;
+    color:burlywood;
+    margin-left:10px;
+}
+
+.ui-layout-west {
+    background-color:#03a9f4;
+}
+
+.ui-layout-center .ui-layout-unit-content {
+    background-color:whitesmoke;
+}
+
+.ui-layout-center {
+    background-color:whitesmoke;
+}
+

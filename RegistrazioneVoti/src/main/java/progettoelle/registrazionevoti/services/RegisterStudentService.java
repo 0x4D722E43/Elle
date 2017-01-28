@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.RandomStringUtils;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
-import progettoelle.registrazionevoti.domain.Faculty;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MailService;
@@ -32,12 +31,8 @@ public final class RegisterStudentService {
         this.mailService = mailService;
     }
     
-    public List<Faculty> getPossibleFaculties() throws DataLayerException {
-        return facultyRepository.findAllFaculties();
-    }
-
-    public List<DegreeCourse> getPossibleDegreeCourses(Faculty faculty) throws DataLayerException {
-        return degreeCourseRepository.findDegreeCourseByFaculty(faculty);
+    public List<DegreeCourse> getPossibleDegreeCourses() throws DataLayerException {
+        return degreeCourseRepository.findAllDegreeCourses();
     }
 
     public void registerStudent(String email, String name, String surname, String matriculationNumber, DegreeCourse degreeCourse) throws ValidationException, DataLayerException, MailException {
