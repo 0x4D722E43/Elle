@@ -2,20 +2,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html 
     xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:ui="http://java.sun.com/jsf/facelets"
-    xmlns:p="http://primefaces.org/ui">
+    xmlns:ui="http://java.sun.com/jsf/facelets">
     
-    <ui:composition template="resources/template/template_login.xhtml">
+    <ui:composition template="/index.xhtml">
         <ui:define name="title">Login Error</ui:define>
         <ui:define name="content">
-            <div class="ui-g" align="center">
-                <div class="ui-g-4"/>
-                <div class="ui-g-4">Le credenziali inserite non sono corrette</div>
-                <div class="ui-g-4"/>
-                <div class="ui-g-4"/>
-                <div class="ui-g-4"><p:link value="Ritorna al login" outcome="login"/></div>
-                <div class="ui-g-4"/>
-            </div>    
+            Le credenziali inserite non sono corrette    
         </ui:define>
     </ui:composition>
 </html>
