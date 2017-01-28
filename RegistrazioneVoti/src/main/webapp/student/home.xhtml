@@ -15,14 +15,15 @@
                     <p:menu>
                         <p:submenu label="Hello #{studentSession.student.name}">
                             <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
-                            <p:menuitem value="Corsi" outcome="home" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Esami" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Iscriviti a Corso" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Prenota Esame" outcome="home" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Prenotazioni" outcome="home" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Esiti" outcome="home" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Storico Esami" outcome="home" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Logout" action="#{studentSession.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>
+                </h:form>
             </ui:define>
             
             <ui:define name="content">
