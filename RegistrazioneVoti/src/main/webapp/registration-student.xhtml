@@ -12,22 +12,26 @@
             <ui:define name="content">
                 <h:form>
                     <h3>Registra Studente</h3>
-                    <h:panelGrid id="grid" columns="3" cellpadding="5">
+                    <h:panelGrid id="grid" columns="4" cellpadding="5">
                         <p:outputLabel for="email" value="Email:" />
                         <p:inputText id="email" required="true" requiredMessage="Il campo email non può essere vuoto"/>
                         <p:message for="email" />
- 
+                        <p:watermark for="email" value="@universitadipavia.it" />
+                        
                         <p:outputLabel for="name" value="Nome:" />
                         <p:inputText id="name" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
                         <p:message for="name"/>
+                        <p:column/>
  
                         <p:outputLabel for="surname" value="Cognome:" />
                         <p:inputText id="surname" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
                         <p:message for="surname"/>
+                        <p:column/>
  
                         <p:outputLabel for="mat" value="Matricola:" />
                         <p:inputText id="mat" required="true" requiredMessage="Il campo matricola non può essere vuoto"/>
                         <p:message for="mat"/>
+                        <p:column/>
                     
                         <p:outputLabel for="degCor" value="Corso di Laurea:" />
                         <p:selectOneMenu id="degCor" required="true" requiredMessage="Seleziona un Corso di Laurea">
@@ -36,6 +40,7 @@
                             <f:selectItems var="degreeCourse" itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
                         </p:selectOneMenu> 
                         <p:message for="degCor"/>
+                        <p:column/>
                     </h:panelGrid>
  
                     <p:commandButton id="submitButton" value="Registrati" update="grid" />
