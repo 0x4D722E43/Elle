@@ -27,12 +27,12 @@
 
                         
                         <h:outputLabel for="faculty_field" value="Facoltà:"/>
-                        <h:selectOneMenu required="true" id="faculty_field" value="#{studentRegistrationController.selectedFaculty}" >
-                            <f:selectItems value="#{studentRegistrationController.availableFaculties}"/>
+                        <h:selectOneMenu   immediate="true" required="true" id="faculty_field" value="#{studentRegistrationController.selectedFaculty}" >
+                            <f:selectItems value="#{studentRegistrationController.availableFaculties}"  actionListener="#{studentRegistrationController.filterDegree}"/>
                         </h:selectOneMenu>
                         
-                        <h:outputLabel for="degreeCourse_field" value="Facoltà:"/>
-                        <h:selectOneMenu required="true" id="degreeCourse_field" value="#{studentRegistrationController.selectedDegreeCourse}" >
+                        <h:outputLabel for="degreeCourse_field" value="Corso di laurea:"/>
+                        <h:selectOneMenu required="true" id="degreeCourse_field" binding="#{studentRegistrationController.selectedDegreeCourse}" >
                             <f:selectItems value="#{studentRegistrationController.availableDegreeCourses}"/>
                         </h:selectOneMenu>
                         

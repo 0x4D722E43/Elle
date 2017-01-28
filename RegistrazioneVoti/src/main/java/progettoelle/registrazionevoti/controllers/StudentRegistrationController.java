@@ -23,9 +23,9 @@ import progettoelle.registrazionevoti.services.ValidationException;
 @RequestScoped
 public class StudentRegistrationController {
 
-    private RegisterStudentService service = new RegisterStudentService(new FacultyRepositoryHibernate(), 
+    private RegisterStudentService service = new RegisterStudentService(new FacultyRepositoryHibernate(),
             new DegreeCourseRepositoryHibernate(), new UserRepositoryHibernate(), new MockEmailService());
-    
+
     private String email;
     private String name;
     private String surname;
@@ -34,11 +34,11 @@ public class StudentRegistrationController {
     private List<Faculty> availableFaculties;
     private DegreeCourse selectedDegreeCourse;
     private List<DegreeCourse> availableDegreeCourses;
-    
+
     public StudentRegistrationController() {
-        
+
     }
-    
+
     @PostConstruct
     public void initializeAvailableFaculties() {
         try {
@@ -47,7 +47,7 @@ public class StudentRegistrationController {
             Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
     public String registerStudent() {
         try {
             service.registerStudent(email, name, surname, matriculationNumber, selectedDegreeCourse);
@@ -62,6 +62,13 @@ public class StudentRegistrationController {
         return "studenteregister_confirmed?faces-redirect=true";
     }
 
+    public void filterDegree() {
+        try {
+            availableDegreeCourses = service.getPossibleDegreeCourses(selectedFaculty);
+        } catch (DataLayerException ex) {
+            Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public String getName() {
         return name;
@@ -131,6 +138,5 @@ public class StudentRegistrationController {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
 }
