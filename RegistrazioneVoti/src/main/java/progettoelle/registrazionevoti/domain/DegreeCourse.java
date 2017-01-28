@@ -21,10 +21,10 @@ public class DegreeCourse extends BaseEntity {
     public Faculty getFaculty() {
         return faculty;
     }
-    
+
     @Override
     public String toString() {
-        return name;
+        return "DegreeCourse{" + "name=" + name + '}';
     }
     
 }

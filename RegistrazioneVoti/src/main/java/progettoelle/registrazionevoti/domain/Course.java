@@ -33,10 +33,10 @@ public class Course extends BaseEntity {
     public Integer getCredits() {
         return credits;
     }
-    
+
     @Override
     public String toString() {
-        return name; 
+        return "Course{" + "name=" + name + '}';
     }
-
+    
 }

@@ -37,10 +37,10 @@ public class Enrollment extends BaseEntity {
     public Integer getGrade() {
         return grade;
     }
-    
+
     @Override
     public String toString() {
-        return student + " " + course;
+        return "Enrollment{" + String.valueOf(getId()) + "}";
     }
     
 }
