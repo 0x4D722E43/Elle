@@ -50,10 +50,10 @@ public class ExamResult extends BaseEntity {
     public void setStatus(ExamResultStatus status) {
         this.status = status;
     }
-    
+
     @Override
     public String toString() {
-        return status + " " + grade;
+        return "ExamResult{" + String.valueOf(getId()) + '}';
     }
     
 }

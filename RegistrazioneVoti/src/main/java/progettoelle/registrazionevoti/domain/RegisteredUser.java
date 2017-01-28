@@ -38,10 +38,10 @@ public abstract class RegisteredUser extends BaseEntity {
     public String getName() {
         return name;
     }
-    
+
     @Override
     public String toString() {
-        return name + " " + surname;
+        return "RegisteredUser{" + "email=" + email + '}';
     }
-
+    
 }

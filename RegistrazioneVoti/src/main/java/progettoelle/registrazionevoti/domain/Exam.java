@@ -49,10 +49,10 @@ public class Exam extends BaseEntity {
     public Course getCourse() {
         return course;
     }
-    
+
     @Override
     public String toString() {
-        return course + " " + date.getTime() + " " + room + " " + description; 
+        return "Exam{" + String.valueOf(getId()) + "course=" + course + ", date=" + date + ", room=" + room + '}';
     }
-
+    
 }

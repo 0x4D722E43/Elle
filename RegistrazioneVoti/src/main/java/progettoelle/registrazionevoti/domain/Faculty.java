@@ -15,10 +15,10 @@ public class Faculty extends BaseEntity {
     public String getName() {
         return name;
     }
-    
+
     @Override
     public String toString() {
-        return name;
+        return "Faculty{" + "name=" + name + '}';
     }
-
+    
 }
