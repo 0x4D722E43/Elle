@@ -30,6 +30,22 @@ public class Exam extends BaseEntity {
         bookingOpen = false;
     }
 
+    public Calendar getDate() {
+        return date;
+    }
+
+    public String getRoom() {
+        return room;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public boolean isBookingOpen() {
+        return bookingOpen;
+    }
+    
     public Course getCourse() {
         return course;
     }

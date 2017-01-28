@@ -15,6 +15,10 @@ public class Student extends RegisteredUser {
         this.degreeCourse = degreeCourse;
     }
 
+    public String getMatriculationNumber() {
+        return matriculationNumber;
+    }
+    
     public DegreeCourse getDegreeCourse() {
         return degreeCourse;
     }

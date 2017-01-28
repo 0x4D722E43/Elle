@@ -27,6 +27,14 @@ public abstract class RegisteredUser extends BaseEntity {
         passwordHash = DigestUtils.md5Hex(password);
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+    
     public String getName() {
         return name;
     }

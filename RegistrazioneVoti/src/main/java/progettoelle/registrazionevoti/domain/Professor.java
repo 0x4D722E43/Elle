@@ -19,6 +19,18 @@ public class Professor extends RegisteredUser {
     public Faculty getFaculty() {
         return faculty;
     }
+
+    public String getOfficeLocation() {
+        return officeLocation;
+    }
+
+    public String getOfficeHours() {
+        return officeHours;
+    }
+
+    public String getWebsiteLink() {
+        return websiteLink;
+    }
     
     public void setOfficeLocation(String officeLocation) {
         this.officeLocation = officeLocation;
