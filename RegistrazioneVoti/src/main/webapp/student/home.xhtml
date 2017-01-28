@@ -15,11 +15,11 @@
                     <p:menu>
                         <p:submenu label="Hello #{studentSession.student.name}">
                             <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
-                            <p:menuitem value="Iscriviti a Corso" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Iscriviti a Corso" outcome="newcourse" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Prenota Esame" outcome="home" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Prenotazioni" outcome="home" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Esiti" outcome="home" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Storico Esami" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Prenotazioni" outcome="bookings" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Esiti" outcome="examresults" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Storico Esami" outcome="examhistory" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Logout" action="#{studentSession.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>
