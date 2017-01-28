@@ -14,6 +14,14 @@ public class DegreeCourse extends BaseEntity {
         this.faculty = faculty;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Faculty getFaculty() {
+        return faculty;
+    }
+    
     @Override
     public String toString() {
         return name;

@@ -18,6 +18,22 @@ public class Course extends BaseEntity {
         this.degreeCourse = degreeCourse;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public DegreeCourse getDegreeCourse() {
+        return degreeCourse;
+    }
+
+    public Integer getCredits() {
+        return credits;
+    }
+    
     @Override
     public String toString() {
         return name; 

@@ -22,10 +22,25 @@ public class Enrollment extends BaseEntity {
         completed = true;
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public Integer getGrade() {
+        return grade;
+    }
+    
     @Override
     public String toString() {
         return student + " " + course;
     }
-    
     
 }
