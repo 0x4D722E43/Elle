@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="/index.xhtml" >
+            <ui:define name="title">SIGN IN</ui:define>
+            <ui:define name="content">
+                <h:form>
+
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="name_field" value="Nome:"/>
+                        <h:inputText id="name_field" value="#{studentRegistrationController.name}" required="true" requiredMessage="Il nome non può essere vuoto"/>    
+
+                        <h:outputLabel for="surname_field" value="Cognome:"/>
+                        <h:inputText id="surname_field" value="#{studentRegistrationController.surname}" required="true" requiredMessage="Il cognome non può essere vuoto" />
+
+                        <h:outputLabel for="matricola_field" value="Matricola:"/>
+                        <h:inputText  id="matricola_field" value="#{studentRegistrationController.matriculationNumber}" required="true" requiredMessage="La matricola non può essere vuoto" />                        
+
+                        <h:outputLabel for="email_field" value="Email:"/>
+                        <h:inputText  id="email_field" value="#{studentRegistrationController.email}" required="true" requiredMessage="L'email non può essere vuota" />                        
+
+                        
+                        <h:outputLabel for="faculty_field" value="Facoltà:"/>
+                        <h:selectOneMenu required="true" id="faculty_field" value="#{studentRegistrationController.selectedFaculty}" >
+                            <f:selectItems value="#{studentRegistrationController.availableFaculties}"/>
+                        </h:selectOneMenu>
+                        
+                        <h:outputLabel for="degreeCourse_field" value="Facoltà:"/>
+                        <h:selectOneMenu required="true" id="degreeCourse_field" value="#{studentRegistrationController.selectedDegreeCourse}" >
+                            <f:selectItems value="#{studentRegistrationController.availableDegreeCourses}"/>
+                        </h:selectOneMenu>
+                        
+                        <h:outputLabel for="sign_button" value=""/>
+                        <h:commandButton action="#{studentRegistrationController.registerStudent()}" />
+                    </h:panelGrid>
+                </h:form>
+                <p:growl id="message" life="5000"/>
+
+            </ui:define>
+            <ui:define name="footer">progettoL</ui:define>
+        </ui:composition>
+    </body>
+</html>
+

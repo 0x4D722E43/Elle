@@ -61,14 +61,7 @@ public class StudentRegistrationController {
         }
         return "studenteregister_confirmed?faces-redirect=true";
     }
-    
-    public RegisterStudentService getService() {
-        return service;
-    }
 
-    public void setService(RegisterStudentService service) {
-        this.service = service;
-    }
 
     public String getName() {
         return name;
@@ -130,5 +123,14 @@ public class StudentRegistrationController {
     public void setAvailableDegreeCourses(List<DegreeCourse> availableDegreeCourses) {
         this.availableDegreeCourses = availableDegreeCourses;
     }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     
 }
