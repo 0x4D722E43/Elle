@@ -1,10 +1,11 @@
-package progettoelle.registrazionevoti.repositories;
+package progettoelle.registrazionevoti.repositories.hibernate;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.PersistenceException;
+import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 public abstract class HibernateRepository {
 

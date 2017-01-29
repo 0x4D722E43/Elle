@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.user.UserRepositoryHibernate;
+import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
 import progettoelle.registrazionevoti.services.UserSessionService;
 
 @ManagedBean

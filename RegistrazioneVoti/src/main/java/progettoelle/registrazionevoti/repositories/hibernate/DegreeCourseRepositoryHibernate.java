@@ -1,10 +1,10 @@
-package progettoelle.registrazionevoti.repositories.degreecourse;
+package progettoelle.registrazionevoti.repositories.hibernate;
 
 import java.util.List;
 import javax.persistence.PersistenceException;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.HibernateRepository;
+import progettoelle.registrazionevoti.repositories.DegreeCourseRepository;
 
 public class DegreeCourseRepositoryHibernate extends HibernateRepository implements DegreeCourseRepository {
 

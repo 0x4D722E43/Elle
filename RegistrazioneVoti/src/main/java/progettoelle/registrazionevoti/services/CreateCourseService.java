@@ -4,9 +4,9 @@ import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.domain.Professor;
-import progettoelle.registrazionevoti.repositories.course.CourseRepository;
+import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.degreecourse.DegreeCourseRepository;
+import progettoelle.registrazionevoti.repositories.DegreeCourseRepository;
 
 public final class CreateCourseService {
     

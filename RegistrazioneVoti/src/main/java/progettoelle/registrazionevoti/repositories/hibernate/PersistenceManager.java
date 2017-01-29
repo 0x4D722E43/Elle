@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.repositories;
+package progettoelle.registrazionevoti.repositories.hibernate;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

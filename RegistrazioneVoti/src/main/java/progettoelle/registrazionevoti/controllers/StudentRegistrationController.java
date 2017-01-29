@@ -13,9 +13,9 @@ import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MockEmailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.degreecourse.DegreeCourseRepositoryHibernate;
-import progettoelle.registrazionevoti.repositories.faculty.FacultyRepositoryHibernate;
-import progettoelle.registrazionevoti.repositories.user.UserRepositoryHibernate;
+import progettoelle.registrazionevoti.repositories.hibernate.DegreeCourseRepositoryHibernate;
+import progettoelle.registrazionevoti.repositories.hibernate.FacultyRepositoryHibernate;
+import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
 import progettoelle.registrazionevoti.services.RegisterStudentService;
 import progettoelle.registrazionevoti.services.ValidationException;
 

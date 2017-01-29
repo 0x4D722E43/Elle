@@ -2,7 +2,7 @@ package progettoelle.registrazionevoti.services;
 
 import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.user.UserRepository;
+import progettoelle.registrazionevoti.repositories.UserRepository;
 
 public final class UserSessionService {
         

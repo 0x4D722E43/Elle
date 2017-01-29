@@ -8,8 +8,8 @@ import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.faculty.FacultyRepository;
-import progettoelle.registrazionevoti.repositories.user.UserRepository;
+import progettoelle.registrazionevoti.repositories.FacultyRepository;
+import progettoelle.registrazionevoti.repositories.UserRepository;
 
 public final class RegisterProfessorService {
     

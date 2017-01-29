@@ -3,7 +3,7 @@ package progettoelle.registrazionevoti.services;
 import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
-import progettoelle.registrazionevoti.repositories.course.CourseRepository;
+import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 public final class ManageCoursesService {

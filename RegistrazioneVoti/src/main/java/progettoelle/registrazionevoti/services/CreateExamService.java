@@ -5,9 +5,9 @@ import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.Professor;
-import progettoelle.registrazionevoti.repositories.course.CourseRepository;
+import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.exam.ExamRepository;
+import progettoelle.registrazionevoti.repositories.ExamRepository;
 
 public final class CreateExamService {
 

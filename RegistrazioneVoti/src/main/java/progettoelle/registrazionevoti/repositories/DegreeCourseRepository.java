@@ -1,8 +1,7 @@
-package progettoelle.registrazionevoti.repositories.degreecourse;
+package progettoelle.registrazionevoti.repositories;
 
 import java.util.List;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
-import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 public interface DegreeCourseRepository {
     

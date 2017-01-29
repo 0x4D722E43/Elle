@@ -7,8 +7,8 @@ import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.ExamResultStatus;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.enrollment.EnrollmentRepository;
-import progettoelle.registrazionevoti.repositories.examresult.ExamResultRepository;
+import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
+import progettoelle.registrazionevoti.repositories.ExamResultRepository;
 
 public final class AcceptExamResultService {
     

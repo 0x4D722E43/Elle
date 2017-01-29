@@ -5,7 +5,7 @@ import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.user.UserRepository;
+import progettoelle.registrazionevoti.repositories.UserRepository;
 
 public final class ResetPasswordService {
     

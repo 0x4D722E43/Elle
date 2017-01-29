@@ -4,7 +4,7 @@ import java.util.List;
 import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.enrollment.EnrollmentRepository;
+import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
 
 public final class ManageEnrollmentsService {
     

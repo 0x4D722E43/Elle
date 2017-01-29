@@ -1,10 +1,9 @@
-package progettoelle.registrazionevoti.repositories.examresult;
+package progettoelle.registrazionevoti.repositories;
 
 import java.util.List;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
-import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 public interface ExamResultRepository {
     

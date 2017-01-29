@@ -2,7 +2,7 @@ package progettoelle.registrazionevoti.services;
 
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.user.UserRepository;
+import progettoelle.registrazionevoti.repositories.UserRepository;
 
 public class UpdateProfessorInfoService {
     

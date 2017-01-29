@@ -4,9 +4,9 @@ import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
-import progettoelle.registrazionevoti.repositories.course.CourseRepository;
+import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.enrollment.EnrollmentRepository;
+import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
 
 public final class EnrollOnCourseService {
     

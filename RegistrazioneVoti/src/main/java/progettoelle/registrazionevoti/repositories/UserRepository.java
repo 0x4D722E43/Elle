@@ -1,7 +1,6 @@
-package progettoelle.registrazionevoti.repositories.user;
+package progettoelle.registrazionevoti.repositories;
 
 import progettoelle.registrazionevoti.domain.RegisteredUser;
-import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 public interface UserRepository {
     

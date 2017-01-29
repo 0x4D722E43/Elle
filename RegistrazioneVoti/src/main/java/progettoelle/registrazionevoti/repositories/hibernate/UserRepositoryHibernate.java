@@ -1,10 +1,10 @@
-package progettoelle.registrazionevoti.repositories.user;
+package progettoelle.registrazionevoti.repositories.hibernate;
 
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceException;
 import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.HibernateRepository;
+import progettoelle.registrazionevoti.repositories.UserRepository;
 
 public class UserRepositoryHibernate extends HibernateRepository implements UserRepository {
     

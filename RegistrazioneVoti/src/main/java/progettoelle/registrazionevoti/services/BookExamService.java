@@ -5,8 +5,8 @@ import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.exam.ExamRepository;
-import progettoelle.registrazionevoti.repositories.examresult.ExamResultRepository;
+import progettoelle.registrazionevoti.repositories.ExamRepository;
+import progettoelle.registrazionevoti.repositories.ExamResultRepository;
 
 public final class BookExamService {
     

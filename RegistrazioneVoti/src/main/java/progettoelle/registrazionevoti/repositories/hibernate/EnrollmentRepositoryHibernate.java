@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.repositories.enrollment;
+package progettoelle.registrazionevoti.repositories.hibernate;
 
 import java.util.List;
 import javax.persistence.PersistenceException;
@@ -6,7 +6,7 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.HibernateRepository;
+import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
 
 public class EnrollmentRepositoryHibernate extends HibernateRepository implements EnrollmentRepository {
 

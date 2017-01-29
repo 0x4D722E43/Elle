@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.repositories.course;
+package progettoelle.registrazionevoti.repositories.hibernate;
 
 import java.util.List;
 import javax.persistence.NoResultException;
@@ -6,8 +6,8 @@ import javax.persistence.PersistenceException;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.domain.Student;
+import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.HibernateRepository;
 
 public class CourseRepositoryHibernate extends HibernateRepository implements CourseRepository {
 
