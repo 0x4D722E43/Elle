@@ -16,7 +16,7 @@
                         <p:submenu label="Hello #{studentSession.student.name}">
                             <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
                             <p:menuitem value="Iscriviti a Corso" outcome="newcourse" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Prenota Esame" outcome="home" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Prenota Esame" outcome="bookexam" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Prenotazioni" outcome="bookings" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Esiti" outcome="examresults" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Storico Esami" outcome="examhistory" icon="ui-icon-plusthick"/>
@@ -27,6 +27,22 @@
             </ui:define>
             
             <ui:define name="content">
+                <p:panel header="I Corsi a cui sei iscritto">
+                        <p:dataTable var="enr">
+                        <p:column headerText="Corso">
+                            <h:outputText value="#{enr.course.name}" />
+                        </p:column>
+                    
+                        <p:column headerText="Superato">
+                            <h:outputText value="SI" rendered="#{enr.passed}"/>
+                            <h:outputText value="SI" rendered="#{not enr.passed}"/>
+                        </p:column>
+                    
+                        <p:column headerText="Voto">
+                            <h:outputText value="#{enr.grade}" />
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
                 
             </ui:define>
             
