@@ -46,7 +46,7 @@ public class ProfessorRegistrationController {
             Messages.addGlobalError(ex.getMessage());
             return "registration-professor";
         } catch (DataLayerException | MailException ex) {
-            return "registration-error?faces-redirect=true";
+            return "error?faces-redirect=true";
         }
     }
 
