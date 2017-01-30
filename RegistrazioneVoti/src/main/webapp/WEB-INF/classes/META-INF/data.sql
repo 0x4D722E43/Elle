@@ -73,8 +73,8 @@ INSERT INTO `registrazionevotidb`.`iscrizioni_corsi` (`ID`, `SUPERATO`, `CORSO`,
 INSERT INTO `registrazionevotidb`.`iscrizioni_corsi` (`ID`, `SUPERATO`, `CORSO`, `STUDENTE`) VALUES ('10', b'0', '1', '14');
 INSERT INTO `registrazionevotidb`.`iscrizioni_corsi` (`ID`, `SUPERATO`, `CORSO`, `STUDENTE`) VALUES ('11', b'0', '1', '15');
 
-INSERT INTO `registrazionevotidb`.`esami` (`ID`, `DATA_APPELLO`, `DESCRIZIONE`, `ISCRIZIONI_APERTE`, `AULA`, `CORSO`) VALUES ('1', '2017-01-19 09:00:00', 'Prova scritta', b'0', 'EF4', '1');
-INSERT INTO `registrazionevotidb`.`esami` (`ID`, `DATA_APPELLO`, `DESCRIZIONE`, `ISCRIZIONI_APERTE`, `AULA`, `CORSO`) VALUES ('2', '2017-02-20 09:00:00', 'Prova scritta', b'0', 'EF2', '1');
+INSERT INTO `registrazionevotidb`.`esami` (`ID`, `DATA_APPELLO`, `DESCRIZIONE`, `ISCRIZIONI_APERTE`, `AULA`, `CORSO`) VALUES ('1', '2017-01-19 09:00:00', 'Prova scritta', FALSE, 'EF4', '1');
+INSERT INTO `registrazionevotidb`.`esami` (`ID`, `DATA_APPELLO`, `DESCRIZIONE`, `ISCRIZIONI_APERTE`, `AULA`, `CORSO`) VALUES ('2', '2017-02-20 09:00:00', 'Prova scritta', TRUE, 'EF2', '1');
 
 INSERT INTO `registrazionevotidb`.`esiti` (`ID`, `VOTO`, `STATUS`, `APPELLO`, `STUDENTE`) VALUES ('1', '18', 'PASSED_PENDING', '1', '5');
 INSERT INTO `registrazionevotidb`.`esiti` (`ID`, `VOTO`, `STATUS`, `APPELLO`, `STUDENTE`) VALUES ('2', '27', 'PASSED_PENDING', '1', '6');
