@@ -51,7 +51,7 @@ public class EnrollmentRepositoryHibernate extends HibernateRepository implement
         
         try {
             transaction.begin();
-            String hql = "SELECT e FROM Enrollment E WHERE e.student=:student";
+            String hql = "SELECT e FROM Enrollment e WHERE e.student=:student";
             results = entityManager.createQuery(hql).setParameter("student", student).getResultList();
             transaction.commit();
         } catch(PersistenceException ex) {

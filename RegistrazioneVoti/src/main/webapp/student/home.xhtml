@@ -29,14 +29,14 @@
             
             <ui:define name="content">
                 <p:panel header="I Corsi a cui sei iscritto">
-                        <p:dataTable var="enr">
+                    <p:dataTable value="#{studentHomeController.enrollments}" var="enr">
                         <p:column headerText="Corso">
-                            <h:outputText value="#{enr.course.name}" />
+                            <h:outputText value="#{enr.course.name}"/>
                         </p:column>
                     
                         <p:column headerText="Superato">
-                            <h:outputText value="SI" rendered="#{enr.passed}"/>
-                            <h:outputText value="NO" rendered="#{not enr.passed}"/>
+                            <h:outputText value="SI" rendered="#{enr.completed}"/>
+                            <h:outputText value="NO" rendered="#{not enr.completed}"/>
                         </p:column>
                     
                         <p:column headerText="Voto">

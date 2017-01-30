@@ -1,33 +1,36 @@
-package progettoelle.registrazionevoti.controllers;
+package progettoelle.registrazionevoti.controllers.student;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.HttpSession;
-import progettoelle.registrazionevoti.domain.Professor;
+import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
 import progettoelle.registrazionevoti.services.UserSessionService;
 
 @ManagedBean
 @SessionScoped
-public class ProfessorSession {
-
-    private Professor professor;
+public class StudentSession {
+    
+    private Student student;
     private final UserSessionService userSessionService = new UserSessionService(new UserRepositoryHibernate());
     
-    public ProfessorSession() {
-    
+    public StudentSession(){
+        
     }
     
     @PostConstruct
     public void initializeSession() {
         String email = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
-        
         try {
-            professor = (Professor)userSessionService.getUser(email);
-        } catch (DataLayerException ignored) { }
+            student = (Student)userSessionService.getUser(email);
+        } catch (DataLayerException ex) {
+            Logger.getLogger(StudentSession.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     public String logout() {
@@ -36,12 +39,12 @@ public class ProfessorSession {
         return "/index?faces-redirect=true";
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setStudent(Student student) {
+        this.student = student;
     }
-    
+
 }

@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.controllers;
+package progettoelle.registrazionevoti.controllers.student;
 
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -38,5 +38,13 @@ public class StudentHomeController {
     public void setEnrollments(List<Enrollment> enrollments) {
         this.enrollments = enrollments;
     }
-    
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
 }
