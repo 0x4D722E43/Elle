@@ -1,6 +1,8 @@
 package progettoelle.registrazionevoti.controllers;
 
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -17,7 +19,7 @@ import progettoelle.registrazionevoti.services.ValidationException;
 @ManagedBean
 @RequestScoped
 public class StudentRegistrationController {
-
+    
     private final RegisterStudentService service = new RegisterStudentService(new DegreeCourseRepositoryHibernate(), 
             new UserRepositoryHibernate(), new MockEmailService());
 
@@ -50,7 +52,7 @@ public class StudentRegistrationController {
             return "registration-error?faces-redirect=true";
         }
     }
-
+    
     public String getEmail() {
         return email;
     }
