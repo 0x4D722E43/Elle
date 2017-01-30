@@ -9,7 +9,6 @@ import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.DegreeCourseRepository;
-import progettoelle.registrazionevoti.repositories.FacultyRepository;
 import progettoelle.registrazionevoti.repositories.UserRepository;
 
 public final class RegisterStudentService {
@@ -19,13 +18,11 @@ public final class RegisterStudentService {
     private static final String INVALID_EMAIL_MESSAGE = "Email non valida";
     private static final String ALREADY_EXISTENT_EMAIL_MESSAGE = "Email già esistente";
     
-    private final FacultyRepository facultyRepository;
     private final DegreeCourseRepository degreeCourseRepository;
     private final UserRepository userRepository;
     private final MailService mailService;
 
-    public RegisterStudentService(FacultyRepository facultyRepository, DegreeCourseRepository degreeCourseRepository, UserRepository userRepository, MailService mailService) {
-        this.facultyRepository = facultyRepository;
+    public RegisterStudentService(DegreeCourseRepository degreeCourseRepository, UserRepository userRepository, MailService mailService) {
         this.degreeCourseRepository = degreeCourseRepository;
         this.userRepository = userRepository;
         this.mailService = mailService;

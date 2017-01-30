@@ -1,20 +1,15 @@
 package progettoelle.registrazionevoti.controllers;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
-import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
-import javax.faces.convert.Converter;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MockEmailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.DegreeCourseRepositoryHibernate;
-import progettoelle.registrazionevoti.repositories.hibernate.FacultyRepositoryHibernate;
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
 import progettoelle.registrazionevoti.services.RegisterStudentService;
 import progettoelle.registrazionevoti.services.ValidationException;
@@ -23,8 +18,8 @@ import progettoelle.registrazionevoti.services.ValidationException;
 @RequestScoped
 public class StudentRegistrationController {
 
-    private RegisterStudentService service = new RegisterStudentService(new FacultyRepositoryHibernate(),
-            new DegreeCourseRepositoryHibernate(), new UserRepositoryHibernate(), new MockEmailService());
+    private final RegisterStudentService service = new RegisterStudentService(new DegreeCourseRepositoryHibernate(), 
+            new UserRepositoryHibernate(), new MockEmailService());
 
     private String email;
     private String name;
@@ -38,29 +33,24 @@ public class StudentRegistrationController {
     }
 
     @PostConstruct
-    public void initializeAvailableFaculties() {
+    public void initialize() {
         try {
             availableDegreeCourses = service.getPossibleDegreeCourses();
         } catch (DataLayerException ex) {
-            Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
+            
         }
     }
 
     public String registerStudent() {
         try {
             service.registerStudent(email, name, surname, matriculationNumber, selectedDegreeCourse);
-            
+            return "registration-success?faces-redirect=true";
         } catch (ValidationException ex) {
-            FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Errore", ex.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, facesMessage);
+            Messages.addGlobalError(ex.getMessage());
             return null;
-        } catch (DataLayerException ex) {
-            Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
-        
-        } catch (MailException ex) {
-            Logger.getLogger(StudentRegistrationController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (DataLayerException | MailException ex) {
+            return "registration-success?faces-redirect=true";
         }
-        return "studentregister_confirmed?faces-redirect=true";
     }
 
     public String getEmail() {
