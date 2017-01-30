@@ -15,8 +15,8 @@
             <!-- Database connection settings -->
             <property name="hibernate.connection.datasource" value = "java:comp/env/jdbc/MYSQLRegistrazioneVoti"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
-            <property name="hibernate.hbm2ddl.auto" value="update"/>
-            <property name="hibernate.show_sql" value="true"/>
+            <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+            <property name="javax.persistence.sql-load-script-source" value="/META-INF/data.sql"/>
         
             <!-- Configuring C3P0 Connection Pool -->
             <property name="hibernate.c3p0.min_size" value="5"/>
