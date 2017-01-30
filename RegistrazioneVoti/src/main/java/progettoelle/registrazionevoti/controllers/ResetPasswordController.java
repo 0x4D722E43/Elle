@@ -1,7 +1,5 @@
 package progettoelle.registrazionevoti.controllers;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.omnifaces.util.Messages;
@@ -27,10 +25,12 @@ public class ResetPasswordController {
     public String resetPassword() {
         try {
             service.resetPassword(email);
+            return "reset-password-success";
         } catch (ValidationException ex) {
             Messages.addGlobalError(ex.getMessage());
+            return "reset-password";
         } catch (DataLayerException | MailException ex) {
-            
+            return "error?faces-redirect=true";
         }
     }
     
