@@ -118,11 +118,11 @@ public class ExamResultRepositoryHibernate extends HibernateRepository implement
     
     @Override
     public void deleteExamResult(ExamResult examResult) throws DataLayerException {
-         initializeOperation();
+        initializeOperation();
         
         try {
             transaction.begin();
-            entityManager.remove(examResult);
+            entityManager.remove(entityManager.merge(examResult));
             transaction.commit();            
         } catch(PersistenceException ex) {
             handleOperationException(ex);

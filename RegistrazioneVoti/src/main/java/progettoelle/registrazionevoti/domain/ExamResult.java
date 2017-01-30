@@ -17,6 +17,10 @@ public class ExamResult extends BaseEntity {
         status = ExamResultStatus.BOOKED;
     }
 
+    public Exam getExam() {
+        return exam;
+    }
+    
     public ExamResultStatus getStatus() {
         return status;
     }
