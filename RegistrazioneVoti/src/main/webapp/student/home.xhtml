@@ -35,7 +35,7 @@
                     
                         <p:column headerText="Superato">
                             <h:outputText value="SI" rendered="#{enr.passed}"/>
-                            <h:outputText value="SI" rendered="#{not enr.passed}"/>
+                            <h:outputText value="NO" rendered="#{not enr.passed}"/>
                         </p:column>
                     
                         <p:column headerText="Voto">
@@ -43,9 +43,7 @@
                         </p:column>
                     </p:dataTable>
                 </p:panel>
-                
             </ui:define>
-            
         </ui:composition>
     </body>
 </html>
