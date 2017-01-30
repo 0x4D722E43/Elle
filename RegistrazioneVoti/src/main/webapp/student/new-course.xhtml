@@ -11,23 +11,27 @@
             
             <ui:define name="content">
                 <p:panel header="Corsi Disponibili">
-                    <p:dataTable var="course">
+                    <p:dataTable value="#{studentNewCourse.availableCourses}" var="course">
                         <p:column headerText="Corso">
                             <h:outputText value="#{course.name}"/>
                         </p:column>
                         
                         <p:column headerText="Professore">
-                            <h:outputText/>
+                            <h:outputText value="#{course.professor.name} #{course.professor.surname}"/>
                         </p:column>
                     
-                        <p:column headerText="Superato">
-                            <h:outputText value="SI" rendered="#{enr.completed}"/>
-                            <h:outputText value="NO" rendered="#{not enr.completed}"/>
+                        <p:column headerText="Crediti">
+                            <h:outputText value="#{course.credits}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Crediti">
+                            <h:outputText value="#{course.credits}"/>
+                        </p:column>
+                        
+                        <p:column headerText="">
+                            <p:commandButton value="Iscriviti" action="#{studentNewCourse.enrollOnCourse}"/>
                         </p:column>
                     
-                        <p:column headerText="Voto">
-                            <h:outputText value="#{enr.grade}" />
-                        </p:column>
                     </p:dataTable>
                 </p:panel>
             </ui:define>
