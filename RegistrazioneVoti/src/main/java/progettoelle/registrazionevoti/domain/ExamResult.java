@@ -42,7 +42,7 @@ public class ExamResult extends BaseEntity {
     }
     
     public boolean isFailed() {
-        return status == ExamResultStatus.FAILED;
+        return status == ExamResultStatus.FAILED_PENDING;
     }
 
     public void setStudent(Student student) {
