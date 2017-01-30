@@ -13,7 +13,7 @@ public abstract class HibernateRepository {
     
     protected EntityManager entityManager;
     protected EntityTransaction transaction;
-    
+        
     protected void initializeOperation() {
         entityManager = PersistenceManager.getInstance().getEntityManager();
         transaction = entityManager.getTransaction();

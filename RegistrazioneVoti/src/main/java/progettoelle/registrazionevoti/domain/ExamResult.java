@@ -36,6 +36,14 @@ public class ExamResult extends BaseEntity {
     public Student getStudent() {
         return student;
     }
+    
+    public boolean isPassed() {
+        return status == ExamResultStatus.PASSED_PENDING;
+    }
+    
+    public boolean isFailed() {
+        return status == ExamResultStatus.FAILED;
+    }
 
     public void setStudent(Student student) {
         this.student = student;

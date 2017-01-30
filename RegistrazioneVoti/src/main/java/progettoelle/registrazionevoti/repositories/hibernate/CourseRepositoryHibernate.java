@@ -10,7 +10,7 @@ import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 public class CourseRepositoryHibernate extends HibernateRepository implements CourseRepository {
-
+    
     @Override
     public void createCourse(Course course) throws DataLayerException {
         initializeOperation();
