@@ -1,7 +1,5 @@
 package progettoelle.registrazionevoti.controllers;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -26,11 +24,10 @@ public class ProfessorSession {
     @PostConstruct
     public void initializeSession() {
         String email = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+        
         try {
             professor = (Professor)userSessionService.getUser(email);
-        } catch (DataLayerException ex) {
-            Logger.getLogger(StudentSession.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        } catch (DataLayerException ignored) { }
     }
     
     public String logout() {
