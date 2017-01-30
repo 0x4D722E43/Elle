@@ -23,7 +23,22 @@
             </ui:define>
             
             <ui:define name="content">
-                
+                <p:panel header="I tuoi corsi">
+                    <p:dataTable value="#{studentHomeController.enrollments}" var="enr">
+                        <p:column headerText="Corso">
+                            <h:outputText value="#{enr.course.name}"/>
+                        </p:column>
+                    
+                        <p:column headerText="Superato">
+                            <h:outputText value="SI" rendered="#{enr.completed}"/>
+                            <h:outputText value="NO" rendered="#{not enr.completed}"/>
+                        </p:column>
+                    
+                        <p:column headerText="Voto">
+                            <h:outputText value="#{enr.grade}" />
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
             </ui:define>
         </ui:composition>
     </body>
