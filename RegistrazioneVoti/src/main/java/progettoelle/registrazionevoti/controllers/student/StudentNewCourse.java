@@ -44,13 +44,27 @@ public class StudentNewCourse {
         try {
             Course selectedCourse = availableCourses.getRowData();
             service.enrollOnCourse(student, selectedCourse);
-            return 
+            return "success?faces-redirect=true";
         } catch (DataLayerException ex) {
             Logger.getLogger(StudentNewCourse.class.getName()).log(Level.SEVERE, null, ex);
+            return "error?faces-redirect=true";
         }
-        
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
+
+    public DataModel<Course> getAvailableCourses() {
+        return availableCourses;
+    }
+
+    public void setAvailableCourses(DataModel<Course> availableCourses) {
+        this.availableCourses = availableCourses;
     }
     
-    
-
 }
