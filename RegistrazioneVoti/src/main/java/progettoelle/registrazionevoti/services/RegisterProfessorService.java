@@ -33,12 +33,11 @@ public final class RegisterProfessorService {
     }
 
     public void registerProfessor(String email, String name, String surname, Faculty faculty) throws ValidationException, DataLayerException, MailException {
-        if (!Pattern.matches(EMAIL_PATTERN, email)) throw new ValidationException(INVALID_EMAIL_MESSAGE);
-        if (userRepository.findUserByEmail(email) != null) throw new ValidationException(ALREADY_EXISTENT_EMAIL_MESSAGE); 
+        validateEmail(email);
+        
         Professor professor = new Professor(email, name, surname, faculty);
         String password = RandomStringUtils.randomAlphanumeric(8);
         professor.setPassword(password);
-        userRepository.createUser(professor);
         
         String subject = "Benvenuto professore";
         String message = "Gentile prof. " + surname + ",\n"
@@ -47,7 +46,14 @@ public final class RegisterProfessorService {
                 + "Le consigliamo per motivi di sicurezza di cambiarla dopo il primo accesso.\n\n"
                 + "Cordiali Saluti,\n"
                 + "Lo Staff";
+        
         mailService.sendEmail(email, subject, message);
+        userRepository.createUser(professor);
+    }
+    
+    private void validateEmail(String email) throws ValidationException, DataLayerException {
+        if (!Pattern.matches(EMAIL_PATTERN, email)) throw new ValidationException(INVALID_EMAIL_MESSAGE);
+        if (userRepository.findUserByEmail(email) != null) throw new ValidationException(ALREADY_EXISTENT_EMAIL_MESSAGE); 
     }
     
 }
