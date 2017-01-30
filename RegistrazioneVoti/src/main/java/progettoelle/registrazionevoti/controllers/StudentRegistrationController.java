@@ -49,7 +49,7 @@ public class StudentRegistrationController {
             Messages.addGlobalError(ex.getMessage());
             return null;
         } catch (DataLayerException | MailException ex) {
-            return "registration-success?faces-redirect=true";
+            return "registration-error?faces-redirect=true";
         }
     }
 
