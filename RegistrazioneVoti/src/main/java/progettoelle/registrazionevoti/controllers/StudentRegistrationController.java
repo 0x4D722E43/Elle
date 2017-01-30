@@ -34,11 +34,9 @@ public class StudentRegistrationController {
 
     @PostConstruct
     public void initialize() {
-        try {
+        try { 
             availableDegreeCourses = service.getPossibleDegreeCourses();
-        } catch (DataLayerException ex) {
-            
-        }
+        } catch (DataLayerException ignored) { }
     }
 
     public String registerStudent() {
@@ -47,7 +45,7 @@ public class StudentRegistrationController {
             return "registration-success?faces-redirect=true";
         } catch (ValidationException ex) {
             Messages.addGlobalError(ex.getMessage());
-            return null;
+            return "registration-student";
         } catch (DataLayerException | MailException ex) {
             return "registration-error?faces-redirect=true";
         }

@@ -22,6 +22,7 @@ public final class ResetPasswordService {
     public void resetPassword(String email) throws ValidationException, DataLayerException, MailException {
         RegisteredUser user = userRepository.findUserByEmail(email);
         if (user == null) throw new ValidationException(INEXISTENT_EMAIL_MESSAGE);
+        
         String password = RandomStringUtils.randomAlphanumeric(8);
         user.setPassword(password);
         userRepository.updateUser(user);
@@ -32,6 +33,7 @@ public final class ResetPasswordService {
                 + "Consigliamo per motivi di sicurezza di cambiarla appena dopo aver effettuato l'accesso.\n\n"
                 + "Saluti,\n "
                 + "Lo Staff"; 
+        
         mailService.sendEmail(email, subject, message);
     }
 
