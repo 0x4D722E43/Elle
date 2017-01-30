@@ -34,15 +34,17 @@ public class ProfessorHome {
         try {
             List<Course> results = service.getCourses(professor);
             courses = new ListDataModel<>(results);
-        } catch (DataLayerException ignored) { }
+        } catch (DataLayerException ignored) { 
+        
+        }
     }
     
-    public String redirectToCourseExams(Course course){
+    public String redirectToCourseExams(){
         saveSelectedCourseToFlash();
         return "exams?faces-redirect=true";
     }
     
-    public String redirectToCourseEnrolledStudents(Course course){
+    public String redirectToCourseEnrolledStudents(){
         saveSelectedCourseToFlash();
         return "students?faces-redirect=true";
     }

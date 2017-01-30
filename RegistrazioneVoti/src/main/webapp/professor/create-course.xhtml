@@ -1,12 +1,41 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="/professor/home.xhtml" >
+            <ui:define name="title">Crea Corso</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <p:panel header="Crea Corso">
+                        <h:panelGrid id="grid" columns="2" cellpadding="5">
+                            <p:outputLabel for="name" value="Name:" />
+                            <p:inputText id="name" value="#{createCourse.name}" required="true" requiredMessage="Inserisci nome del corso"/>
+                            
+                            <p:outputLabel for="credits" value="Crediti:" />
+                            <p:inputText id="credits" value="#{createCourse.credits}" required="true" requiredMessage="Inserisci crediti del corso">
+                                <f:validateLongRange minimum="3" maximum="12"/>
+                            </p:inputText>
+                            
+                            <p:outputLabel for="degCor" value="Corso di Laurea:" />
+                            <p:selectOneMenu id="degCor" value="#{createCourse.selectedDegreeCourse}" required="true" requiredMessage="Seleziona un Corso di Laurea" converter="omnifaces.SelectItemsConverter">
+                                <f:selectItem itemLabel="Seleziona Corso di Laurea" noSelectionOption="true"/>
+                                <f:selectItems value="#{createCourse.availableDegreeCourses}" var="degreeCourse" itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
+                            </p:selectOneMenu> 
+                            <p:column/>
+                        </h:panelGrid>
+                        
+                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+                       
+                        <p:commandButton id="submitButton" action="#{createCourse.createCourse}" value="Crea"/> 
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
 </html>
 
