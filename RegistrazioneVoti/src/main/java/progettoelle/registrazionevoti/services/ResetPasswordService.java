@@ -21,11 +21,11 @@ public final class ResetPasswordService {
     
     public void resetPassword(String email) throws ValidationException, DataLayerException, MailException {
         RegisteredUser user = userRepository.findUserByEmail(email);
+        
         if (user == null) throw new ValidationException(INEXISTENT_EMAIL_MESSAGE);
         
         String password = RandomStringUtils.randomAlphanumeric(8);
         user.setPassword(password);
-        userRepository.updateUser(user);
         
         String subject = "Password Dimenticata";
         String message = "La password dell' account è stata resettata. La nuova passoword è \n\n"
@@ -35,6 +35,7 @@ public final class ResetPasswordService {
                 + "Lo Staff"; 
         
         mailService.sendEmail(email, subject, message);
+        userRepository.updateUser(user);
     }
 
 }
