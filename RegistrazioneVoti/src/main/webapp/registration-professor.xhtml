@@ -12,33 +12,30 @@
             <ui:define name="content">
                 <p:panel header="Registra Professore">
                     <h:form>
-                        <h:panelGrid id="grid" columns="4" cellpadding="5">
+                        <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="email" value="Email:" />
-                            <p:inputText id="email" required="true" requiredMessage="Il campo email non può essere vuoto"/>
-                            <p:message for="email" />
+                            <p:inputText id="email" value="#{professorRegistrationController.email}" required="true" requiredMessage="Il campo email non può essere vuoto"/>
                             <p:watermark for="email" value="@unipv.it" />
                         
                             <p:outputLabel for="name" value="Nome:" />
-                            <p:inputText id="name" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
-                            <p:message for="name"/>
+                            <p:inputText id="name" value="#{professorRegistrationController.name}" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
                             <p:column/>
  
                             <p:outputLabel for="surname" value="Cognome:" />
-                            <p:inputText id="surname" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
-                            <p:message for="surname"/>
+                            <p:inputText id="surname" value="#{professorRegistrationController.surname}" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
                             <p:column/>
                     
                             <p:outputLabel for="fac" value="Facoltà:" />
-                            <p:selectOneMenu id="fac" required="true" requiredMessage="Seleziona una Facoltà">
-                                <f:converter converterId="omnifaces.SelectItemsConverter"/>
+                            <p:selectOneMenu id="fac" value="#{professorRegistrationController.selectedFaculty}" converter="omnifaces.SelectItemsConverter" required="true" requiredMessage="Seleziona una Facoltà">
                                 <f:selectItem itemLabel="Seleziona una Facoltà" noSelectionOption="true"/>
-                                <f:selectItems var="faculty" itemValue="#{faculty}" itemLabel="#{faculty.name}"/>
+                                <f:selectItems value="#{professorRegistrationController.availableFaculties}" var="faculty" itemValue="#{faculty}" itemLabel="#{faculty.name}"/>
                             </p:selectOneMenu> 
-                            <p:message for="fac"/>
                             <p:column/>
                         </h:panelGrid>
+                        
+                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
  
-                        <p:commandButton id="submitButton" value="Registrati" update="grid" />
+                        <p:commandButton id="submitButton" action="#{professorRegistrationController.registerProfessor}" value="Registrati" update="grid" />
                     </h:form>
                 </p:panel>
             </ui:define>
