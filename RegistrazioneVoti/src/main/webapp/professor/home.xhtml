@@ -12,10 +12,11 @@
             <ui:define name="nav">
                 <h:form>
                     <p:menu>
-                        <p:submenu label="Hello #{professorManager.professor.name}">
-                            <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
+                        <p:submenu label="Ciao #{professorManager.professor.name}">
+                            <p:menuitem value="Corsi" outcome="home" icon="ui-icon-home"/>
                             <p:menuitem value="Crea corso" outcome="create-course" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Crea esame" outcome="create-exam" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Account" outcome="account" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Logout" action="#{professorManager.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>

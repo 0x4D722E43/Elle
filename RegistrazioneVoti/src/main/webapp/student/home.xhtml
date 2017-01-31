@@ -14,13 +14,16 @@
                 <h:form>
                     <p:menu>
                         <p:submenu label="Ciao #{studentManager.student.name}">
-                            <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
+                            <p:menuitem value="Libretto" outcome="home" icon="ui-icon-home"/>
                             <p:menuitem value="Iscriviti a Corso" outcome="enroll-on-course" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Prenota Esame" outcome="book-exam" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Prenotazioni" outcome="bookings" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Esiti" outcome="grades" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Storico Esami" outcome="exam-history" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Account" outcome="account" icon="ui-icon-plusthick"/>
+                        </p:submenu>
+                        <p:submenu label="Account">
+                            <p:menuitem value="Info" outcome="account-info" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Cambia Password" outcome="change-password" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Logout" action="#{studentManager.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>

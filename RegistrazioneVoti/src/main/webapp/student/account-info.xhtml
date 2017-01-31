@@ -28,24 +28,6 @@
                         <p:outputLabel value="#{studentManager.student.degreeCourse.name}" />
                     </h:panelGrid>
                 </p:panel>
-                <h:form>
-                    <p:panel header="Cambia Password">
-                        <h:panelGrid columns="2" cellpadding="5">
-                            <p:outputLabel for="oldPass" value="Vecchia Password:" />
-                            <p:password id="oldPass" value="#{changeStudentPassword.oldPassword}" required="true" requiredMessage="Controlla che i campi non siano nulli"/>
-                            
-                            <p:outputLabel for="newPass" value="Nuova Password:" />
-                            <p:password id="newPass" value="#{changeStudentPassword.password}" feedback="true" required="true" requiredMessage="Controlla che i campi non siano nulli"/>
- 
-                            <p:outputLabel for="newPassConfirm" value="Conferma Password:" />
-                            <p:password id="newPassConfirm" value="#{changeStudentPassword.passwordConfirmation}" required="true" requiredMessage="Controlla che i campi non siano nulli"/>
-                        </h:panelGrid>
-                        
-                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
- 
-                        <p:commandButton id="submitButton"  value="Cambia" action="#{changeStudentPassword.changePassword}"/>
-                    </p:panel>
-                </h:form>
             </ui:define>
         </ui:composition>
     </body>

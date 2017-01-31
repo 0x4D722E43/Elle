@@ -32,7 +32,7 @@ public class ChangeStudentPassword {
             return "success?faces-redirect=true";
         } catch (ValidationException ex) {
             Messages.addGlobalError(ex.getMessage());
-            return "account";
+            return "change-password";
         } catch (DataLayerException ex) {
             return "error?faces-redirect=true";
         }
