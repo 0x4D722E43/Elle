@@ -16,7 +16,10 @@
                             <p:menuitem value="Corsi" outcome="home" icon="ui-icon-home"/>
                             <p:menuitem value="Crea corso" outcome="create-course" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Crea esame" outcome="create-exam" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Account" outcome="account" icon="ui-icon-plusthick"/>
+                        </p:submenu>
+                        <p:submenu label="Account">
+                            <p:menuitem value="Info" outcome="account-info" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Cambia Password" outcome="change-password" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Logout" action="#{professorManager.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>

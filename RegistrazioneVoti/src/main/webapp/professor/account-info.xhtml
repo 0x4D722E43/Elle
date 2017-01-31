@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="/professor/home.xhtml" >
+            <ui:define name="title">Account</ui:define>
+            <ui:define name="content">
+                <h:form>
+                    <p:panel header="Account Info">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="email" value="Emai:" />
+                            <p:outputLabel id="email" value="#{professorManager.professor.email}" />
+                        
+                            <p:outputLabel for="name" value="Nome:" />
+                            <p:outputLabel id="name" value="#{professorManager.professor.name}" />
+                        
+                            <p:outputLabel for="surname" value="Cognome:" />
+                            <p:outputLabel id="surname" value="#{professorManager.professor.surname}" />
+                        
+                            <p:outputLabel for="fac" value="Facoltà:" />
+                            <p:outputLabel id="fac" value="#{professorManager.professor.faculty.name}" />
+                            
+                            <p:outputLabel for="hours" value="Orario di ricevimento" />
+                            <p:inputText id="hours" value="#{professorManager.professor.officeHours}" />
+                            
+                            <p:outputLabel for="office" value="Ufficio:" />
+                            <p:inputText id="office" value="#{professorManager.professor.officeLocation}" />
+                            
+                            <p:outputLabel for="web" value="Sito web:" />
+                            <p:inputText id="web" value="#{professorManager.professor.websiteLink}" />
+                        </h:panelGrid>
+                        
+                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+ 
+                        <p:commandButton id="submitButton" action="#{professorManager.updateProfessorInfo}" value="Salva" />
+                    </p:panel>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+
