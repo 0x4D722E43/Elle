@@ -28,7 +28,7 @@ public class CourseEnrolledStudents {
     }
     
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         Flash flash = Faces.getFlash();
         Course course = (Course)flash.get("course");
         flash.keep("course");
@@ -37,7 +37,7 @@ public class CourseEnrolledStudents {
             List<Student> results = service.getEnrolledStudents(course);
             enrolledStudents = new ListDataModel<>(results);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
     

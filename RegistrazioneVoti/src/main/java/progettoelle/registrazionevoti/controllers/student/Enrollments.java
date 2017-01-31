@@ -1,12 +1,10 @@
 package progettoelle.registrazionevoti.controllers.student;
 
-import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -21,7 +19,7 @@ public class Enrollments {
     
     private List<Enrollment> enrollments;
 
-    @ManagedProperty(value="#{studentSession.student}")
+    @ManagedProperty(value="#{studentManager.student}")
     private Student student;
     
     public Enrollments() {
@@ -29,11 +27,11 @@ public class Enrollments {
     }
 
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         try {
             enrollments = service.getEnrollments(student);
         } catch (DataLayerException ex) { 
-            Faces.redirect("error.xhtml");
+            
         }
     }
 

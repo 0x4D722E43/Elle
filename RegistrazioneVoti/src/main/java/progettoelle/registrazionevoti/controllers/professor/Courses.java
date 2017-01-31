@@ -31,12 +31,12 @@ public class Courses {
     }
     
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         try {
             List<Course> results = service.getCourses(professor);
             courses = new ListDataModel<>(results);
         } catch (DataLayerException ex) { 
-            Faces.redirect("error.xhtml");
+            
         }
     }
     

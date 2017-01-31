@@ -29,11 +29,11 @@ public class ExamResultHistory {
     }
 
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         try {
             examResults = service.getExamResultHistory(student);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
 

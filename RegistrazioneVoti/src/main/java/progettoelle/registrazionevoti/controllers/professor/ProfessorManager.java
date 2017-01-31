@@ -23,13 +23,13 @@ public class ProfessorManager {
     }
     
     @PostConstruct
-    public void initializeSession() throws IOException {
+    public void initializeSession() {
         String email = Faces.getRemoteUser();
         
         try {
             professor = (Professor)service.getUser(email);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
     

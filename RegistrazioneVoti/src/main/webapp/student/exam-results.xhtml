@@ -12,7 +12,7 @@
             
             <ui:define name="content">
                 <p:panel header="Esiti esami">
-                    <p:dataTable value="#{grades.examResults}" var="result">
+                    <p:dataTable value="#{grades.grades}" var="result">
                         <p:column headerText="Corso">
                             <h:outputText value="#{result.course.name}"/>
                         </p:column>

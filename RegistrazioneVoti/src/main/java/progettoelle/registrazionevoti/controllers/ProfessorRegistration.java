@@ -31,11 +31,11 @@ public class ProfessorRegistration {
     }
     
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         try { 
             availableFaculties = service.getPossibleFaculties();
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
 

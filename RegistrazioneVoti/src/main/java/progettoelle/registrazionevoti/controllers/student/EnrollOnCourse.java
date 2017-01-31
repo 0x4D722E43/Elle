@@ -33,12 +33,12 @@ public class EnrollOnCourse {
     }
     
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         try {
             List<Course> courses = service.getCoursesOnWhichStudentCanEnroll(student);
             availableCourses = new ListDataModel<>(courses);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
     

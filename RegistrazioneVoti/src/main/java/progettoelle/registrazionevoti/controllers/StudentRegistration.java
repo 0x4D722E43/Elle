@@ -32,11 +32,11 @@ public class StudentRegistration {
     }
 
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         try { 
             availableDegreeCourses = service.getPossibleDegreeCourses();
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
 

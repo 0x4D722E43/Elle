@@ -1,6 +1,8 @@
 package progettoelle.registrazionevoti.controllers.student;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -22,13 +24,13 @@ public class StudentManager {
     }
     
     @PostConstruct
-    public void initializeSession() throws IOException {
+    public void initializeSession() {
         String email = Faces.getRemoteUser();
         
         try {
             student = (Student)userSessionService.getUser(email);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
     

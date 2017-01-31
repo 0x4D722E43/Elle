@@ -35,11 +35,11 @@ public class CreateExam {
     }
 
     @PostConstruct
-    public void initialize() throws IOException {
+    public void initialize() {
         try {
             availableCourses = service.getPossibleCourses(professor);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
     

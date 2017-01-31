@@ -27,7 +27,7 @@ public class ExamResults {
     }
     
     @PostConstruct
-    private void initialize() throws IOException {
+    private void initialize() {
         Flash flash = Faces.getFlash();
         Exam exam = (Exam)flash.get("exam");
         flash.keep("exam");
@@ -35,16 +35,16 @@ public class ExamResults {
         try {
             examResults = service.getExamResults(exam);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
     
-    public void onRowEdit(RowEditEvent event) throws IOException {
+    public void onRowEdit(RowEditEvent event) {
         try {
             ExamResult examResult = (ExamResult)event.getObject();
             service.gradeExam(examResult.getGrade(), examResult);
         } catch (DataLayerException ex) {
-            Faces.redirect("error.xhtml");
+            
         }
     }
 
