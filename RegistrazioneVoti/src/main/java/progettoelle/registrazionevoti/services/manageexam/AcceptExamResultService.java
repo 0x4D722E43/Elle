@@ -20,34 +20,28 @@ public final class AcceptExamResultService {
         this.enrollmentRepository = enrollmentRepository;
     }
 
-    public List<ExamResult> getExamsResult(Student student) throws DataLayerException {
+    public List<ExamResult> getExamsResults(Student student) throws DataLayerException {
         return examResultRepository.findStudentResults(student);
     }
 
     public void acceptExamResult(Student student, ExamResult examResult) throws DataLayerException {
-        if (examResult.getStatus() == ExamResultStatus.PASSED_PENDING) {
-            Course course = examResult.getCourse();
-            Enrollment enrollment = enrollmentRepository.findEnrollmentByStudentAndCourse(student, course);
-            enrollment.complete(examResult.getGrade());
-            enrollmentRepository.updateEnrollment(enrollment);
-            
-            examResult.setStatus(ExamResultStatus.ACCEPTED);
-            examResultRepository.updateExamResult(examResult);
-        }
+        examResult.setStatus(ExamResultStatus.ACCEPTED);
+        examResultRepository.updateExamResult(examResult);
+        
+        Course course = examResult.getCourse();
+        Enrollment enrollment = enrollmentRepository.findEnrollmentByStudentAndCourse(student, course);
+        enrollment.complete(examResult.getGrade());
+        enrollmentRepository.updateEnrollment(enrollment);
     }
 
     public void rejectExamResult(Student student, ExamResult examResult) throws DataLayerException {
-        if (examResult.getStatus() == ExamResultStatus.PASSED_PENDING) {
-            examResult.setStatus(ExamResultStatus.REJECTED);
-            examResultRepository.updateExamResult(examResult);
-        }
+        examResult.setStatus(ExamResultStatus.REJECTED);
+        examResultRepository.updateExamResult(examResult);
     }
     
     public void acknowledgeFailedExam(Student student, ExamResult examResult) throws DataLayerException {
-        if (examResult.getStatus() == ExamResultStatus.FAILED_PENDING) {
-            examResult.setStatus(ExamResultStatus.FAILED);
-            examResultRepository.updateExamResult(examResult);
-        }
+        examResult.setStatus(ExamResultStatus.FAILED);
+        examResultRepository.updateExamResult(examResult);
     }
     
 }

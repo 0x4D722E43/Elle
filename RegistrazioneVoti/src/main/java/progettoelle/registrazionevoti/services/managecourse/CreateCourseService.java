@@ -27,6 +27,7 @@ public final class CreateCourseService {
 
     public void createCourse(String name, int credits, Professor professor, DegreeCourse degreeCourse) throws ValidationException, DataLayerException {
         if (courseRepository.findCourseByName(name) != null) throw new ValidationException(ALREADY_EXISTENT_COURSE);
+        
         Course course = new Course(name, credits, professor, degreeCourse);
         courseRepository.createCourse(course);
     }

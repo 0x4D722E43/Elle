@@ -13,13 +13,13 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.CourseRepositoryHibernate;
-import progettoelle.registrazionevoti.services.managecourse.ManageCoursesService;
+import progettoelle.registrazionevoti.services.managecourse.LoadProfessorCoursesService;
 
 @ManagedBean
 @RequestScoped
 public class ProfessorHome {
     
-    private final ManageCoursesService service = new ManageCoursesService(new CourseRepositoryHibernate());
+    private final LoadProfessorCoursesService service = new LoadProfessorCoursesService(new CourseRepositoryHibernate());
     
     @ManagedProperty(value = "#{professorSession.professor}")
     private Professor professor; 

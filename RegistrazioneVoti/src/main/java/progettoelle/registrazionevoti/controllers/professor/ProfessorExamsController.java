@@ -15,13 +15,13 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.ExamRepositoryHibernate;
-import progettoelle.registrazionevoti.services.manageexam.ManageExamsService;
+import progettoelle.registrazionevoti.services.manageexam.OpenExamBookingsService;
 
 @ManagedBean
 @RequestScoped
 public class ProfessorExamsController {
     
-    private final ManageExamsService service = new ManageExamsService(new ExamRepositoryHibernate());
+    private final OpenExamBookingsService service = new OpenExamBookingsService(new ExamRepositoryHibernate());
     
     @ManagedProperty(value = "#{flash}")
     private Flash flash;

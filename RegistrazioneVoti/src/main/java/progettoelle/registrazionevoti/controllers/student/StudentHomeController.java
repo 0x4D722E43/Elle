@@ -9,13 +9,13 @@ import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.EnrollmentRepositoryHibernate;
-import progettoelle.registrazionevoti.services.managecourse.ManageEnrollmentsService;
+import progettoelle.registrazionevoti.services.managecourse.LoadStudentEnrollmentsService;
 
 @ManagedBean
 @RequestScoped
 public class StudentHomeController {
     
-    private final ManageEnrollmentsService service = new ManageEnrollmentsService(new EnrollmentRepositoryHibernate());
+    private final LoadStudentEnrollmentsService service = new LoadStudentEnrollmentsService(new EnrollmentRepositoryHibernate());
     
     @ManagedProperty(value="#{studentSession.student}")
     private Student student;

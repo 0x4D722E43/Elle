@@ -10,14 +10,14 @@ import javax.servlet.http.HttpSession;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
-import progettoelle.registrazionevoti.services.account.UserSessionService;
+import progettoelle.registrazionevoti.services.account.UserAccountService;
 
 @ManagedBean
 @SessionScoped
 public class StudentSession {
     
     private Student student;
-    private final UserSessionService userSessionService = new UserSessionService(new UserRepositoryHibernate());
+    private final UserAccountService userSessionService = new UserAccountService(new UserRepositoryHibernate());
     
     public StudentSession(){
         

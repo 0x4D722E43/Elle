@@ -12,13 +12,13 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.EnrollmentRepositoryHibernate;
-import progettoelle.registrazionevoti.services.managecourse.ManageEnrolledStudentsService;
+import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudentsService;
 
 @ManagedBean
 @RequestScoped
 public class EnrolledStudentsController {
     
-    private final ManageEnrolledStudentsService service = new ManageEnrolledStudentsService(new EnrollmentRepositoryHibernate());
+    private final LoadEnrolledStudentsService service = new LoadEnrolledStudentsService(new EnrollmentRepositoryHibernate());
     
     @ManagedProperty(value = "#{flash}")
     private Flash flash;

@@ -31,7 +31,7 @@ public class ManageExamResultsController {
     @PostConstruct
     public void initialize() {
         try {
-            List<ExamResult> results = service.getExamsResult(student);
+            List<ExamResult> results = service.getExamsResults(student);
             examResults = new ListDataModel<>(results);
         } catch (DataLayerException ex) {
             

@@ -6,11 +6,11 @@ import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.ExamRepository;
 
-public final class ManageExamsService {
+public final class OpenExamBookingsService {
 
     private final ExamRepository examRepository;
 
-    public ManageExamsService(ExamRepository examRepository) {
+    public OpenExamBookingsService(ExamRepository examRepository) {
         this.examRepository = examRepository;
     }
     
@@ -19,12 +19,12 @@ public final class ManageExamsService {
     }
 
     public void openExamBookings(Exam exam) throws DataLayerException {
-        exam.open();
+        exam.openBookings();
         examRepository.updateExam(exam);
     }
 
     public void closeExamBookings(Exam exam) throws DataLayerException {
-        exam.close();
+        exam.closeBookings();
         examRepository.updateExam(exam);
     }
     

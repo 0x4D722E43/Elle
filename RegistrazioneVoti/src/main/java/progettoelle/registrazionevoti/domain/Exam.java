@@ -22,11 +22,11 @@ public class Exam extends BaseEntity {
         bookingOpen = false;
     }
     
-    public void open() {
+    public void openBookings() {
         bookingOpen = true;
     }
     
-    public void close() {
+    public void closeBookings() {
         bookingOpen = false;
     }
     
