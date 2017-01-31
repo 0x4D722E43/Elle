@@ -12,7 +12,7 @@
             
             <ui:define name="content">
                 <p:panel header="Prenotazione">
-                    <p:dataTable value="#{manageBookingsController.bookedExams}" var="booking">
+                    <p:dataTable value="#{bookings.bookedExams}" var="booking">
                         <p:column headerText="Corso">
                             <h:outputText value="#{booking.course.name}"/>
                         </p:column>
@@ -24,7 +24,7 @@
                         </p:column>
                     
                         <p:column headerText="">
-                            <p:commandButton value="Annulla" action="#{manageBookingsController.cancelBooking}"/>
+                            <p:commandButton value="Annulla" action="#{bookings.cancelBooking}"/>
                         </p:column>
                     </p:dataTable>
                 </p:panel>

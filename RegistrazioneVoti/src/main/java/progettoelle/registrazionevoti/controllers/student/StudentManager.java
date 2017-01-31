@@ -14,12 +14,12 @@ import progettoelle.registrazionevoti.services.account.UserAccountService;
 
 @ManagedBean
 @SessionScoped
-public class StudentSession {
+public class StudentManager {
     
     private Student student;
     private final UserAccountService userSessionService = new UserAccountService(new UserRepositoryHibernate());
     
-    public StudentSession(){
+    public StudentManager(){
         
     }
     
@@ -29,7 +29,7 @@ public class StudentSession {
         try {
             student = (Student)userSessionService.getUser(email);
         } catch (DataLayerException ex) {
-            Logger.getLogger(StudentSession.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(StudentManager.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     

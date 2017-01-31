@@ -13,19 +13,19 @@
                 <p:panel header="Account Info">
                     <h:panelGrid columns="2" cellpadding="5">
                         <p:outputLabel value="Email:" />
-                        <p:outputLabel value="#{studentSession.student.email}" />
+                        <p:outputLabel value="#{studentManager.student.email}" />
                         
                         <p:outputLabel value="Nome:" />
-                        <p:outputLabel value="#{studentSession.student.name}" />
+                        <p:outputLabel value="#{studentManager.student.name}" />
                         
                         <p:outputLabel value="Cognome:" />
-                        <p:outputLabel value="#{studentSession.student.surname}" />
+                        <p:outputLabel value="#{studentManager.student.surname}" />
                         
                         <p:outputLabel value="Matricola:" />
-                        <p:outputLabel value="#{studentSession.student.matriculationNumber}" />
+                        <p:outputLabel value="#{studentManager.student.matriculationNumber}" />
                         
                         <p:outputLabel value="Corso di Laurea:" />
-                        <p:outputLabel value="#{studentSession.student.degreeCourse.name}" />
+                        <p:outputLabel value="#{studentManager.student.degreeCourse.name}" />
                     </h:panelGrid>
                 </p:panel>
             </ui:define>

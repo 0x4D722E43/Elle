@@ -18,7 +18,7 @@ import progettoelle.registrazionevoti.services.manageexam.AcceptExamResultServic
 import progettoelle.registrazionevoti.services.manageexam.BookExamService;
 import progettoelle.registrazionevoti.services.manageexam.CreateExamService;
 import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
-import progettoelle.registrazionevoti.services.manageexam.LoadExamResultHistory;
+import progettoelle.registrazionevoti.services.manageexam.LoadExamResultHistoryService;
 import progettoelle.registrazionevoti.services.manageexam.ManageExamBookingsService;
 import progettoelle.registrazionevoti.services.manageexam.OpenExamBookingsService;
 import progettoelle.registrazionevoti.services.registration.RegisterProfessorService;
@@ -67,8 +67,8 @@ public class ServiceInjection {
         return new GradeExamService(new ExamResultRepositoryHibernate());
     }
     
-    public static LoadExamResultHistory provideLoadExamResultHistory() {
-        return new LoadExamResultHistory(new ExamResultRepositoryHibernate());
+    public static LoadExamResultHistoryService provideLoadExamResultHistoryService() {
+        return new LoadExamResultHistoryService(new ExamResultRepositoryHibernate());
     }
     
     public static ManageExamBookingsService provideManageExamBookingsService() {

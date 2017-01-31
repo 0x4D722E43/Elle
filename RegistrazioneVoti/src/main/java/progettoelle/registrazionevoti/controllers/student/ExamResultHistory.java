@@ -9,19 +9,19 @@ import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
-import progettoelle.registrazionevoti.services.manageexam.LoadExamResultHistory;
+import progettoelle.registrazionevoti.services.manageexam.LoadExamResultHistoryService;
 
 @ManagedBean
 @RequestScoped
-public class ExamResultsHistoryControllers {
+public class ExamResultHistory {
     
-    private final LoadExamResultHistory service = new LoadExamResultHistory(new ExamResultRepositoryHibernate());
+    private final LoadExamResultHistoryService service = new LoadExamResultHistoryService(new ExamResultRepositoryHibernate());
     
     @ManagedProperty(value="#{studentSession.student}")
     private Student student;
     private List<ExamResult> examResults;
 
-    public ExamResultsHistoryControllers() {
+    public ExamResultHistory() {
     
     }
 

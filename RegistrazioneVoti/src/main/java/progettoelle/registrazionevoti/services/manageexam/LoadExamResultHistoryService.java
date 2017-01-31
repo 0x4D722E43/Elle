@@ -6,11 +6,11 @@ import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.ExamResultRepository;
 
-public final class LoadExamResultHistory {
+public final class LoadExamResultHistoryService {
     
     private final ExamResultRepository examResultRepository;
 
-    public LoadExamResultHistory(ExamResultRepository examResultRepository) {
+    public LoadExamResultHistoryService(ExamResultRepository examResultRepository) {
         this.examResultRepository = examResultRepository;
     }
     

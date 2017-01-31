@@ -7,19 +7,16 @@ import javax.faces.bean.RequestScoped;
 import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Faculty;
 import progettoelle.registrazionevoti.mail.MailException;
-import progettoelle.registrazionevoti.mail.MockEmailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.FacultyRepositoryHibernate;
-import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.registration.RegisterProfessorService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean
 @RequestScoped
-public class ProfessorRegistrationController {
+public class ProfessorRegistration {
     
-    private final RegisterProfessorService service = new RegisterProfessorService(new FacultyRepositoryHibernate(), 
-            new UserRepositoryHibernate(), new MockEmailService());
+    private final RegisterProfessorService service = ServiceInjection.provideRegisterProfessorService();
     
     private String email;
     private String name;
@@ -27,7 +24,7 @@ public class ProfessorRegistrationController {
     private Faculty selectedFaculty;
     private List<Faculty> availableFaculties;
 
-    public ProfessorRegistrationController() {
+    public ProfessorRegistration() {
     
     }
     

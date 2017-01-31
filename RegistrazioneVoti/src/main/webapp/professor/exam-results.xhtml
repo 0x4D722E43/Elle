@@ -13,9 +13,9 @@
             <ui:define name="content">
                 <p:panel header="Esiti Esame">
                     <h:form id="form">
-                        <p:dataTable id="table" value="#{professorExamResults.examResults}" var="result" editable="true">
+                        <p:dataTable id="table" value="#{examResults.examResults}" var="result" editable="true">
                             
-                            <p:ajax event="rowEdit" listener="#{professorExamResults.onRowEdit}" />
+                            <p:ajax event="rowEdit" listener="#{examResults.onRowEdit}" />
                            
                             <p:column headerText="Studente">
                                 <h:outputText value="#{result.student.name} #{result.student.surname}"/>

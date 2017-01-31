@@ -12,12 +12,12 @@ import progettoelle.registrazionevoti.services.account.UserAccountService;
 
 @ManagedBean
 @SessionScoped
-public class ProfessorSession {
+public class ProfessorManager {
 
     private Professor professor;
     private final UserAccountService userSessionService = new UserAccountService(new UserRepositoryHibernate());
     
-    public ProfessorSession() {
+    public ProfessorManager() {
     
     }
     

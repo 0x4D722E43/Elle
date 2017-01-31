@@ -19,7 +19,7 @@ import progettoelle.registrazionevoti.services.manageexam.OpenExamBookingsServic
 
 @ManagedBean
 @RequestScoped
-public class ProfessorExamsController {
+public class CourseExams {
     
     private final OpenExamBookingsService service = new OpenExamBookingsService(new ExamRepositoryHibernate());
     
@@ -28,7 +28,7 @@ public class ProfessorExamsController {
     
     private DataModel<Exam> exams;
 
-    public ProfessorExamsController() {
+    public CourseExams() {
        
     }
     

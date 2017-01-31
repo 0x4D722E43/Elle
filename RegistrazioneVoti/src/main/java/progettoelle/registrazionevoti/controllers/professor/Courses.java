@@ -17,7 +17,7 @@ import progettoelle.registrazionevoti.services.managecourse.LoadProfessorCourses
 
 @ManagedBean
 @RequestScoped
-public class ProfessorHome {
+public class Courses {
     
     private final LoadProfessorCoursesService service = new LoadProfessorCoursesService(new CourseRepositoryHibernate());
     
@@ -25,7 +25,7 @@ public class ProfessorHome {
     private Professor professor; 
     private DataModel<Course> courses;
 
-    public ProfessorHome() {
+    public Courses() {
     
     }
     

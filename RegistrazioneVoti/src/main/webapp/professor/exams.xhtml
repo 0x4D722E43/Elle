@@ -12,7 +12,7 @@
             
             <ui:define name="content">
                 <p:panel header="Esami">
-                    <p:dataTable value="#{professorExamsController.exams}" var="exam">
+                    <p:dataTable value="#{courseExams.exams}" var="exam">
                         <p:column headerText="Corso">
                             <h:outputText value="#{exam.course.name}"/>
                         </p:column>
@@ -29,12 +29,12 @@
                         </p:column>
                     
                         <p:column headerText="">
-                            <p:commandButton value="APRI" action="#{professorExamsController.openExamBookings}" rendered="#{not exam.bookingOpen}"/>
-                            <p:commandButton value="CHIUDI" action="#{professorExamsController.closeExamBookings}" rendered="#{exam.bookingOpen}"/>
+                            <p:commandButton value="APRI" action="#{courseExams.openExamBookings}" rendered="#{not exam.bookingOpen}"/>
+                            <p:commandButton value="CHIUDI" action="#{courseExams.closeExamBookings}" rendered="#{exam.bookingOpen}"/>
                         </p:column>
                         
                         <p:column headerText="">
-                            <p:commandButton value="ESITI" action="#{professorExamsController.redirectToExamResults}"/>
+                            <p:commandButton value="ESITI" action="#{courseExams.redirectToExamResults}"/>
                         </p:column>
                     </p:dataTable>
                 </p:panel>

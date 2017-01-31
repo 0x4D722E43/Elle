@@ -18,7 +18,7 @@ import progettoelle.registrazionevoti.services.managecourse.EnrollOnCourseServic
 
 @ManagedBean
 @RequestScoped
-public class StudentNewCourse {
+public class EnrollOnCourse {
     
     private final EnrollOnCourseService service = new EnrollOnCourseService(new CourseRepositoryHibernate(), new EnrollmentRepositoryHibernate());
     
@@ -26,7 +26,7 @@ public class StudentNewCourse {
     private Student student;
     private DataModel<Course> availableCourses;
 
-    public StudentNewCourse() {
+    public EnrollOnCourse() {
     
     }
     
@@ -36,7 +36,7 @@ public class StudentNewCourse {
             List<Course> courses = service.getCoursesOnWhichStudentCanEnroll(student);
             availableCourses = new ListDataModel<>(courses);
         } catch (DataLayerException ex) {
-            Logger.getLogger(StudentNewCourse.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EnrollOnCourse.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -46,7 +46,7 @@ public class StudentNewCourse {
             service.enrollOnCourse(student, selectedCourse);
             return "success?faces-redirect=true";
         } catch (DataLayerException ex) {
-            Logger.getLogger(StudentNewCourse.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(EnrollOnCourse.class.getName()).log(Level.SEVERE, null, ex);
             return "error?faces-redirect=true";
         }
     }

@@ -16,7 +16,7 @@ import progettoelle.registrazionevoti.services.manageexam.AcceptExamResultServic
 
 @ManagedBean
 @RequestScoped
-public class ManageExamResultsController {
+public class Grades {
     
     private final AcceptExamResultService service = new AcceptExamResultService(new ExamResultRepositoryHibernate(), new EnrollmentRepositoryHibernate());
     
@@ -24,7 +24,7 @@ public class ManageExamResultsController {
     private Student student;
     private DataModel<ExamResult> examResults;
 
-    public ManageExamResultsController() {
+    public Grades() {
     
     }
     

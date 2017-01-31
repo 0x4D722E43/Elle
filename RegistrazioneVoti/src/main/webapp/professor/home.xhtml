@@ -12,11 +12,11 @@
             <ui:define name="nav">
                 <h:form>
                     <p:menu>
-                        <p:submenu label="Hello #{professorSession.professor.name}">
+                        <p:submenu label="Hello #{professorManager.professor.name}">
                             <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
                             <p:menuitem value="Crea corso" outcome="create-course" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Crea esame" outcome="create-exam" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Logout" action="#{professorSession.logout}" immediate="true" icon="ui-icon-closethick"/>
+                            <p:menuitem value="Logout" action="#{professorManager.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>
                 </h:form>
@@ -24,17 +24,17 @@
             
             <ui:define name="content">
                 <p:panel header="I tuoi corsi">
-                    <p:dataTable value="#{professorHome.courses}" var="course">
+                    <p:dataTable value="#{courses.courses}" var="course">
                         <p:column headerText="Corso">
                             <h:outputText value="#{course.name}"/>
                         </p:column>
                     
                         <p:column headerText="">
-                            <p:commandButton value="Vedi Esami" action="#{professorHome.redirectToCourseExams}"/>
+                            <p:commandButton value="Vedi Esami" action="#{courses.redirectToCourseExams}"/>
                         </p:column>
                         
                         <p:column headerText="">
-                            <p:commandButton value="Vedi Iscritti" action="#{professorHome.redirectToCourseEnrolledStudents}"/>
+                            <p:commandButton value="Vedi Iscritti" action="#{courses.redirectToCourseEnrolledStudents}"/>
                         </p:column>
                     </p:dataTable>
                 </p:panel>

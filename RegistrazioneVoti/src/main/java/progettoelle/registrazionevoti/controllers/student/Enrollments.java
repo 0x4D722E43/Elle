@@ -13,7 +13,7 @@ import progettoelle.registrazionevoti.services.managecourse.LoadStudentEnrollmen
 
 @ManagedBean
 @RequestScoped
-public class StudentHomeController {
+public class Enrollments {
     
     private final LoadStudentEnrollmentsService service = new LoadStudentEnrollmentsService(new EnrollmentRepositoryHibernate());
     
@@ -21,7 +21,7 @@ public class StudentHomeController {
     private Student student;
     private List<Enrollment> enrollments;
 
-    public StudentHomeController() {
+    public Enrollments() {
     }
 
     @PostConstruct

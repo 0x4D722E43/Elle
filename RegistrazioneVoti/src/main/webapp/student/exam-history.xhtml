@@ -12,7 +12,7 @@
             
             <ui:define name="content">
                 <p:panel header="Storico Esami">
-                    <p:dataTable value="#{examResultsHistoryControllers.examResults}" var="result">
+                    <p:dataTable value="#{examResultHistory.examResults}" var="result">
                         <p:column headerText="Corso">
                             <h:outputText value="#{result.course.name}"/>
                         </p:column>

@@ -16,7 +16,7 @@ import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudents
 
 @ManagedBean
 @RequestScoped
-public class EnrolledStudentsController {
+public class CourseEnrolledStudents {
     
     private final LoadEnrolledStudentsService service = new LoadEnrolledStudentsService(new EnrollmentRepositoryHibernate());
     
@@ -24,7 +24,7 @@ public class EnrolledStudentsController {
     private Flash flash;
     private DataModel<Student> enrolledStudents;
 
-    public EnrolledStudentsController() {
+    public CourseEnrolledStudents() {
     
     }
     

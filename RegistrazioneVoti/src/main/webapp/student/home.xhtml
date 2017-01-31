@@ -13,7 +13,7 @@
             <ui:define name="nav">
                 <h:form>
                     <p:menu>
-                        <p:submenu label="Ciao #{studentSession.student.name}">
+                        <p:submenu label="Ciao #{studentManager.student.name}">
                             <p:menuitem value="Home" outcome="home" icon="ui-icon-home"/>
                             <p:menuitem value="Iscriviti a Corso" outcome="new-course" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Prenota Esame" outcome="book-exam" icon="ui-icon-plusthick"/>
@@ -21,7 +21,7 @@
                             <p:menuitem value="Esiti" outcome="exam-results" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Storico Esami" outcome="exam-history" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Account" outcome="account" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Logout" action="#{studentSession.logout}" immediate="true" icon="ui-icon-closethick"/>
+                            <p:menuitem value="Logout" action="#{studentManager.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>
                 </h:form>
@@ -29,7 +29,7 @@
             
             <ui:define name="content">
                 <p:panel header="I Corsi a cui sei iscritto">
-                    <p:dataTable value="#{studentHomeController.enrollments}" var="enr">
+                    <p:dataTable value="#{enrollments.enrollments}" var="enr">
                         <p:column headerText="Corso">
                             <h:outputText value="#{enr.course.name}"/>
                         </p:column>

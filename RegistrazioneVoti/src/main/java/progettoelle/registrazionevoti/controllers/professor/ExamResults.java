@@ -18,7 +18,7 @@ import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean
 @ViewScoped
-public class ProfessorExamResults {
+public class ExamResults {
     
     private final GradeExamService service = new GradeExamService(new ExamResultRepositoryHibernate());
     
@@ -26,7 +26,7 @@ public class ProfessorExamResults {
     private Flash flash;
     private List<ExamResult> examResults;
 
-    public ProfessorExamResults() {
+    public ExamResults() {
     
     }
     
@@ -46,9 +46,9 @@ public class ProfessorExamResults {
             ExamResult examResult = (ExamResult)event.getObject();
             service.gradeExam(examResult.getGrade(), examResult);
         } catch (ValidationException ex) {
-            Logger.getLogger(ProfessorExamResults.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExamResults.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DataLayerException ex) {
-            Logger.getLogger(ProfessorExamResults.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ExamResults.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

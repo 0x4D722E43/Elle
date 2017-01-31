@@ -4,21 +4,20 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.mail.MailException;
-import progettoelle.registrazionevoti.mail.MockEmailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean
 @RequestScoped
-public class ResetPasswordController {
+public class ResetPassword {
     
-    private final ResetPasswordService service = new ResetPasswordService(new UserRepositoryHibernate(), new MockEmailService());
+    private final ResetPasswordService service = ServiceInjection.provideResetPasswordService();
 
     private String email;
 
-    public ResetPasswordController() {
+    public ResetPassword() {
     
     }
     

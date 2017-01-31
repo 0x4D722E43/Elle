@@ -14,32 +14,32 @@
                     <p:panel header="Registra Studente">
                         <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="email" value="Email:" />
-                            <p:inputText id="email" value="#{studentRegistrationController.email}" required="true" requiredMessage="Il campo email non può essere vuoto"/>
+                            <p:inputText id="email" value="#{studentRegistration.email}" required="true" requiredMessage="Il campo email non può essere vuoto"/>
                             <p:watermark for="email" value="@universitadipavia.it" />
                         
                             <p:outputLabel for="name" value="Nome:" />
-                            <p:inputText id="name" value="#{studentRegistrationController.name}" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
+                            <p:inputText id="name" value="#{studentRegistration.name}" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
                             <p:column/>
  
                             <p:outputLabel for="surname" value="Cognome:" />
-                            <p:inputText id="surname" value="#{studentRegistrationController.surname}" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
+                            <p:inputText id="surname" value="#{studentRegistration.surname}" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
                             <p:column/>
  
                             <p:outputLabel for="mat" value="Matricola:" />
-                            <p:inputText id="mat" value="#{studentRegistrationController.matriculationNumber}" required="true" requiredMessage="Il campo matricola non può essere vuoto"/>
+                            <p:inputText id="mat" value="#{studentRegistration.matriculationNumber}" required="true" requiredMessage="Il campo matricola non può essere vuoto"/>
                             <p:column/>
                     
                             <p:outputLabel for="degCor" value="Corso di Laurea:" />
-                            <p:selectOneMenu id="degCor" value="#{studentRegistrationController.selectedDegreeCourse}" required="true" requiredMessage="Seleziona un Corso di Laurea" converter="omnifaces.SelectItemsConverter">
+                            <p:selectOneMenu id="degCor" value="#{studentRegistration.selectedDegreeCourse}" required="true" requiredMessage="Seleziona un Corso di Laurea" converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem  itemLabel="Seleziona Corso di Laurea" noSelectionOption="true"/>
-                                <f:selectItems value="#{studentRegistrationController.availableDegreeCourses}" var="degreeCourse" itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
+                                <f:selectItems value="#{studentRegistration.availableDegreeCourses}" var="degreeCourse" itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
                             </p:selectOneMenu> 
                             <p:column/>
                         </h:panelGrid>
                         
                         <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
                        
-                        <p:commandButton id="submitButton" action="#{studentRegistrationController.registerStudent}" value="Registrati"/> 
+                        <p:commandButton id="submitButton" action="#{studentRegistration.registerStudent}" value="Registrati"/> 
                     </p:panel>
                 </h:form>
             </ui:define>

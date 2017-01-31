@@ -11,7 +11,7 @@
             
             <ui:define name="content">
                 <p:panel header="Corsi Disponibili">
-                    <p:dataTable value="#{studentNewCourse.availableCourses}" var="course">
+                    <p:dataTable value="#{enrollOnCourse.availableCourses}" var="course">
                         <p:column headerText="Corso">
                             <h:outputText value="#{course.name}"/>
                         </p:column>
@@ -29,7 +29,7 @@
                         </p:column>
                         
                         <p:column headerText="">
-                            <p:commandButton value="Iscriviti" action="#{studentNewCourse.enrollOnCourse}"/>
+                            <p:commandButton value="Iscriviti" action="#{enrollOnCourse.enrollOnCourse}"/>
                         </p:column>
                     
                     </p:dataTable>
