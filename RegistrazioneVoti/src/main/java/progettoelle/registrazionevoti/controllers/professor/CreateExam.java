@@ -1,6 +1,5 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -8,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;

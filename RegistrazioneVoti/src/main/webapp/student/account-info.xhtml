@@ -12,20 +12,20 @@
             <ui:define name="content">
                 <p:panel header="Account Info">
                     <h:panelGrid columns="2" cellpadding="5">
-                        <p:outputLabel value="Email:" />
-                        <p:outputLabel value="#{studentManager.student.email}" />
+                        <p:outputLabel for="email" value="Email:" />
+                        <p:outputLabel id="email" value="#{studentManager.student.email}" />
                         
-                        <p:outputLabel value="Nome:" />
-                        <p:outputLabel value="#{studentManager.student.name}" />
+                        <p:outputLabel for="name" value="Nome:" />
+                        <p:outputLabel id="name" value="#{studentManager.student.name}" />
                         
-                        <p:outputLabel value="Cognome:" />
-                        <p:outputLabel value="#{studentManager.student.surname}" />
+                        <p:outputLabel for="surname" value="Cognome:" />
+                        <p:outputLabel id="surname" value="#{studentManager.student.surname}" />
                         
-                        <p:outputLabel value="Matricola:" />
-                        <p:outputLabel value="#{studentManager.student.matriculationNumber}" />
+                        <p:outputLabel for="mat" value="Matricola:" />
+                        <p:outputLabel id="mat" value="#{studentManager.student.matriculationNumber}" />
                         
-                        <p:outputLabel value="Corso di Laurea:" />
-                        <p:outputLabel value="#{studentManager.student.degreeCourse.name}" />
+                        <p:outputLabel for="deg" value="Corso di Laurea:" />
+                        <p:outputLabel id="deg" value="#{studentManager.student.degreeCourse.name}" />
                     </h:panelGrid>
                 </p:panel>
             </ui:define>

@@ -1,6 +1,5 @@
 package progettoelle.registrazionevoti.controllers.student;
 
-import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -8,7 +7,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -45,9 +44,11 @@ public class BookExam {
         
         try {
             service.bookExam(student, selectedExam);
-            return "success?faces-redirect=true";
+            Messages.addFlashGlobalInfo("Prenotazione effettuata");
+            return "bookings?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.addFlashGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return "book-exam";
         }
     }
 

@@ -1,6 +1,5 @@
 package progettoelle.registrazionevoti.controllers.student;
 
-import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -8,6 +7,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -43,9 +43,11 @@ public class EnrollOnCourse {
         try {
             Course selectedCourse = availableCourses.getRowData();
             service.enrollOnCourse(student, selectedCourse);
-            return "success?faces-redirect=true";
+            Messages.addFlashGlobalInfo("Iscrizione avvenuta con successo");
+            return "enroll-on-course?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.addFlashGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return "enroll-on-course";
         }
     }
 
