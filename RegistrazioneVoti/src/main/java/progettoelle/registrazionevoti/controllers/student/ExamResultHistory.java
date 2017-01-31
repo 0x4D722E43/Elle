@@ -1,37 +1,48 @@
 package progettoelle.registrazionevoti.controllers.student;
 
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.manageexam.LoadExamResultHistoryService;
 
 @ManagedBean
 @RequestScoped
 public class ExamResultHistory {
     
-    private final LoadExamResultHistoryService service = new LoadExamResultHistoryService(new ExamResultRepositoryHibernate());
+    private final LoadExamResultHistoryService service = ServiceInjection.provideLoadExamResultHistoryService();
     
-    @ManagedProperty(value="#{studentSession.student}")
-    private Student student;
     private List<ExamResult> examResults;
 
+    @ManagedProperty(value="#{studentManager.student}")
+    private Student student;
+    
     public ExamResultHistory() {
     
     }
 
     @PostConstruct
-    public void initialize() {
+    public void initialize() throws IOException {
         try {
             examResults = service.getExamResultHistory(student);
         } catch (DataLayerException ex) {
-            
+            Faces.redirect("error.xhtml");
         }
+    }
+
+    public List<ExamResult> getExamResults() {
+        return examResults;
+    }
+
+    public void setExamResults(List<ExamResult> examResults) {
+        this.examResults = examResults;
     }
 
     public Student getStudent() {
@@ -42,12 +53,4 @@ public class ExamResultHistory {
         this.student = student;
     }
 
-    public List<ExamResult> getExamResults() {
-        return examResults;
-    }
-
-    public void setExamResults(List<ExamResult> examResults) {
-        this.examResults = examResults;
-    }
-    
 }

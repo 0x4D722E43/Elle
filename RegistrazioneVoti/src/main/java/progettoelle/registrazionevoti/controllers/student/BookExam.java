@@ -1,62 +1,54 @@
 package progettoelle.registrazionevoti.controllers.student;
 
+import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.ExamRepositoryHibernate;
-import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.manageexam.BookExamService;
 
 @ManagedBean
 @RequestScoped
 public class BookExam {
 
-    private final BookExamService service = new BookExamService(new ExamRepositoryHibernate(), new ExamResultRepositoryHibernate());
+    private final BookExamService service = ServiceInjection.provideBookExamService();
     
-    @ManagedProperty(value="#{studentSession.student}")
-    private Student student;
     private DataModel<Exam> availableExams;
+    
+    @ManagedProperty(value="#{studentManager.student}")
+    private Student student;
     
     public BookExam() {
     
     }
     
     @PostConstruct
-    public void initialize() {
+    public void initialize() throws IOException {
         try {
             List<Exam> exams = service.getBookableExams(student);
             availableExams = new ListDataModel<>(exams);
         } catch (DataLayerException ex) {
-            Logger.getLogger(EnrollOnCourse.class.getName()).log(Level.SEVERE, null, ex);
+            Faces.redirect("error.xhtml");
         }
     }
     
     public String bookExam() {
         Exam selectedExam = availableExams.getRowData();
+        
         try {
             service.bookExam(student, selectedExam);
             return "success?faces-redirect=true";
         } catch (DataLayerException ex) {
-            Logger.getLogger(BookExam.class.getName()).log(Level.SEVERE, null, ex);
             return "error?faces-redirect=true";
         }
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
     }
 
     public DataModel<Exam> getAvailableExams() {
@@ -65,6 +57,14 @@ public class BookExam {
 
     public void setAvailableExams(DataModel<Exam> availableExams) {
         this.availableExams = availableExams;
+    }
+
+    public Student getStudent() {
+        return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
     
 }

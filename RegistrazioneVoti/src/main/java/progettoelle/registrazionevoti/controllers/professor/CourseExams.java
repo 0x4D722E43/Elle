@@ -1,52 +1,50 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
+import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.FacesContext;
 import javax.faces.context.Flash;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.ExamRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.manageexam.OpenExamBookingsService;
 
 @ManagedBean
 @RequestScoped
 public class CourseExams {
     
-    private final OpenExamBookingsService service = new OpenExamBookingsService(new ExamRepositoryHibernate());
-    
-    @ManagedProperty(value = "#{flash}")
-    private Flash flash;
+    private final OpenExamBookingsService service = ServiceInjection.provideOpenExamBookingsService();
     
     private DataModel<Exam> exams;
-
+    
     public CourseExams() {
        
     }
     
     @PostConstruct
-    public void initialize() {
+    public void initialize() throws IOException {
+        Flash flash = Faces.getFlash();
+        Course course = (Course)flash.get("course");
+        flash.keep("course");
+        
         try {
-            Course course = (Course)flash.get("course");
-            flash.keep("course");
             List<Exam> results = service.getExams(course);
             exams = new ListDataModel<>(results);
         } catch (DataLayerException ex) {
-            
+            Faces.redirect("error.xhtml");
         }
     }
     
     public String openExamBookings() {
+        Exam exam = exams.getRowData();
+        
         try {
-            Exam exam = exams.getRowData();
             service.openExamBookings(exam);
             return "exams?faces-redirect=true";
         } catch (DataLayerException ex) {
@@ -55,8 +53,9 @@ public class CourseExams {
     }
         
     public String closeExamBookings() {
+        Exam exam = exams.getRowData();
+        
         try {
-            Exam exam = exams.getRowData();
             service.closeExamBookings(exam);
             return "exams?faces-redirect=true";
         } catch (DataLayerException ex) {
@@ -66,7 +65,7 @@ public class CourseExams {
     
     public String redirectToExamResults(){
         Exam selectedExam = exams.getRowData();
-        flash.put("exam", selectedExam);
+        Faces.getFlash().put("exam", selectedExam);
         return "exam-results?faces-redirect=true";
     }
 
@@ -78,12 +77,4 @@ public class CourseExams {
         this.exams = exams;
     }
 
-    public Flash getFlash() {
-        return flash;
-    }
-
-    public void setFlash(Flash flash) {
-        this.flash = flash;
-    }
-    
 }

@@ -1,18 +1,17 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
+import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.CourseRepositoryHibernate;
-import progettoelle.registrazionevoti.repositories.hibernate.DegreeCourseRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.managecourse.CreateCourseService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
@@ -20,26 +19,26 @@ import progettoelle.registrazionevoti.services.ValidationException;
 @RequestScoped
 public class CreateCourse {
 
-    private final CreateCourseService service = new CreateCourseService(new DegreeCourseRepositoryHibernate(), new CourseRepositoryHibernate());
-    
-    @ManagedProperty(value="#{professorSession.professor}")
-    private Professor professor;
+    private final CreateCourseService service = ServiceInjection.provideCreateCourseService();
     
     private String name;
     private int credits;
     private DegreeCourse selectedDegreeCourse;
     private List<DegreeCourse> availableDegreeCourses;
 
+    @ManagedProperty(value="#{professorManager.professor}")
+    private Professor professor;
+    
     public CreateCourse() {
     
     }
     
     @PostConstruct
-    public void initialize() {
+    public void initialize() throws IOException {
         try {
             availableDegreeCourses = service.getPossibleDegreeCourses();
         } catch (DataLayerException ex) {
-            Logger.getLogger(CreateCourse.class.getName()).log(Level.SEVERE, null, ex);
+            Faces.redirect("error.xhtml");
         }
     }
     
@@ -53,14 +52,6 @@ public class CreateCourse {
         } catch (DataLayerException ex) {
             return "error?faces-redirect=true";
         }
-    }
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
     }
 
     public String getName() {
@@ -94,5 +85,13 @@ public class CreateCourse {
     public void setAvailableDegreeCourses(List<DegreeCourse> availableDegreeCourses) {
         this.availableDegreeCourses = availableDegreeCourses;
     }
-    
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
 }

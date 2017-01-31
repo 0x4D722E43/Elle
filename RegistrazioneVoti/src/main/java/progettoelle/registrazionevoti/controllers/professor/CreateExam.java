@@ -1,5 +1,6 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
+import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -7,38 +8,38 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.CourseRepositoryHibernate;
-import progettoelle.registrazionevoti.repositories.hibernate.ExamRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.manageexam.CreateExamService;
 
 @ManagedBean
 @RequestScoped
 public class CreateExam {
     
-    private final CreateExamService service = new CreateExamService(new CourseRepositoryHibernate(), new ExamRepositoryHibernate());
-    
-    @ManagedProperty(value="#{professorSession.professor}")
-    private Professor professor;
+    private final CreateExamService service = ServiceInjection.provideCreateExamService();
     
     private Date date;
     private String room;
     private String description;
     private Course selectedCourse;
     private List<Course> availableCourses;
+    
+    @ManagedProperty(value="#{professorManager.professor}")
+    private Professor professor;
 
     public CreateExam() {
     
     }
 
     @PostConstruct
-    public void initialize() {
+    public void initialize() throws IOException {
         try {
             availableCourses = service.getPossibleCourses(professor);
         } catch (DataLayerException ex) {
-            
+            Faces.redirect("error.xhtml");
         }
     }
     
@@ -51,14 +52,6 @@ public class CreateExam {
         } catch (DataLayerException ex) {
             return "error?faces-redirect=true";
         }
-    }
-
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
     }
 
     public Date getDate() {
@@ -100,5 +93,13 @@ public class CreateExam {
     public void setAvailableCourses(List<Course> availableCourses) {
         this.availableCourses = availableCourses;
     }
-    
+
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
+    }
+
 }

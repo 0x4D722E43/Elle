@@ -1,38 +1,40 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
+import java.io.IOException;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.context.FacesContext;
-import javax.servlet.http.HttpSession;
+import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.account.UserAccountService;
 
 @ManagedBean
 @SessionScoped
 public class ProfessorManager {
-
-    private Professor professor;
-    private final UserAccountService userSessionService = new UserAccountService(new UserRepositoryHibernate());
     
+    private final UserAccountService service = ServiceInjection.provideUserAccountService();
+    
+    private Professor professor;
+   
     public ProfessorManager() {
     
     }
     
     @PostConstruct
-    public void initializeSession() {
-        String email = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+    public void initializeSession() throws IOException {
+        String email = Faces.getRemoteUser();
         
         try {
-            professor = (Professor)userSessionService.getUser(email);
-        } catch (DataLayerException ignored) { }
+            professor = (Professor)service.getUser(email);
+        } catch (DataLayerException ex) {
+            Faces.redirect("error.xhtml");
+        }
     }
     
     public String logout() {
-        HttpSession session = (HttpSession)FacesContext.getCurrentInstance().getExternalContext().getSession(false);
-        session.invalidate();
+        Faces.invalidateSession();
         return "/index?faces-redirect=true";
     }
 

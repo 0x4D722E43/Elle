@@ -1,9 +1,11 @@
 package progettoelle.registrazionevoti.controllers;
 
+import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.mail.MailException;
@@ -30,10 +32,12 @@ public class StudentRegistration {
     }
 
     @PostConstruct
-    public void initialize() {
+    public void initialize() throws IOException {
         try { 
             availableDegreeCourses = service.getPossibleDegreeCourses();
-        } catch (DataLayerException ignored) { }
+        } catch (DataLayerException ex) {
+            Faces.redirect("error.xhtml");
+        }
     }
 
     public String registerStudent() {

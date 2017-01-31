@@ -1,63 +1,51 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
+import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.Flash;
+import org.omnifaces.util.Faces;
 import org.primefaces.event.RowEditEvent;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
+import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
-import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean
 @ViewScoped
 public class ExamResults {
     
-    private final GradeExamService service = new GradeExamService(new ExamResultRepositoryHibernate());
+    private final GradeExamService service = ServiceInjection.provideGradeExamService();
     
-    @ManagedProperty(value = "#{flash}")
-    private Flash flash;
     private List<ExamResult> examResults;
-
+    
     public ExamResults() {
     
     }
     
     @PostConstruct
-    private void initialize() {
+    private void initialize() throws IOException {
+        Flash flash = Faces.getFlash();
+        Exam exam = (Exam)flash.get("exam");
+        flash.keep("exam");
+        
         try {
-            Exam exam = (Exam)flash.get("exam");
-            flash.keep("exam");
             examResults = service.getExamResults(exam);
         } catch (DataLayerException ex) {
-            
+            Faces.redirect("error.xhtml");
         }
     }
     
-    public void onRowEdit(RowEditEvent event) {
+    public void onRowEdit(RowEditEvent event) throws IOException {
         try {
             ExamResult examResult = (ExamResult)event.getObject();
             service.gradeExam(examResult.getGrade(), examResult);
-        } catch (ValidationException ex) {
-            Logger.getLogger(ExamResults.class.getName()).log(Level.SEVERE, null, ex);
         } catch (DataLayerException ex) {
-            Logger.getLogger(ExamResults.class.getName()).log(Level.SEVERE, null, ex);
+            Faces.redirect("error.xhtml");
         }
-    }
-
-    public Flash getFlash() {
-        return flash;
-    }
-
-    public void setFlash(Flash flash) {
-        this.flash = flash;
     }
 
     public List<ExamResult> getExamResults() {
@@ -68,9 +56,4 @@ public class ExamResults {
         this.examResults = examResults;
     }
 
-    
-    
-    
-    
-    
 }

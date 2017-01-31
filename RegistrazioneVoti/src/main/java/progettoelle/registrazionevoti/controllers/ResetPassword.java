@@ -24,7 +24,7 @@ public class ResetPassword {
     public String resetPassword() {
         try {
             service.resetPassword(email);
-            return "reset-password-success";
+            return "reset-password-success?faces-redirect=true";
         } catch (ValidationException ex) {
             Messages.addGlobalError(ex.getMessage());
             return "reset-password";
