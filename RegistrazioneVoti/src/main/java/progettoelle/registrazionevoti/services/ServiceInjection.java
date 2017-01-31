@@ -8,6 +8,7 @@ import progettoelle.registrazionevoti.repositories.hibernate.ExamRepositoryHiber
 import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
 import progettoelle.registrazionevoti.repositories.hibernate.FacultyRepositoryHibernate;
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
+import progettoelle.registrazionevoti.services.account.ChangePasswordService;
 import progettoelle.registrazionevoti.services.account.UserAccountService;
 import progettoelle.registrazionevoti.services.managecourse.CreateCourseService;
 import progettoelle.registrazionevoti.services.managecourse.EnrollOnCourseService;
@@ -29,6 +30,10 @@ public class ServiceInjection {
     
     public static UserAccountService provideUserAccountService() {
         return new UserAccountService(new UserRepositoryHibernate());
+    }
+    
+    public static ChangePasswordService provideChangePasswordService() {
+        return new ChangePasswordService(new UserRepositoryHibernate());
     }
     
     public static CreateCourseService provideCreateCourseService() {
