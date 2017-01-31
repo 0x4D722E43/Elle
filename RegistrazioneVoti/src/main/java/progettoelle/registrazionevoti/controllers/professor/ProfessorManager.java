@@ -1,6 +1,5 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
-import java.io.IOException;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -28,6 +27,14 @@ public class ProfessorManager {
         
         try {
             professor = (Professor)service.getUser(email);
+        } catch (DataLayerException ex) {
+            
+        }
+    }
+    
+    public void updateProfessorInfo() {
+        try {
+            service.updateUserInfo(professor);
         } catch (DataLayerException ex) {
             
         }
