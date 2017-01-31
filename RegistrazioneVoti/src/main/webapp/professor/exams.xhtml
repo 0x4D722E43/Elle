@@ -32,6 +32,10 @@
                             <p:commandButton value="APRI" action="#{professorExamsController.openExamBookings}" rendered="#{not exam.bookingOpen}"/>
                             <p:commandButton value="CHIUDI" action="#{professorExamsController.closeExamBookings}" rendered="#{exam.bookingOpen}"/>
                         </p:column>
+                        
+                        <p:column headerText="">
+                            <p:commandButton value="ESITI" action="#{professorExamsController.redirectToExamResults}"/>
+                        </p:column>
                     </p:dataTable>
                 </p:panel>
             </ui:define>

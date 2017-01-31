@@ -32,7 +32,7 @@ public class ExamResultRepositoryHibernate extends HibernateRepository implement
         
         try {
             transaction.begin();
-            String hql = "SELECT e FROM ExamResult e WHERE e.exam=:exam";
+            String hql = "SELECT e FROM ExamResult e WHERE e.exam=:exam AND (e.status='BOOKED' OR e.status='PASSED_PENDING' OR e.status='FAILED_PENDING')";
             results = entityManager.createQuery(hql).setParameter("exam", exam).getResultList();
             transaction.commit();
         } catch(PersistenceException ex) {

@@ -1,12 +1,45 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="/professor/home.xhtml" >
+            <ui:define name="title">Esiti</ui:define>
+            
+            <ui:define name="content">
+                <p:panel header="Esiti Esame">
+                    <h:form id="form">
+                        <p:dataTable id="table" value="#{professorExamResults.examResults}" var="result" editable="true">
+                            
+                            <p:ajax event="rowEdit" listener="#{professorExamResults.onRowEdit}" />
+                           
+                            <p:column headerText="Studente">
+                                <h:outputText value="#{result.student.name} #{result.student.surname}"/>
+                            </p:column>
+                            
+                            <p:column headerText="Matricola">
+                                <h:outputText value="#{result.student.matriculationNumber}"/>
+                            </p:column>
+                        
+                            <p:column headerText="Voto">
+                                <p:cellEditor>
+                                    <f:facet name="output"><h:outputText value="#{result.grade}"/></f:facet>
+                                    <f:facet name="input"><p:inputText value="#{result.grade}"/></f:facet>
+                                </p:cellEditor>
+                            </p:column>
+                            
+                            <p:column style="width:32px">
+                                <p:rowEditor />
+                            </p:column>
+                        </p:dataTable>
+                    </h:form>
+                </p:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
 </html>
 

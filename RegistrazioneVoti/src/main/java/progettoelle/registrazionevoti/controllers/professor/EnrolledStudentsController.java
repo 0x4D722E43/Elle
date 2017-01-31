@@ -1,20 +1,21 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.Flash;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import progettoelle.registrazionevoti.domain.Course;
-import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.EnrollmentRepositoryHibernate;
 import progettoelle.registrazionevoti.services.ManageEnrolledStudentsService;
 
+@ManagedBean
+@RequestScoped
 public class EnrolledStudentsController {
     
     private final ManageEnrolledStudentsService service = new ManageEnrolledStudentsService(new EnrollmentRepositoryHibernate());

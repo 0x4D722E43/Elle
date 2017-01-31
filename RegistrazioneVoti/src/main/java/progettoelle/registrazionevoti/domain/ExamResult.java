@@ -33,6 +33,10 @@ public class ExamResult extends BaseEntity {
         return grade;
     }
 
+    public void setGrade(Integer grade) {
+        this.grade = grade;
+    }
+    
     public Student getStudent() {
         return student;
     }

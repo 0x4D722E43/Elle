@@ -1,12 +1,38 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <body>
+        <ui:composition template="/professor/home.xhtml" >
+            <ui:define name="title">Iscritti</ui:define>
+            
+            <ui:define name="content">
+                <p:panel header="Iscritti al Corso">
+                    <p:dataTable value="#{enrolledStudentsController.enrolledStudents}" var="student">
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{student.name}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Cognome">
+                            <h:outputText value="#{student.surname}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Matricola">
+                            <h:outputText value="#{student.matriculationNumber}"/>
+                        </p:column>
+                        
+                        <p:column headerText="Email">
+                            <h:outputText value="#{student.email}"/>
+                        </p:column>
+                    </p:dataTable>
+                </p:panel>
+            </ui:define>
+        </ui:composition>
+    </body>
 </html>
+
 
