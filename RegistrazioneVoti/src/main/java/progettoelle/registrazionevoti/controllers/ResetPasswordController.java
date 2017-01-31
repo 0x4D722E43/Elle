@@ -7,7 +7,7 @@ import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MockEmailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
-import progettoelle.registrazionevoti.services.ResetPasswordService;
+import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean

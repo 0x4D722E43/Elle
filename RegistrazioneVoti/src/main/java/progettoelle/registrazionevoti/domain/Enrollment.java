@@ -17,7 +17,7 @@ public class Enrollment extends BaseEntity {
         completed = false;
     }
     
-    public void setCompleted(int grade) {
+    public void complete(int grade) {
         this.grade = grade;
         completed = true;
     }
@@ -40,7 +40,7 @@ public class Enrollment extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Enrollment{" + String.valueOf(getId()) + "}";
+        return "Enrollment { " + getId() + " }";
     }
     
 }

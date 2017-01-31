@@ -8,7 +8,7 @@ import javax.servlet.http.HttpSession;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
-import progettoelle.registrazionevoti.services.UserSessionService;
+import progettoelle.registrazionevoti.services.account.UserSessionService;
 
 @ManagedBean
 @SessionScoped

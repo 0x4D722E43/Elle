@@ -11,7 +11,7 @@ import progettoelle.registrazionevoti.mail.MockEmailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.DegreeCourseRepositoryHibernate;
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
-import progettoelle.registrazionevoti.services.RegisterStudentService;
+import progettoelle.registrazionevoti.services.registration.RegisterStudentService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean

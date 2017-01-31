@@ -13,7 +13,7 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.CourseRepositoryHibernate;
-import progettoelle.registrazionevoti.services.ManageCoursesService;
+import progettoelle.registrazionevoti.services.managecourse.ManageCoursesService;
 
 @ManagedBean
 @RequestScoped

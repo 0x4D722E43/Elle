@@ -41,7 +41,7 @@ public abstract class RegisteredUser extends BaseEntity {
 
     @Override
     public String toString() {
-        return "RegisteredUser{" + "email=" + email + '}';
+        return "User { email = " + email + " }";
     }
     
 }

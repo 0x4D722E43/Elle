@@ -13,7 +13,7 @@ import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
-import progettoelle.registrazionevoti.services.GradeExamService;
+import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean

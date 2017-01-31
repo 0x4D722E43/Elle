@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.services;
+package progettoelle.registrazionevoti.services.managecourse;
 
 import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;
@@ -7,6 +7,7 @@ import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.DegreeCourseRepository;
+import progettoelle.registrazionevoti.services.ValidationException;
 
 public final class CreateCourseService {
     

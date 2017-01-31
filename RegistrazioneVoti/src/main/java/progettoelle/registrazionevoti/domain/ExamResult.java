@@ -16,29 +16,11 @@ public class ExamResult extends BaseEntity {
         this.exam = exam;
         status = ExamResultStatus.BOOKED;
     }
-
-    public Exam getExam() {
-        return exam;
-    }
     
-    public ExamResultStatus getStatus() {
-        return status;
-    }
-
-    public Course getCourse() {
-        return exam.getCourse();
-    }
-
-    public Integer getGrade() {
-        return grade;
-    }
-
-    public void setGrade(Integer grade) {
+    public void grade(Integer grade) {
+        if (grade < 18) status = ExamResultStatus.FAILED_PENDING;
+        else if (grade >= 18) status = ExamResultStatus.PASSED_PENDING;
         this.grade = grade;
-    }
-    
-    public Student getStudent() {
-        return student;
     }
     
     public boolean isPassed() {
@@ -49,27 +31,37 @@ public class ExamResult extends BaseEntity {
         return status == ExamResultStatus.FAILED_PENDING;
     }
 
-    public void setStudent(Student student) {
-        this.student = student;
+    public Student getStudent() {
+        return student;
     }
     
-    public void setMark(Integer mark) {
-        this.grade = mark;
-        
-        if (mark < 18) {
-            status = ExamResultStatus.FAILED_PENDING;
-        } else if (mark >= 18) {
-            status = ExamResultStatus.PASSED_PENDING; 
-        }
+    public Exam getExam() {
+        return exam;
+    }
+    
+    public Integer getGrade() {
+        return grade;
+    }
+    
+    public ExamResultStatus getStatus() {
+        return status;
+    }
+
+    public Course getCourse() {
+        return exam.getCourse();
+    }
+
+    public void setGrade(Integer grade) {
+        this.grade = grade;
     }
     
     public void setStatus(ExamResultStatus status) {
         this.status = status;
     }
-
+    
     @Override
     public String toString() {
-        return "ExamResult{" + String.valueOf(getId()) + '}';
+        return "ExamResult { " + getId() + "}";
     }
     
 }

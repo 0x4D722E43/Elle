@@ -24,7 +24,7 @@ public class DegreeCourse extends BaseEntity {
 
     @Override
     public String toString() {
-        return "DegreeCourse{" + "name=" + name + '}';
+        return "DegreeCourse { name = " + name + " }";
     }
     
 }

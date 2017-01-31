@@ -18,7 +18,7 @@ public class Faculty extends BaseEntity {
 
     @Override
     public String toString() {
-        return "Faculty{" + "name=" + name + '}';
+        return "Faculty { name = " + name + "}";
     }
     
 }

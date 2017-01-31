@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.services;
+package progettoelle.registrazionevoti.services.account;
 
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;

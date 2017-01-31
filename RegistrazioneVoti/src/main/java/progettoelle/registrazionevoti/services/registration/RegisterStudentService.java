@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.services;
+package progettoelle.registrazionevoti.services.registration;
 
 import java.util.List;
 import java.util.regex.Pattern;
@@ -10,6 +10,7 @@ import progettoelle.registrazionevoti.mail.MailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.DegreeCourseRepository;
 import progettoelle.registrazionevoti.repositories.UserRepository;
+import progettoelle.registrazionevoti.services.ValidationException;
 
 public final class RegisterStudentService {
     

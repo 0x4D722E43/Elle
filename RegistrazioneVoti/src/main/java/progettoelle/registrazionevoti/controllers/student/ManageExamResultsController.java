@@ -12,7 +12,7 @@ import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.EnrollmentRepositoryHibernate;
 import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
-import progettoelle.registrazionevoti.services.AcceptExamResultService;
+import progettoelle.registrazionevoti.services.manageexam.AcceptExamResultService;
 
 @ManagedBean
 @RequestScoped

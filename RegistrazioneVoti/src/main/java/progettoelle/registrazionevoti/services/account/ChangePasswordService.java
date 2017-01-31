@@ -1,8 +1,9 @@
-package progettoelle.registrazionevoti.services;
+package progettoelle.registrazionevoti.services.account;
 
 import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.UserRepository;
+import progettoelle.registrazionevoti.services.ValidationException;
 
 public final class ChangePasswordService {
     

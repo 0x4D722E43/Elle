@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.services;
+package progettoelle.registrazionevoti.services.manageexam;
 
 import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;
@@ -28,7 +28,7 @@ public final class AcceptExamResultService {
         if (examResult.getStatus() == ExamResultStatus.PASSED_PENDING) {
             Course course = examResult.getCourse();
             Enrollment enrollment = enrollmentRepository.findEnrollmentByStudentAndCourse(student, course);
-            enrollment.setCompleted(examResult.getGrade());
+            enrollment.complete(examResult.getGrade());
             enrollmentRepository.updateEnrollment(enrollment);
             
             examResult.setStatus(ExamResultStatus.ACCEPTED);

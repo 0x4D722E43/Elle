@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.services;
+package progettoelle.registrazionevoti.services.registration;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import progettoelle.registrazionevoti.domain.RegisteredUser;
@@ -6,6 +6,7 @@ import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.UserRepository;
+import progettoelle.registrazionevoti.services.ValidationException;
 
 public final class ResetPasswordService {
     

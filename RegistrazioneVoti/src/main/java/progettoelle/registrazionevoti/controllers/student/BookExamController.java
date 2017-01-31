@@ -14,7 +14,7 @@ import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.hibernate.ExamRepositoryHibernate;
 import progettoelle.registrazionevoti.repositories.hibernate.ExamResultRepositoryHibernate;
-import progettoelle.registrazionevoti.services.BookExamService;
+import progettoelle.registrazionevoti.services.manageexam.BookExamService;
 
 @ManagedBean
 @RequestScoped

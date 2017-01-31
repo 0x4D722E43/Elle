@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.services;
+package progettoelle.registrazionevoti.services.manageexam;
 
 import java.util.Calendar;
 import java.util.List;

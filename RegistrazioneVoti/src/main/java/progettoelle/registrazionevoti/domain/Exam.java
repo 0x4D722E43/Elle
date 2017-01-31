@@ -29,6 +29,10 @@ public class Exam extends BaseEntity {
     public void close() {
         bookingOpen = false;
     }
+    
+    public Course getCourse() {
+        return course;
+    }
 
     public Calendar getDate() {
         return date;
@@ -46,13 +50,9 @@ public class Exam extends BaseEntity {
         return bookingOpen;
     }
     
-    public Course getCourse() {
-        return course;
-    }
-
     @Override
     public String toString() {
-        return "Exam{" + String.valueOf(getId()) + "course=" + course + ", date=" + date + ", room=" + room + '}';
+        return "Exam { " + getId() + " } ";
     }
     
 }
