@@ -35,7 +35,7 @@ public class EnrollOnCourse {
             List<Course> courses = service.getCoursesOnWhichStudentCanEnroll(student);
             availableCourses = new ListDataModel<>(courses);
         } catch (DataLayerException ex) {
-            
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
         }
     }
     

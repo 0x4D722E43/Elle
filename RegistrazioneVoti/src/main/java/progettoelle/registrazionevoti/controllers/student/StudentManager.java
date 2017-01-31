@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
@@ -27,7 +28,7 @@ public class StudentManager {
         try {
             student = (Student)userSessionService.getUser(email);
         } catch (DataLayerException ex) {
-            
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
         }
     }
     

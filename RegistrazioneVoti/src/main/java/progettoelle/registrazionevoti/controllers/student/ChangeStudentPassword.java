@@ -29,12 +29,14 @@ public class ChangeStudentPassword {
     public String changePassword() {
         try {
             service.changePassword(student, oldPassword, password, passwordConfirmation);
-            return "success?faces-redirect=true";
+            Messages.addFlashGlobalInfo("Password cambiata con successo");
+            return "change-password?faces-redirect=true";
         } catch (ValidationException ex) {
             Messages.addGlobalError(ex.getMessage());
             return "change-password";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return "change-password";
         }
     }
     

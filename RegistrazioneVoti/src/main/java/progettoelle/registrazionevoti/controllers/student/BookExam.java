@@ -35,7 +35,7 @@ public class BookExam {
             List<Exam> exams = service.getBookableExams(student);
             availableExams = new ListDataModel<>(exams);
         } catch (DataLayerException ex) {
-            
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
         }
     }
     
