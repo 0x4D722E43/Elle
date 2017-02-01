@@ -48,7 +48,7 @@ public class Grades {
             return "home?faces-redirect=true";
         } catch (DataLayerException ex) {
             Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
-            return "grades";
+            return null;
         }
     }
     
@@ -61,7 +61,7 @@ public class Grades {
             return "exams-history?faces-redirect=true";
         } catch (DataLayerException ex) {
             Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
-            return "grades";
+            return null;
         }
     }
     
@@ -73,7 +73,7 @@ public class Grades {
             return "exams-history?faces-redirect=true";
         } catch (DataLayerException ex) {
             Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
-            return "grades";
+            return null;
         }
     }
 

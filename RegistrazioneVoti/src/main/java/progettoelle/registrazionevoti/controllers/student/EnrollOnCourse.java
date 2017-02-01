@@ -43,11 +43,11 @@ public class EnrollOnCourse {
         try {
             Course selectedCourse = availableCourses.getRowData();
             service.enrollOnCourse(student, selectedCourse);
-            Messages.addFlashGlobalInfo("Iscrizione avvenuta con successo");
+            Messages.addFlashGlobalInfo("Ti sei iscritto al coso di " + selectedCourse.getName());
             return "enroll-on-course?faces-redirect=true";
         } catch (DataLayerException ex) {
-            Messages.addFlashGlobalError("Ooops.. Qualcosa non ha funzionato");
-            return "enroll-on-course";
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return null;
         }
     }
 

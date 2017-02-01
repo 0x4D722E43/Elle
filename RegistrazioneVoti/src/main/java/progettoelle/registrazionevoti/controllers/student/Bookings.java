@@ -44,11 +44,11 @@ public class Bookings {
         
         try {
             service.cancelExamBooking(selectedBooking);
-            Messages.addFlashGlobalInfo("Prenotazione annullata");
+            Messages.addFlashGlobalInfo("Prenotazione cancellata");
             return "bookings?faces-redirect=true";
         } catch (DataLayerException ex) {
             Messages.addFlashGlobalError("Ooops.. Qualcosa non ha funzionato");
-            return "bookings";
+            return null;
         }
     }
 

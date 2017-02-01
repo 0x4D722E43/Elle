@@ -47,8 +47,8 @@ public class BookExam {
             Messages.addFlashGlobalInfo("Prenotazione effettuata");
             return "bookings?faces-redirect=true";
         } catch (DataLayerException ex) {
-            Messages.addFlashGlobalError("Ooops.. Qualcosa non ha funzionato");
-            return "book-exam";
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return null;
         }
     }
 
