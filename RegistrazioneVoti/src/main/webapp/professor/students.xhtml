@@ -12,7 +12,7 @@
             
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Iscritti al Corso">
+                    <p:panel header="Iscritti al Corso di #{courseEnrolledStudents.course.name}">
                         <p:dataTable value="#{courseEnrolledStudents.enrolledStudents}" var="student">
                             <p:column headerText="Studente">
                                 <h:outputText value="#{student.name} #{student.surname}"/>

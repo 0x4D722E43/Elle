@@ -1,5 +1,7 @@
 package progettoelle.registrazionevoti.controllers.student;
 
+import java.io.Serializable;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -12,10 +14,13 @@ import progettoelle.registrazionevoti.services.account.UserAccountService;
 
 @ManagedBean
 @SessionScoped
-public class StudentManager {
+public class StudentManager implements Serializable {
+
+    private static final long serialVersionUID = 7384720692222530484L;
+    
+    private final UserAccountService userSessionService = ServiceInjection.provideUserAccountService();
     
     private Student student;
-    private final UserAccountService userSessionService = ServiceInjection.provideUserAccountService();
     
     public StudentManager(){
         
@@ -45,4 +50,23 @@ public class StudentManager {
         this.student = student;
     }
 
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 29 * hash + Objects.hashCode(this.student.getId());
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null) return false;
+        if (getClass() != obj.getClass()) return false;
+        
+        final StudentManager other = (StudentManager) obj;
+        if (!Objects.equals(this.student.getId(), other.student.getId())) return false;
+        
+        return true;
+    }
+    
 }

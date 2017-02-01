@@ -4,7 +4,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.Flash;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import org.omnifaces.util.Faces;
@@ -20,6 +19,7 @@ public class CourseEnrolledStudents {
     
     private final LoadEnrolledStudentsService service = ServiceInjection.provideLoadEnrolledStudentsService();
     
+    private Course course = Faces.getFlashAttribute(Course.class.getName());
     private DataModel<Student> enrolledStudents;
 
     public CourseEnrolledStudents() {
@@ -28,16 +28,22 @@ public class CourseEnrolledStudents {
     
     @PostConstruct
     public void initialize() {
-        Flash flash = Faces.getFlash();
-        Course course = (Course)flash.get("course");
-        flash.keep("course");
-        
         try {
             List<Student> results = service.getEnrolledStudents(course);
             enrolledStudents = new ListDataModel<>(results);
         } catch (DataLayerException ex) {
             
         }
+        
+        Faces.getFlash().keep(Course.class.getName()); 
+    }
+    
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
     
     public DataModel<Student> getEnrolledStudents() {

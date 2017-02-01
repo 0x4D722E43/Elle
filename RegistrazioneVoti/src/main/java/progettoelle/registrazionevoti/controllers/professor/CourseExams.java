@@ -2,8 +2,8 @@ package progettoelle.registrazionevoti.controllers.professor;
 
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
@@ -21,8 +21,7 @@ public class CourseExams {
     
     private final OpenExamBookingsService service = ServiceInjection.provideOpenExamBookingsService();
     
-    @ManagedProperty(value ="#{flash['course']}")
-    private Course course;
+    private Course course = Faces.getFlashAttribute(Course.class.getName());
     private DataModel<Exam> exams;
     
     public CourseExams() {
@@ -38,14 +37,14 @@ public class CourseExams {
             
         }
         
-        Faces.getFlash().keep("course");
+        Faces.getFlash().keep(Course.class.getName());
     }
     
     public String openExamBookings() {
-        Exam exam = exams.getRowData();
+        Exam selectedExam = exams.getRowData();
         
         try {
-            service.openExamBookings(exam);
+            service.openExamBookings(selectedExam);
             String title = "Iscrizioni aperte!";
             Messages.create(title).flash().add("growl");
             return "exams?faces-redirect=true";
@@ -56,10 +55,10 @@ public class CourseExams {
     }
         
     public String closeExamBookings() {
-        Exam exam = exams.getRowData();
+        Exam selectedExam = exams.getRowData();
         
         try {
-            service.closeExamBookings(exam);
+            service.closeExamBookings(selectedExam);
             String title = "Iscrizioni chiuse!";
             Messages.create(title).flash().add("growl");
             return "exams?faces-redirect=true";
