@@ -9,6 +9,7 @@ import javax.faces.context.Flash;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -21,18 +22,17 @@ public class CourseExams {
     
     private final OpenExamBookingsService service = ServiceInjection.provideOpenExamBookingsService();
     
+    private Course course;
     private DataModel<Exam> exams;
     
     public CourseExams() {
-       
+        Flash flash = Faces.getFlash();
+        course = (Course)flash.get("course");
+        flash.keep("course");
     }
     
     @PostConstruct
     public void initialize() {
-        Flash flash = Faces.getFlash();
-        Course course = (Course)flash.get("course");
-        flash.keep("course");
-        
         try {
             List<Exam> results = service.getExams(course);
             exams = new ListDataModel<>(results);
@@ -46,9 +46,12 @@ public class CourseExams {
         
         try {
             service.openExamBookings(exam);
+            String title = "Iscrizioni aperte!";
+            Messages.create(title).flash().add("growl");
             return "exams?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.create("Oooops...").error().add("growl");
+            return null;
         }
     }
         
@@ -57,9 +60,12 @@ public class CourseExams {
         
         try {
             service.closeExamBookings(exam);
+            String title = "Iscrizioni chiuse!";
+            Messages.create(title).flash().add("growl");
             return "exams?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.create("Oooops...").error().add("growl");
+            return null;
         }
     }
     
@@ -69,6 +75,14 @@ public class CourseExams {
         return "exam-results?faces-redirect=true";
     }
 
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
+    
     public DataModel<Exam> getExams() {
         return exams;
     }

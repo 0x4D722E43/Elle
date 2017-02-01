@@ -11,25 +11,23 @@
             <ui:define name="title">Iscritti</ui:define>
             
             <ui:define name="content">
-                <p:panel header="Iscritti al Corso">
-                    <p:dataTable value="#{courseEnrolledStudents.enrolledStudents}" var="student">
-                        <p:column headerText="Nome">
-                            <h:outputText value="#{student.name}"/>
-                        </p:column>
+                <h:form>
+                    <p:panel header="Iscritti al Corso">
+                        <p:dataTable value="#{courseEnrolledStudents.enrolledStudents}" var="student">
+                            <p:column headerText="Nome">
+                                <h:outputText value="#{student.name}"/>
+                            </p:column>
                         
-                        <p:column headerText="Cognome">
-                            <h:outputText value="#{student.surname}"/>
-                        </p:column>
+                            <p:column headerText="Cognome">
+                                <h:outputText value="#{student.surname}"/>
+                            </p:column>
                         
-                        <p:column headerText="Matricola">
-                            <h:outputText value="#{student.matriculationNumber}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Email">
-                            <h:outputText value="#{student.email}"/>
-                        </p:column>
-                    </p:dataTable>
-                </p:panel>
+                            <p:column headerText="Email">
+                                <h:outputText value="#{student.email}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

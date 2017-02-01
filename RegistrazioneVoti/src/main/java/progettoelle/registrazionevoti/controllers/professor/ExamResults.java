@@ -19,18 +19,17 @@ public class ExamResults {
     
     private final GradeExamService service = ServiceInjection.provideGradeExamService();
     
+    private Exam exam;
     private List<ExamResult> examResults;
     
     public ExamResults() {
-    
+        Flash flash = Faces.getFlash();
+        exam = (Exam)flash.get("exam");
+        flash.keep("exam");
     }
     
     @PostConstruct
     private void initialize() {
-        Flash flash = Faces.getFlash();
-        Exam exam = (Exam)flash.get("exam");
-        flash.keep("exam");
-        
         try {
             examResults = service.getExamResults(exam);
         } catch (DataLayerException ex) {
@@ -47,6 +46,14 @@ public class ExamResults {
         }
     }
 
+    public Exam getExam() {
+        return exam;
+    }
+
+    public void setExam(Exam exam) {
+        this.exam = exam;
+    }
+    
     public List<ExamResult> getExamResults() {
         return examResults;
     }
