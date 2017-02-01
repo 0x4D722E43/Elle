@@ -9,31 +9,36 @@
     <body>
         <ui:composition template="/professor/home.xhtml" >
             <ui:define name="title">Crea Corso</ui:define>
+            
             <ui:define name="content">
-                <h:form>
-                    <p:panel header="Crea Corso">
-                        <h:panelGrid id="grid" columns="2" cellpadding="5">
+                <p:panel header="Crea Corso">
+                    <h:form>
+                        <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="name" value="Name:" />
                             <p:inputText id="name" value="#{createCourse.name}" required="true" requiredMessage="Inserisci nome del corso"/>
+                            <p:message for="name" display="text" />
                             
                             <p:outputLabel for="credits" value="Crediti:" />
-                            <p:inputText id="credits" value="#{createCourse.credits}" required="true" requiredMessage="Inserisci crediti del corso">
-                                <f:validateLongRange minimum="3" maximum="12"/>
+                            <p:inputText id="credits" value="#{createCourse.credits}" validatorMessage="Il numero di crediti deve essere tra 3 e 12" >
+                                <f:validateLongRange minimum="3" maximum="12" />
                             </p:inputText>
+                            <p:message for="credits" display="text"/>
                             
                             <p:outputLabel for="degCor" value="Corso di Laurea:" />
                             <p:selectOneMenu id="degCor" value="#{createCourse.selectedDegreeCourse}" required="true" requiredMessage="Seleziona un Corso di Laurea" converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem itemLabel="Seleziona Corso di Laurea" noSelectionOption="true"/>
                                 <f:selectItems value="#{createCourse.availableDegreeCourses}" var="degreeCourse" itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
                             </p:selectOneMenu> 
-                            <p:column/>
+                            <p:message for="degCor" display="text" />
                         </h:panelGrid>
                         
-                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+                        <p:messages for="validation" showDetail="false" autoUpdate="true" closable="true" />
                        
-                        <p:commandButton id="submitButton" action="#{createCourse.createCourse}" value="Crea"/> 
-                    </p:panel>
-                </h:form>
+                        <p:commandButton id="submitButton" action="#{createCourse.createCourse}" value="Crea" update="grid"/>
+                        
+                        <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
+                    </h:form>
+                </p:panel>
             </ui:define>
         </ui:composition>
     </body>

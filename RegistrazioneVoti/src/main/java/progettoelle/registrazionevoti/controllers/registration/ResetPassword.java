@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.controllers;
+package progettoelle.registrazionevoti.controllers.registration;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;

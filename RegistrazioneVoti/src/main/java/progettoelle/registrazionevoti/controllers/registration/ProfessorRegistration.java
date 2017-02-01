@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.controllers;
+package progettoelle.registrazionevoti.controllers.registration;
 
 import java.util.List;
 import javax.annotation.PostConstruct;

@@ -28,19 +28,23 @@
             
             <ui:define name="content">
                 <p:panel header="I tuoi corsi">
-                    <p:dataTable value="#{courses.courses}" var="course">
-                        <p:column headerText="Corso">
-                            <h:outputText value="#{course.name}"/>
-                        </p:column>
+                    <h:form>
+                        <p:dataTable value="#{courses.courses}" var="course">
+                            <p:column headerText="Corso">
+                                <h:outputText value="#{course.name}"/>
+                            </p:column>
                     
-                        <p:column headerText="">
-                            <p:commandButton value="Vedi Esami" action="#{courses.redirectToCourseExams}"/>
-                        </p:column>
+                            <p:column headerText="">
+                                <p:commandButton value="Vedi Esami" action="#{courses.redirectToCourseExams}"/>
+                            </p:column>
                         
-                        <p:column headerText="">
-                            <p:commandButton value="Vedi Iscritti" action="#{courses.redirectToCourseEnrolledStudents}"/>
-                        </p:column>
+                            <p:column headerText="">
+                                <p:commandButton value="Vedi Iscritti" action="#{courses.redirectToCourseEnrolledStudents}"/>
+                            </p:column>
                     </p:dataTable>
+                
+                    <p:growl autoUpdate="true" showDetail="true" life="5000"/>
+                    </h:form>
                 </p:panel>
             </ui:define>
         </ui:composition>
