@@ -27,8 +27,8 @@
             </ui:define>
             
             <ui:define name="content">
-                <p:panel header="I tuoi corsi">
-                    <h:form>
+                <h:form>    
+                    <p:panel header="I tuoi corsi">
                         <p:dataTable value="#{courses.courses}" var="course">
                             <p:column headerText="Corso">
                                 <h:outputText value="#{course.name}"/>
@@ -41,11 +41,11 @@
                             <p:column headerText="">
                                 <p:commandButton value="Vedi Iscritti" action="#{courses.redirectToCourseEnrolledStudents}"/>
                             </p:column>
-                    </p:dataTable>
-                
+                        </p:dataTable>
+                    </p:panel>
+                    
                     <p:growl autoUpdate="true" showDetail="true" life="5000"/>
-                    </h:form>
-                </p:panel>
+                </h:form>    
             </ui:define>
         </ui:composition>
     </body>

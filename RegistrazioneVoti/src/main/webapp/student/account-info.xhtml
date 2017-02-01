@@ -10,24 +10,26 @@
             <ui:define name="title">Account</ui:define>
             
             <ui:define name="content">
-                <p:panel header="Account Info">
-                    <h:panelGrid columns="2" cellpadding="5">
-                        <p:outputLabel for="email" value="Email:" />
-                        <p:outputLabel id="email" value="#{studentManager.student.email}" />
+                <h:form>
+                    <p:panel header="Account Info">
+                        <h:panelGrid columns="2" cellpadding="5">
+                            <p:outputLabel for="email" value="Email:" />
+                            <p:outputLabel id="email" value="#{studentManager.student.email}" />
+                                
+                            <p:outputLabel for="name" value="Nome:" />
+                            <p:outputLabel id="name" value="#{studentManager.student.name}" />
+                                
+                            <p:outputLabel for="surname" value="Cognome:" />
+                            <p:outputLabel id="surname" value="#{studentManager.student.surname}" />
                         
-                        <p:outputLabel for="name" value="Nome:" />
-                        <p:outputLabel id="name" value="#{studentManager.student.name}" />
+                            <p:outputLabel for="mat" value="Matricola:" />
+                            <p:outputLabel id="mat" value="#{studentManager.student.matriculationNumber}" />
                         
-                        <p:outputLabel for="surname" value="Cognome:" />
-                        <p:outputLabel id="surname" value="#{studentManager.student.surname}" />
-                        
-                        <p:outputLabel for="mat" value="Matricola:" />
-                        <p:outputLabel id="mat" value="#{studentManager.student.matriculationNumber}" />
-                        
-                        <p:outputLabel for="deg" value="Corso di Laurea:" />
-                        <p:outputLabel id="deg" value="#{studentManager.student.degreeCourse.name}" />
-                    </h:panelGrid>
-                </p:panel>
+                            <p:outputLabel for="deg" value="Corso di Laurea:" />
+                            <p:outputLabel id="deg" value="#{studentManager.student.degreeCourse.name}" />
+                        </h:panelGrid> 
+                    </p:panel> 
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

@@ -30,12 +30,15 @@ public class ChangeProfessorPassword {
     public String changePassword() {
         try {
             service.changePassword(professor, oldPassword, password, passwordConfirmation);
-            return "success?faces-redirect=true";
+            String title = "Password cambiata!";
+            Messages.create(title).flash().add("growl");
+            return "change-password?faces-redirect=true";
         } catch (ValidationException ex) {
-            Messages.addGlobalError(ex.getMessage());
-            return "change-password";
+            Messages.create(ex.getMessage()).error().add("validation");
+            return null;
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.create("Oooops...").add("growl");
+            return null;
         }
     }
     

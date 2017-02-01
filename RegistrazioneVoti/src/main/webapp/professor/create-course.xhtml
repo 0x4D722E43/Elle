@@ -11,8 +11,9 @@
             <ui:define name="title">Crea Corso</ui:define>
             
             <ui:define name="content">
-                <p:panel header="Crea Corso">
-                    <h:form>
+                <h:form>
+                    <p:panel header="Crea Corso">
+                    
                         <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="name" value="Name:" />
                             <p:inputText id="name" value="#{createCourse.name}" required="true" requiredMessage="Inserisci nome del corso"/>
@@ -35,10 +36,10 @@
                         <p:messages for="validation" showDetail="false" autoUpdate="true" closable="true" />
                        
                         <p:commandButton id="submitButton" action="#{createCourse.createCourse}" value="Crea" update="grid"/>
-                        
-                        <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
-                    </h:form>
-                </p:panel>
+                    </p:panel>
+                    
+                    <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

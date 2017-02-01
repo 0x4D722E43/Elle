@@ -10,8 +10,8 @@
         <ui:composition template="/index.xhtml" >
             <ui:define name="title">Registrati</ui:define>
             <ui:define name="content">
-                <p:panel header="Registra Professore">
-                    <h:form>
+                <h:form>
+                    <p:panel header="Registra Professore">
                         <h:panelGrid id="grid" columns="4" cellpadding="5">
                             <p:outputLabel for="email" value="Email:" />
                             <p:inputText id="email" value="#{professorRegistration.email}" required="true" requiredMessage="Il campo email non può essere vuoto"/>
@@ -40,10 +40,10 @@
                         <p:messages for="validation" showDetail="false" closable="true" autoUpdate="true"/>
                         
                         <p:commandButton id="submitButton" action="#{professorRegistration.registerProfessor}" value="Registrati" update="grid"/>
+                    </p:panel>
                     
-                        <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
-                    </h:form>
-                </p:panel>
+                    <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

@@ -11,27 +11,29 @@
             <ui:define name="title">Storico Esami</ui:define>
             
             <ui:define name="content">
-                <p:panel header="Storico Esami">
-                    <p:dataTable value="#{examResultHistory.examResults}" var="result">
-                        <p:column headerText="Corso">
-                            <h:outputText value="#{result.course.name}"/>
-                        </p:column>
+                <h:form>
+                    <p:panel header="Storico Esami">
+                        <p:dataTable value="#{examResultHistory.examResults}" var="result">
+                            <p:column headerText="Corso">
+                                <h:outputText value="#{result.course.name}"/>
+                            </p:column>
                         
-                        <p:column headerText="Data">
-                            <h:outputText value="#{result.exam.date.time}">
-                                <f:convertDateTime pattern="d MMMM yyyy" timeZone="Europe/Rome"/>
-                            </h:outputText>
-                        </p:column>
+                           <p:column headerText="Data">
+                               <h:outputText value="#{result.exam.date.time}">
+                                    <f:convertDateTime pattern="d MMMM yyyy" timeZone="Europe/Rome"/>
+                                </h:outputText>
+                            </p:column>
                         
-                        <p:column headerText="Voto">
-                            <h:outputText value="#{result.grade}"/>
-                        </p:column>
+                            <p:column headerText="Voto">
+                                <h:outputText value="#{result.grade}"/>
+                            </p:column>
                         
-                        <p:column headerText="">
-                            <h:outputText value="#{result.status}"/>
-                        </p:column>
-                    </p:dataTable>
-                </p:panel>
+                            <p:column headerText="">
+                                <h:outputText value="#{result.status}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel> 
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

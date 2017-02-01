@@ -10,8 +10,8 @@
         <ui:composition template="/professor/home.xhtml" >
             <ui:define name="title">Crea Esame</ui:define>
             <ui:define name="content">
-                <p:panel header="Crea Esame">    
-                    <h:form>
+                <h:form>
+                    <p:panel header="Crea Esame">    
                         <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="course" value="Corso:" />
                             <p:selectOneMenu id="course" value="#{createExam.selectedCourse}" required="true" requiredMessage="Seleziona un Corso" converter="omnifaces.SelectItemsConverter">
@@ -34,10 +34,10 @@
                         </h:panelGrid>
                         
                         <p:commandButton id="submitButton" action="#{createExam.createExam}" value="Crea" update="grid" /> 
+                    </p:panel>
                     
-                        <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
-                    </h:form>
-                </p:panel>
+                    <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>
