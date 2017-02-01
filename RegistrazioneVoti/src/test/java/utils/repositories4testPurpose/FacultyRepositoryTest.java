@@ -6,10 +6,16 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.FacultyRepository;
 
 public class FacultyRepositoryTest implements FacultyRepository{
+    private TestDataBase db;
 
+    public FacultyRepositoryTest(TestDataBase db) {
+        this.db = db;
+    }
+    
+    
     @Override
     public List<Faculty> findAllFaculties() throws DataLayerException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return db.getFaculties();
     }
 
 }

@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
-import org.omnifaces.util.Faces;
 import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Faculty;
 import progettoelle.registrazionevoti.mail.MailException;

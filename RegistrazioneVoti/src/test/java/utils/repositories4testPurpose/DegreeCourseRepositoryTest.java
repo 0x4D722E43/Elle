@@ -6,10 +6,16 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.DegreeCourseRepository;
 
 public class  DegreeCourseRepositoryTest implements DegreeCourseRepository{
+    private TestDataBase db;
 
+    public DegreeCourseRepositoryTest(TestDataBase db) {
+        this.db = db;
+    }
+    
+    
     @Override
     public List<DegreeCourse> findAllDegreeCourses() throws DataLayerException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return db.getDegreeCourses();
     }
     
 

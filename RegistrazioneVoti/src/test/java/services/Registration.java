@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
 import org.hamcrest.Description;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -29,6 +28,7 @@ import progettoelle.registrazionevoti.services.registration.ResetPasswordService
 import utils.MailServiceTest;
 import utils.repositories4testPurpose.DegreeCourseRepositoryTest;
 import utils.repositories4testPurpose.FacultyRepositoryTest;
+import utils.repositories4testPurpose.TestDataBase;
 import utils.repositories4testPurpose.UserRepositoryTest;
 
 /**
@@ -41,6 +41,7 @@ public class Registration {
     private UserRepositoryTest ur;
     private DegreeCourseRepositoryTest dcr;
     private MailServiceTest ms;
+    private TestDataBase db;
 
     public Registration() {
     }
@@ -55,9 +56,11 @@ public class Registration {
 
     @Before
     public void setUp() {
-        fr = new FacultyRepositoryTest();
-        ur = new UserRepositoryTest();
-        dcr = new DegreeCourseRepositoryTest();
+        db = new TestDataBase();
+        db.init();
+        fr = new FacultyRepositoryTest(db);
+        ur = new UserRepositoryTest(db);
+        dcr = new DegreeCourseRepositoryTest(db);
         ms = new MailServiceTest();
     }
 
@@ -148,7 +151,7 @@ public class Registration {
             public boolean matches(Object o) {
                 MailServiceTest ms = (MailServiceTest) o;
                 if (!ms.getLastEmail().equals(u.getEmail())
-                        | !ms.getLastSubject().equalsIgnoreCase("Recupero password")) {
+                        | !ms.getLastSubject().equalsIgnoreCase("Password dimenticata")) {
                     return false;
                 }
                 return true;

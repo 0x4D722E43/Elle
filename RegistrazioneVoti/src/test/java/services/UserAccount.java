@@ -18,6 +18,7 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ValidationException;
 import progettoelle.registrazionevoti.services.account.ChangePasswordService;
 import progettoelle.registrazionevoti.services.account.UserAccountService;
+import utils.repositories4testPurpose.TestDataBase;
 import utils.repositories4testPurpose.UserRepositoryTest;
 
 /**
@@ -27,6 +28,7 @@ import utils.repositories4testPurpose.UserRepositoryTest;
 public class UserAccount {
 
     private UserRepositoryTest repository;
+    private TestDataBase db;
 
     public UserAccount() {
     }
@@ -41,7 +43,9 @@ public class UserAccount {
 
     @Before
     public void setUp() {
-        repository = new UserRepositoryTest();
+        db = new TestDataBase();
+        db.init();
+        repository = new UserRepositoryTest(db);
     }
 
     @After
