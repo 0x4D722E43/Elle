@@ -5,19 +5,17 @@
  */
 package services;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ValidationException;
 import progettoelle.registrazionevoti.services.account.ChangePasswordService;
 import progettoelle.registrazionevoti.services.account.UserAccountService;
+
 import utils.repositories4testPurpose.TestDataBase;
 import utils.repositories4testPurpose.UserRepositoryTest;
 
@@ -29,17 +27,6 @@ public class UserAccount {
 
     private UserRepositoryTest repository;
     private TestDataBase db;
-
-    public UserAccount() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
 
     @Before
     public void setUp() {
@@ -60,45 +47,63 @@ public class UserAccount {
             RegisteredUser u = uas.getUser("alessandro.delpiero01@universitadipavia.it");
             assertNotNull(u);
             assertTrue(u.checkPassword("password"));
-
         } catch (DataLayerException ex) {
             fail("user not found");
         }
-        fail("Not yet complete");
     }
 
     @Test
-    public void changeInfo() {
+    public void getNotExistingUser() {
         UserAccountService uas = new UserAccountService(repository);
         assertNotNull("User account-service is null", uas);
         try {
-            RegisteredUser u = uas.getUser("alessandro.delpiero01@universitadipavia.it");
-            assertNotNull(u);
-            assertTrue(u.checkPassword("password"));
-           //???????????????????????PPOOOORCO CHE CAZZO SERVE UPDATE USER SE NON CI SONO I SETTER
-           /////////////////////////////CHE PER COSA DOVREI CAMBIARE LA PASSWORD?
-           /////////////////////////////HAI FATTO UN SERVIZIO APPOSTA!!!
+            RegisteredUser u = uas.getUser("UtenteInventato@universitadipavia.it");
+            assertNull(u);
         } catch (DataLayerException ex) {
             fail("user not found");
         }
-        fail("Not yet complete");
     }
 
     @Test
-    public void changePassword() {        
+    public void changePassword() {
         UserAccountService uas = new UserAccountService(repository);
         ChangePasswordService cps = new ChangePasswordService(repository);
         assertNotNull("Change password-service is null", cps);
         try {
             RegisteredUser u = uas.getUser("alessandro.delpiero01@universitadipavia.it");
-            assertTrue(u.checkPassword("password"));
-            cps.changePassword(u, "password", "newPassword" ,"newPassword");
+            cps.changePassword(u, "password", "newPassword", "newPassword");
             u = uas.getUser("alessandro.delpiero01@universitadipavia.it");
             assertTrue(u.checkPassword("newPassword"));
         } catch (DataLayerException ex) {
             fail("user not found");
         } catch (ValidationException ex) {
-            Logger.getLogger(UserAccount.class.getName()).log(Level.SEVERE, null, ex);
+            fail();
+        }
+    }
+
+    @Test(expected = ValidationException.class)
+    public void changePasswordWithWrongOldOne() throws ValidationException {
+
+        UserAccountService uas = new UserAccountService(repository);
+        ChangePasswordService cps = new ChangePasswordService(repository);
+        try {
+            RegisteredUser u = uas.getUser("alessandro.delpiero01@universitadipavia.it");
+            cps.changePassword(u, "wrongPassword", "newPassword", "newPassword");
+        } catch (DataLayerException ex) {
+            fail("user not found");
+        }
+    }
+
+    @Test(expected = ValidationException.class)
+    public void changePasswordWithWrongNewOneConfirm() throws ValidationException {
+
+        UserAccountService uas = new UserAccountService(repository);
+        ChangePasswordService cps = new ChangePasswordService(repository);
+        try {
+            RegisteredUser u = uas.getUser("alessandro.delpiero01@universitadipavia.it");
+            cps.changePassword(u, "password", "newPassword", "WrongNewPassword");
+        } catch (DataLayerException ex) {
+            fail("user not found");
         }
     }
 }

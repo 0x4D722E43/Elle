@@ -7,15 +7,17 @@ package services;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import org.hamcrest.Description;
+
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.domain.Student;
@@ -25,6 +27,7 @@ import progettoelle.registrazionevoti.services.ValidationException;
 import progettoelle.registrazionevoti.services.registration.RegisterProfessorService;
 import progettoelle.registrazionevoti.services.registration.RegisterStudentService;
 import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
+
 import utils.MailServiceTest;
 import utils.repositories4testPurpose.DegreeCourseRepositoryTest;
 import utils.repositories4testPurpose.FacultyRepositoryTest;
@@ -42,17 +45,6 @@ public class Registration {
     private DegreeCourseRepositoryTest dcr;
     private MailServiceTest ms;
     private TestDataBase db;
-
-    public Registration() {
-    }
-
-    @BeforeClass
-    public static void setUpClass() {
-    }
-
-    @AfterClass
-    public static void tearDownClass() {
-    }
 
     @Before
     public void setUp() {
@@ -93,7 +85,7 @@ public class Registration {
 
                 @Override
                 public void describeTo(Description d) {
-                    d.appendText("a cosa serivirà? boh boh chi lo sà");
+                    d.appendText("Wrong or missing confirm mail");
                 }
             });
         }
@@ -124,7 +116,7 @@ public class Registration {
 
                 @Override
                 public void describeTo(Description d) {
-                    d.appendText("a cosa serivirà? boh boh chi lo sà");
+                    d.appendText("Wrong or missing confirm mail");
                 }
             });
         }
@@ -159,7 +151,7 @@ public class Registration {
 
             @Override
             public void describeTo(Description d) {
-                d.appendText("a cosa serivirà? boh boh chi lo sà");
+                d.appendText("Wrong or missing confirm mail");
             }
         });
         try {
@@ -183,7 +175,7 @@ public class Registration {
 
     private List<Professor> getNewProfessors() {
         ArrayList<Professor> out = new ArrayList<>();
-        for (int i = 0; i < 42; i++) {
+        for (int i = 0; i < 10; i++) {
             Professor p = new Professor("proffessor." + i + "@unipv.it",
                     "Nome_prof" + i, "Cognome_prof" + i, null);
         }
