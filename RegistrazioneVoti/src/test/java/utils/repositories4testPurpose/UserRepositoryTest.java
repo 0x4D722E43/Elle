@@ -17,9 +17,9 @@ public class UserRepositoryTest implements UserRepository {
     @Override
     public void createUser(RegisteredUser user) throws DataLayerException {
         if (user instanceof Professor) {
-
+            db.getProfessors().add((Professor)user);
         } else {
-
+            db.getStudents().add((Student)user);
         }
     }
 

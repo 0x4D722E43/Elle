@@ -10,4 +10,4 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses({services.Registration.class, services.UserAccount.class, services.Exam.class, services.Courses.class})
-public class TestSuite {}
+public class TestService {}

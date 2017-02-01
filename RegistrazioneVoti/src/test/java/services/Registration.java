@@ -66,7 +66,9 @@ public class Registration {
         List<Student> ss = getStudents();
         for (final Student s : ss) {
             try {
+                assertNull(ur.findUserByEmail(s.getEmail()));
                 rss.registerStudent(s.getEmail(), s.getName(), s.getSurname(), s.getMatriculationNumber(), dcr.findAllDegreeCourses().get(0));
+                assertNotNull("Not actualy registered",ur.findUserByEmail(s.getEmail()));
             } catch (ValidationException | DataLayerException | MailException ex) {
                 assertFalse(ex.getMessage(), true);
             }
@@ -76,7 +78,7 @@ public class Registration {
                 public boolean matches(Object o) {
                     MailServiceTest ms = (MailServiceTest) o;
                     if (!ms.getLastEmail().equals(s.getEmail())
-                            | !ms.getLastSubject().equals("Benvenuto Studente")
+                            | !ms.getLastSubject().equalsIgnoreCase("Benvenuto Studente")
                             | !ms.getLastMessage().contains(s.getName())) {
                         return false;
                     }
@@ -97,7 +99,9 @@ public class Registration {
         List<Professor> ps = getNewProfessors();
         for (final Professor p : ps) {
             try {
+                assertNull(ur.findUserByEmail(p.getEmail()));
                 rps.registerProfessor(p.getEmail(), p.getName(), p.getSurname(), rps.getPossibleFaculties().get(0));
+                assertNotNull("Not actualy registered",ur.findUserByEmail(p.getEmail()));
             } catch (ValidationException | DataLayerException | MailException ex) {
                 assertFalse(ex.getMessage(), true);
             }
@@ -167,8 +171,9 @@ public class Registration {
     private List<Student> getStudents() {
         ArrayList<Student> out = new ArrayList<>();
         for (int i = 0; i < 42; i++) {
-            Student s = new Student("student." + i + "@universitadipavia.it",
+            Student s = new Student("student.test" + i + "@universitadipavia.it",
                     "nome_stu" + i, "cognome_stu" + i, "mat." + i, null);
+            out.add(s);
         }
         return out;
     }
@@ -176,8 +181,9 @@ public class Registration {
     private List<Professor> getNewProfessors() {
         ArrayList<Professor> out = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Professor p = new Professor("proffessor." + i + "@unipv.it",
+            Professor p = new Professor("proffessor.test" + i + "@unipv.it",
                     "Nome_prof" + i, "Cognome_prof" + i, null);
+            out.add(p);
         }
         return out;
     }

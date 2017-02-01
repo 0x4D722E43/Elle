@@ -15,7 +15,7 @@ import progettoelle.registrazionevoti.services.ValidationException;
 public final class RegisterProfessorService {
     
     private static final String DOMAIN = "unipv.it";
-    private static final String EMAIL_PATTERN = "^[a-z]+\\.[a-z]+@" + Pattern.quote(DOMAIN) + "$";
+    private static final String EMAIL_PATTERN = "^[a-z0-9]+\\.[a-z0-9]+@" + Pattern.quote(DOMAIN) + "$";
     private static final String INVALID_EMAIL_MESSAGE = "Email non valida";
     private static final String ALREADY_EXISTENT_EMAIL_MESSAGE = "Email già esistente";
     
