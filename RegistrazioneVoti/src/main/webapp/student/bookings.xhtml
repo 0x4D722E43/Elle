@@ -11,23 +11,27 @@
             <ui:define name="title">Prenotazioni</ui:define>
             
             <ui:define name="content">
-                <p:panel header="Prenotazione">
-                    <p:dataTable value="#{bookings.bookedExams}" var="booking">
-                        <p:column headerText="Corso">
-                            <h:outputText value="#{booking.course.name}"/>
-                        </p:column>
+                <h:form>
+                    <p:panel header="Prenotazioni">  
+                        <p:dataTable value="#{bookings.bookedExams}" var="booking">
+                            <p:column headerText="Corso">
+                                <h:outputText value="#{booking.course.name}"/>
+                            </p:column>
                         
-                        <p:column headerText="Data">
-                            <h:outputText value="#{booking.exam.date.time}">
-                                <f:convertDateTime pattern="d MMMM yyyy - hh:mm" timeZone="Europe/Rome"/>
-                            </h:outputText>
-                        </p:column>
+                            <p:column headerText="Data">
+                                <h:outputText value="#{booking.exam.date.time}">
+                                    <f:convertDateTime pattern="d MMMM yyyy - hh:mm" timeZone="Europe/Rome"/>
+                                </h:outputText>
+                            </p:column>
                     
-                        <p:column headerText="">
-                            <p:commandButton value="Annulla" action="#{bookings.cancelBooking}"/>
-                        </p:column>
-                    </p:dataTable>
-                </p:panel>
+                            <p:column headerText="">
+                                <p:commandButton value="Annulla" action="#{bookings.cancelBooking}"/>
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                
+                    <p:growl id="messages" showDetail="false" life="5000"/>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

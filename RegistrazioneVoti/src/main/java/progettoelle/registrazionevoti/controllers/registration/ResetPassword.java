@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.controllers;
+package progettoelle.registrazionevoti.controllers.registration;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
@@ -24,12 +24,16 @@ public class ResetPassword {
     public String resetPassword() {
         try {
             service.resetPassword(email);
-            return "reset-password-success?faces-redirect=true";
+            String title = "Password Resettata!";
+            String detail = "Ti abbiamo inviato la nuova password via mail";
+            Messages.create(title).detail(detail).flash().add();
+            return "index?faces-redirect=true";
         } catch (ValidationException ex) {
-            Messages.addGlobalError(ex.getMessage());
-            return "reset-password";
+            Messages.create(ex.getMessage()).error().add("validation");
+            return null;
         } catch (DataLayerException | MailException ex) {
-            return "error?faces-redirect=true";
+            Messages.create("Ooooops...").error().add("growl");
+            return null;
         }
     }
     

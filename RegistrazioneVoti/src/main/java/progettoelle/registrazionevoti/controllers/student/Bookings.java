@@ -1,16 +1,13 @@
 package progettoelle.registrazionevoti.controllers.student;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
-import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -38,7 +35,7 @@ public class Bookings {
             List<ExamResult> results = service.getExamBookings(student);
             bookedExams = new ListDataModel<>(results);
         } catch (DataLayerException ex) {
-            
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
         }
     }
     
@@ -47,9 +44,11 @@ public class Bookings {
         
         try {
             service.cancelExamBooking(selectedBooking);
-            return "success?faces-redirect=true";
+            Messages.addFlashGlobalInfo("Prenotazione cancellata");
+            return "bookings?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.addFlashGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return null;
         }
     }
 

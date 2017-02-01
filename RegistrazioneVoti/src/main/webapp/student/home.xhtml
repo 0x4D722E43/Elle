@@ -19,7 +19,7 @@
                             <p:menuitem value="Prenota Esame" outcome="book-exam" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Prenotazioni" outcome="bookings" icon="ui-icon-plusthick"/>
                             <p:menuitem value="Esiti" outcome="grades" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Storico Esami" outcome="exam-history" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Storico Esami" outcome="exams-history" icon="ui-icon-plusthick"/>
                         </p:submenu>
                         <p:submenu label="Account">
                             <p:menuitem value="Info" outcome="account-info" icon="ui-icon-plusthick"/>
@@ -31,22 +31,26 @@
             </ui:define>
             
             <ui:define name="content">
-                <p:panel header="I Corsi a cui sei iscritto">
-                    <p:dataTable value="#{enrollments.enrollments}" var="enr">
-                        <p:column headerText="Corso">
-                            <h:outputText value="#{enr.course.name}"/>
-                        </p:column>
+                <h:form>
+                    <p:panel header="I Corsi a cui sei iscritto">
+                        <p:dataTable value="#{enrollments.enrollments}" var="enr">
+                            <p:column headerText="Corso">
+                                <h:outputText value="#{enr.course.name}"/>
+                            </p:column>
                     
-                        <p:column headerText="Superato">
-                            <h:outputText value="SI" rendered="#{enr.completed}"/>
-                            <h:outputText value="NO" rendered="#{not enr.completed}"/>
-                        </p:column>
+                            <p:column headerText="Superato">
+                                <h:outputText value="SI" rendered="#{enr.completed}"/>
+                                <h:outputText value="NO" rendered="#{not enr.completed}"/>
+                            </p:column>
                     
-                        <p:column headerText="Voto">
-                            <h:outputText value="#{enr.grade}" />
-                        </p:column>
-                    </p:dataTable>
-                </p:panel>
+                            <p:column headerText="Voto">
+                                <h:outputText value="#{enr.grade}" />
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
+                    
+                    <p:growl id="messages" showDetail="false" life="5000"/>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

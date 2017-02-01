@@ -1,6 +1,5 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
-import java.io.IOException;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -8,7 +7,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -48,10 +47,18 @@ public class CreateExam {
             Calendar calendar = Calendar.getInstance();
             calendar.setTime(date);
             service.createExam(selectedCourse, calendar, room, description);
-            return "success?faces-redirect=true";
+            String title = "Ottimo!";
+            String detail = "E' stato aggiunto un nuovo esame per il corso di " + selectedCourse.getName();
+            Messages.create(title).detail(detail).flash().add();
+            return "home?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.create("Ooooops...").error().add("growl");
+            return null;
         }
+    }
+    
+    public Date getToday() {
+        return new Date();
     }
 
     public Date getDate() {

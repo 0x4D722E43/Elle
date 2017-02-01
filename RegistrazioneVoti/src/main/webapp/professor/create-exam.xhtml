@@ -11,28 +11,32 @@
             <ui:define name="title">Crea Esame</ui:define>
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Crea Esame">
-                        <h:panelGrid id="grid" columns="2" cellpadding="5">
+                    <p:panel header="Crea Esame">    
+                        <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="course" value="Corso:" />
                             <p:selectOneMenu id="course" value="#{createExam.selectedCourse}" required="true" requiredMessage="Seleziona un Corso" converter="omnifaces.SelectItemsConverter">
                                 <f:selectItem itemLabel="Seleziona Corso" noSelectionOption="true"/>
                                 <f:selectItems value="#{createExam.availableCourses}" var="course" itemValue="#{course}" itemLabel="#{course.name}"/>
                             </p:selectOneMenu>
+                            <p:message for="course" display="text" />
                             
                             <p:outputLabel for="date" value="Data:" />
-                            <p:calendar id="date" value="#{createExam.date}" pattern="MM/dd/yyyy HH:mm" required="true" requiredMessage="Inserisci la data dell'esame"/>
+                            <p:calendar id="date" value="#{createExam.date}" mindate="#{createExam.today}" pattern="MM/dd/yyyy HH:mm" required="true" requiredMessage="Inserisci la data dell'esame"/>
+                            <p:message for="date" display="text" />
                             
                             <p:outputLabel for="room" value="Aula:" />
                             <p:inputText id="room" value="#{createExam.room}" required="true" requiredMessage="Inserisci l'aula dell' esame"/>
+                            <p:message for="room" display="text" />
                             
                             <p:outputLabel for="description" value="Description:" />
                             <p:inputText id="description" value="#{createExam.description}" required="true" requiredMessage="Inserisci descrizione esame"/>
+                            <p:message for="description" display="text" /> 
                         </h:panelGrid>
                         
-                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
-                       
-                        <p:commandButton id="submitButton" action="#{createExam.createExam}" value="Crea"/> 
+                        <p:commandButton id="submitButton" action="#{createExam.createExam}" value="Crea" update="grid" /> 
                     </p:panel>
+                    
+                    <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
                 </h:form>
             </ui:define>
         </ui:composition>

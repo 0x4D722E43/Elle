@@ -8,39 +8,33 @@
       xmlns:p="http://primefaces.org/ui">
     <body>
         <ui:composition template="/student/home.xhtml" >
-            <ui:define name="title">Esiti</ui:define>
+            <ui:define name="title">Storico Esami</ui:define>
             
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Esiti esami">
-                        <p:dataTable value="#{grades.grades}" var="result">
+                    <p:panel header="Storico Esami">
+                        <p:dataTable value="#{examResultHistory.examResults}" var="result">
                             <p:column headerText="Corso">
                                 <h:outputText value="#{result.course.name}"/>
                             </p:column>
                         
-                            <p:column headerText="Data">
-                                <h:outputText value="#{result.exam.date.time}">
+                           <p:column headerText="Data">
+                               <h:outputText value="#{result.exam.date.time}">
                                     <f:convertDateTime pattern="d MMMM yyyy" timeZone="Europe/Rome"/>
                                 </h:outputText>
                             </p:column>
                         
                             <p:column headerText="Voto">
-                                <h:outputText value="#{result.printableGrade}"/>
+                                <h:outputText value="#{result.grade}"/>
                             </p:column>
-                    
+                        
                             <p:column headerText="">
-                                <p:commandButton value="Accetta" action="#{grades.acceptResult()}" rendered="#{result.passed}"/>
-                                <p:commandButton value="Rifiuta" action="#{grades.rejectResult()}" rendered="#{result.passed}"/>
-                                <p:commandButton value="OK" action="#{grades.aknowledgeFailedExam()}" rendered="#{result.failed}"/>
+                                <h:outputText value="#{result.status}"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel> 
-                    
-                    <p:growl id="messages" showDetail="false" life="5000"/>
                 </h:form>
             </ui:define>
         </ui:composition>
     </body>
 </html>
-
-

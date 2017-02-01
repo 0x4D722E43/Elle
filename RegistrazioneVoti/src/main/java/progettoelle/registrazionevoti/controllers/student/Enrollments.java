@@ -5,6 +5,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -31,7 +32,7 @@ public class Enrollments {
         try {
             enrollments = service.getEnrollments(student);
         } catch (DataLayerException ex) { 
-            
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
         }
     }
 

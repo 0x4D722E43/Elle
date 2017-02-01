@@ -7,6 +7,7 @@ import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
@@ -34,7 +35,7 @@ public class Grades {
             List<ExamResult> results = service.getExamsResults(student);
             grades = new ListDataModel<>(results);
         } catch (DataLayerException ex) {
-            
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
         }
     }
     
@@ -43,9 +44,11 @@ public class Grades {
         
         try { 
             service.acceptExamResult(student, selectedExamResult);
-            return "success?faces-redirect=true";
+            Messages.addFlashGlobalInfo("Esito Accettato");
+            return "home?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return null;
         }
     }
     
@@ -54,9 +57,11 @@ public class Grades {
         
         try { 
             service.rejectExamResult(student, selectedExamResult);
-            return "success?faces-redirect=true";
+            Messages.addFlashGlobalInfo("Esito rifiutato");
+            return "exams-history?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return null;
         }
     }
     
@@ -65,9 +70,10 @@ public class Grades {
         
         try { 
             service.acknowledgeFailedExam(student, selectedExamResult);
-            return "success?faces-redirect=true";
+            return "exams-history?faces-redirect=true";
         } catch (DataLayerException ex) {
-            return "error?faces-redirect=true";
+            Messages.addGlobalError("Ooops.. Qualcosa non ha funzionato");
+            return null;
         }
     }
 

@@ -11,31 +11,35 @@
             <ui:define name="title">Prenota Esame</ui:define>
             
             <ui:define name="content">
-                <p:panel header="Esami Disponibili">
-                    <p:dataTable value="#{bookExam.availableExams}" var="exam">
-                        <p:column headerText="Corso">
-                            <h:outputText value="#{exam.course.name}"/>
-                        </p:column>
+                <h:form>
+                    <p:panel header="Esami Disponibili">
+                        <p:dataTable value="#{bookExam.availableExams}" var="exam">
+                            <p:column headerText="Corso">
+                                <h:outputText value="#{exam.course.name}" />
+                            </p:column>
+                              
+                            <p:column headerText="Data">
+                                <h:outputText value="#{exam.date.time}">
+                                    <f:convertDateTime pattern="d MMMM yyyy - hh:mm" timeZone="Europe/Rome"/>
+                                </h:outputText>
+                            </p:column>
+                                
+                            <p:column headerText="Aula">
+                                <h:outputText value="#{exam.room}" />
+                            </p:column>
                         
-                        <p:column headerText="Data">
-                            <h:outputText value="#{exam.date.time}">
-                                <f:convertDateTime pattern="d MMMM yyyy - hh:mm" timeZone="Europe/Rome"/>
-                            </h:outputText>
-                        </p:column>
+                            <p:column headerText="Descrizione">
+                                <h:outputText value="#{exam.description}" />
+                            </p:column>
+                        
+                            <p:column headerText="">
+                                <p:commandButton value="Prenota" action="#{bookExam.bookExam}" />
+                            </p:column>
+                        </p:dataTable>
+                    </p:panel>
                     
-                        <p:column headerText="Aula">
-                            <h:outputText value="#{exam.room}"/>
-                        </p:column>
-                        
-                        <p:column headerText="Descrizione">
-                            <h:outputText value="#{exam.description}"/>
-                        </p:column>
-                        
-                        <p:column headerText="">
-                            <p:commandButton value="Prenota" action="#{bookExam.bookExam}"/>
-                        </p:column>
-                    </p:dataTable>
-                </p:panel>
+                    <p:growl showDetail="false" life="5000" />  
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>

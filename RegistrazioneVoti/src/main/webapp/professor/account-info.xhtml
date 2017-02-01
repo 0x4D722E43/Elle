@@ -34,11 +34,11 @@
                             <p:outputLabel for="web" value="Sito web:" />
                             <p:inputText id="web" value="#{professorManager.professor.websiteLink}" />
                         </h:panelGrid>
-                        
-                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
- 
+                       
                         <p:commandButton id="submitButton" action="#{professorManager.updateProfessorInfo}" value="Salva" />
                     </p:panel>
+                    
+                    <p:growl for="growl" autoUpdate="true" showDetail="false" life="5000"/>
                 </h:form>
             </ui:define>
         </ui:composition>

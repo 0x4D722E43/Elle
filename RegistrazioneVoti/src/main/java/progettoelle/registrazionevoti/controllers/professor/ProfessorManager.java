@@ -4,6 +4,7 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import org.omnifaces.util.Faces;
+import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
@@ -35,6 +36,7 @@ public class ProfessorManager {
     public void updateProfessorInfo() {
         try {
             service.updateUserInfo(professor);
+            Messages.create("Modifiche salvate!").add("growl");
         } catch (DataLayerException ex) {
             
         }

@@ -12,10 +12,5 @@ and open the template in the editor.
         <f:viewAction if="#{request.isUserInRole('STUDENTE')}"  action="#{loginBean.goStudent()}" />           
         <f:viewAction if="#{request.isUserInRole('PROFESSORE')}" action="#{loginBean.goProfessor()}" />
     </f:metadata>
-    <head>
-        <title>Login success</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    </head>
-    <body>
-    </body>
+    
 </html>

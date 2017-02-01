@@ -1,6 +1,5 @@
-package progettoelle.registrazionevoti.controllers;
+package progettoelle.registrazionevoti.controllers.registration;
 
-import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -34,19 +33,23 @@ public class ProfessorRegistration {
         try { 
             availableFaculties = service.getPossibleFaculties();
         } catch (DataLayerException ex) {
-            
+            Messages.create("Ooooops...").error().add("growl");
         }
     }
 
     public String registerProfessor() {
         try {
             service.registerProfessor(email, name, surname, selectedFaculty);
-            return "registration-success?faces-redirect=true";
+            String title = "Registrazione effettuata!";
+            String detail = "Ti abbiamo inviato una email contenente la password necessaria per autenticarti";
+            Messages.create(title).detail(detail).flash().add();
+            return "index?faces-redirect=true";
         } catch (ValidationException ex) {
-            Messages.addGlobalError(ex.getMessage());
-            return "registration-professor";
+            Messages.create(ex.getMessage()).error().add("validation");
+            return null;
         } catch (DataLayerException | MailException ex) {
-            return "error?faces-redirect=true";
+            Messages.create("Ooooops...").error().add("growl");
+            return null;
         }
     }
 
