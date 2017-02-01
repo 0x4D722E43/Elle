@@ -46,10 +46,10 @@ public class ProfessorRegistration {
             return "index?faces-redirect=true";
         } catch (ValidationException ex) {
             Messages.create(ex.getMessage()).error().add("validation");
-            return "registration-professor";
+            return null;
         } catch (DataLayerException | MailException ex) {
             Messages.create("Ooooops...").error().add("growl");
-            return "registration-professor";
+            return null;
         }
     }
 

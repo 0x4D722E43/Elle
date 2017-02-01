@@ -30,10 +30,10 @@ public class ResetPassword {
             return "index?faces-redirect=true";
         } catch (ValidationException ex) {
             Messages.create(ex.getMessage()).error().add("validation");
-            return "reset-password";
+            return null;
         } catch (DataLayerException | MailException ex) {
             Messages.create("Ooooops...").error().add("growl");
-            return "reset-password";
+            return null;
         }
     }
     

@@ -47,10 +47,10 @@ public class StudentRegistration {
             return "index?faces-redirect=true";
         } catch (ValidationException ex) {
             Messages.create(ex.getMessage()).error().add("validation");
-            return "registration-student";
+            return null;
         } catch (DataLayerException | MailException ex) {
             Messages.create("Ooooops...").error().add("growl");
-            return "registration-student";
+            return null;
         }
     }
     
