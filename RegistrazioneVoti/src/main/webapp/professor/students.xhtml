@@ -14,12 +14,8 @@
                 <h:form>
                     <p:panel header="Iscritti al Corso">
                         <p:dataTable value="#{courseEnrolledStudents.enrolledStudents}" var="student">
-                            <p:column headerText="Nome">
-                                <h:outputText value="#{student.name}"/>
-                            </p:column>
-                        
-                            <p:column headerText="Cognome">
-                                <h:outputText value="#{student.surname}"/>
+                            <p:column headerText="Studente">
+                                <h:outputText value="#{student.name} #{student.surname}"/>
                             </p:column>
                         
                             <p:column headerText="Email">

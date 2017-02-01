@@ -23,6 +23,11 @@ public class ExamResult extends BaseEntity {
         this.grade = grade;
     }
     
+    public String getPrintableGrade() {
+        if (grade < 31) return String.valueOf(grade);
+        else return "30L";
+    }
+    
     public boolean isPassed() {
         return status == ExamResultStatus.PASSED_PENDING;
     }

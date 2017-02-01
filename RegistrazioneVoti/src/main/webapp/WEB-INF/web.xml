@@ -46,7 +46,8 @@
         <web-resource-collection>
             <web-resource-name>StudentResources</web-resource-name>
             <description/>
-            <url-pattern>/student/*</url-pattern>
+            <url-pattern>/student/*</url-pattern>                       
+            <url-pattern>/login/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
@@ -65,6 +66,7 @@
             <web-resource-name>ProfResources</web-resource-name>
             <description/>
             <url-pattern>/professor/*</url-pattern>
+            <url-pattern>/login/*</url-pattern>
         </web-resource-collection>
         <auth-constraint>
             <description/>
@@ -75,9 +77,9 @@
     <!-- Defining login page -->
     <login-config>
         <auth-method>FORM</auth-method>
-        <form-login-config>
-            <form-login-page>/login.xhtml</form-login-page>
-            <form-error-page>/login-error.xhtml</form-error-page>
+        <form-login-config>           
+            <form-login-page>/login/login.xhtml</form-login-page>
+            <form-error-page>/login/login-error.xhtml</form-error-page>
         </form-login-config>
     </login-config>
     

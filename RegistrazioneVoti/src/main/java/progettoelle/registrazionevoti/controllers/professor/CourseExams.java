@@ -1,11 +1,10 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
-import java.io.IOException;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.Flash;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import org.omnifaces.util.Faces;
@@ -22,13 +21,12 @@ public class CourseExams {
     
     private final OpenExamBookingsService service = ServiceInjection.provideOpenExamBookingsService();
     
+    @ManagedProperty(value ="#{flash['course']}")
     private Course course;
     private DataModel<Exam> exams;
     
     public CourseExams() {
-        Flash flash = Faces.getFlash();
-        course = (Course)flash.get("course");
-        flash.keep("course");
+        
     }
     
     @PostConstruct
@@ -39,6 +37,8 @@ public class CourseExams {
         } catch (DataLayerException ex) {
             
         }
+        
+        Faces.getFlash().keep("course");
     }
     
     public String openExamBookings() {

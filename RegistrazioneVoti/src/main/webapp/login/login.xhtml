@@ -10,19 +10,19 @@
             <ui:define name="title">Login</ui:define>
             <ui:define name="content">
                 <h:form id="login" onsubmit="action='j_security_check';" prependId="false">
-                    
                     <p:panel header="Login">
+                    
                         <h:panelGrid id="grid" columns="2" cellpadding="5">
-                            <p:outputLabel for="j_username" value="Email:"/>
+                            <p:outputLabel for="j_username" value="Username "/>
                             <p:inputText id="j_username" />
                         
-                            <p:outputLabel for="j_password" value="Password:" />
+                            <p:outputLabel for="j_password" value="Password " />
                             <p:password id="j_password" />
                         </h:panelGrid>
                     
                         <p:commandButton id="submit" value="Accedi" ajax="false"/>
                     </p:panel>
-                </h:form>
+                </h:form>    
             </ui:define>
         </ui:composition>
     </body>
