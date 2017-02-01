@@ -24,12 +24,16 @@ public class ResetPassword {
     public String resetPassword() {
         try {
             service.resetPassword(email);
-            return "reset-password-success?faces-redirect=true";
+            String title = "Password Resettata!";
+            String detail = "Ti abbiamo inviato la nuova password via mail";
+            Messages.create(title).detail(detail).flash().add();
+            return "index?faces-redirect=true";
         } catch (ValidationException ex) {
-            Messages.addGlobalError(ex.getMessage());
+            Messages.create(ex.getMessage()).error().add("validation");
             return "reset-password";
         } catch (DataLayerException | MailException ex) {
-            return "error?faces-redirect=true";
+            Messages.create("Ooooops...").error().add("growl");
+            return "reset-password";
         }
     }
     

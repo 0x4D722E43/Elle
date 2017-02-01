@@ -10,23 +10,27 @@
         <ui:composition template="/index.xhtml" >
             <ui:define name="title">Registrati</ui:define>
             <ui:define name="content">
-                <h:form>
-                    <p:panel header="Registra Studente">
-                        <h:panelGrid id="grid" columns="3" cellpadding="5">
+                <p:panel header="Registra Studente">
+                    <h:form>
+                        <h:panelGrid id="grid" columns="4" cellpadding="5">
                             <p:outputLabel for="email" value="Email:" />
                             <p:inputText id="email" value="#{studentRegistration.email}" required="true" requiredMessage="Il campo email non può essere vuoto"/>
+                            <p:message for="email" display="text"/>
                             <p:watermark for="email" value="@universitadipavia.it" />
                         
                             <p:outputLabel for="name" value="Nome:" />
                             <p:inputText id="name" value="#{studentRegistration.name}" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
+                            <p:message for="name" display="text"/>
                             <p:column/>
  
                             <p:outputLabel for="surname" value="Cognome:" />
                             <p:inputText id="surname" value="#{studentRegistration.surname}" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
+                            <p:message for="surname" display="text"/>
                             <p:column/>
  
                             <p:outputLabel for="mat" value="Matricola:" />
                             <p:inputText id="mat" value="#{studentRegistration.matriculationNumber}" required="true" requiredMessage="Il campo matricola non può essere vuoto"/>
+                            <p:message for="mat" display="text"/>
                             <p:column/>
                     
                             <p:outputLabel for="degCor" value="Corso di Laurea:" />
@@ -34,14 +38,17 @@
                                 <f:selectItem  itemLabel="Seleziona Corso di Laurea" noSelectionOption="true"/>
                                 <f:selectItems value="#{studentRegistration.availableDegreeCourses}" var="degreeCourse" itemValue="#{degreeCourse}" itemLabel="#{degreeCourse.name}"/>
                             </p:selectOneMenu> 
+                            <p:message for="degCor" display="text"/>
                             <p:column/>
                         </h:panelGrid>
                         
-                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
+                        <p:messages for="validation" showDetail="false" autoUpdate="true" closable="true" />
                        
-                        <p:commandButton id="submitButton" action="#{studentRegistration.registerStudent}" value="Registrati"/> 
-                    </p:panel>
-                </h:form>
+                        <p:commandButton id="submitButton" action="#{studentRegistration.registerStudent}" value="Registrati" update="grid" /> 
+                    
+                        <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
+                    </h:form>
+                </p:panel>
             </ui:define>
         </ui:composition>
     </body>

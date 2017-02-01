@@ -12,17 +12,20 @@
             <ui:define name="content">
                 <p:panel header="Registra Professore">
                     <h:form>
-                        <h:panelGrid id="grid" columns="3" cellpadding="5">
+                        <h:panelGrid id="grid" columns="4" cellpadding="5">
                             <p:outputLabel for="email" value="Email:" />
                             <p:inputText id="email" value="#{professorRegistration.email}" required="true" requiredMessage="Il campo email non può essere vuoto"/>
+                            <p:message for="email" display="text"/>
                             <p:watermark for="email" value="@unipv.it" />
                         
                             <p:outputLabel for="name" value="Nome:" />
                             <p:inputText id="name" value="#{professorRegistration.name}" required="true" requiredMessage="Il campo nome non può essere vuoto"/>
+                            <p:message for="name" display="text"/>
                             <p:column/>
  
                             <p:outputLabel for="surname" value="Cognome:" />
                             <p:inputText id="surname" value="#{professorRegistration.surname}" required="true" requiredMessage="Il campo cognome non può essere vuoto"/>
+                            <p:message for="surname" display="text"/>
                             <p:column/>
                     
                             <p:outputLabel for="fac" value="Facoltà:" />
@@ -30,12 +33,15 @@
                                 <f:selectItem itemLabel="Seleziona una Facoltà" noSelectionOption="true"/>
                                 <f:selectItems value="#{professorRegistration.availableFaculties}" var="faculty" itemValue="#{faculty}" itemLabel="#{faculty.name}"/>
                             </p:selectOneMenu> 
+                            <p:message for="fac" display="text"/>
                             <p:column/>
                         </h:panelGrid>
                         
-                        <p:messages id="messages" showDetail="false" autoUpdate="true" closable="true" />
- 
-                        <p:commandButton id="submitButton" action="#{professorRegistration.registerProfessor}" value="Registrati" update="grid" />
+                        <p:messages for="validation" showDetail="false" closable="true" autoUpdate="true"/>
+                        
+                        <p:commandButton id="submitButton" action="#{professorRegistration.registerProfessor}" value="Registrati" update="grid"/>
+                    
+                        <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
                     </h:form>
                 </p:panel>
             </ui:define>

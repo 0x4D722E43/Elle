@@ -30,7 +30,12 @@
                 </h:form>
             </ui:define>
             
-            <ui:define name="content">Benvenuto nella piattaforma di registrazione voti</ui:define>
+            <ui:define name="content">
+                Benvenuto nella piattaforma di registrazione voti
+                <h:form>
+                    <p:growl autoUpdate="true" showDetail="true" life="5000"/>
+                </h:form>
+            </ui:define>
         </ui:composition>
     </body>
 </html>
