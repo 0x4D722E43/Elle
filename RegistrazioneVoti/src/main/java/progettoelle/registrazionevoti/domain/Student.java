@@ -1,5 +1,9 @@
 package progettoelle.registrazionevoti.domain;
 
+/**
+ * Caratterizato da matricola e corso di laurea
+ * @author mrc
+ */
 public class Student extends RegisteredUser {
     
     private String matriculationNumber;

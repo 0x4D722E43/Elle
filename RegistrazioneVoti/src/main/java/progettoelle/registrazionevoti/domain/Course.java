@@ -1,5 +1,11 @@
 package progettoelle.registrazionevoti.domain;
 
+/**
+ * L'entità corso è caratterizata da un nome e un valore in cfu
+ * 
+ * E' legata al professore principale e al corso di laurea principale
+ * @author mrc
+ */
 public class Course extends BaseEntity {
     
     private String name;

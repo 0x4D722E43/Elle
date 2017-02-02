@@ -1,5 +1,10 @@
 package progettoelle.registrazionevoti.domain;
 
+/**
+ * E' legato a una facoltà principale.
+ * Contiene dati utili allo studente (locazione ufficio, orari e sitoweb)
+ * @author mrc
+ */
 public class Professor extends RegisteredUser {
     
     private Faculty faculty;

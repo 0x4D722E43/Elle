@@ -2,6 +2,13 @@ package progettoelle.registrazionevoti.domain;
 
 import java.util.Calendar;
 
+/**
+ * Exam è caratterizzato da data, aula e descrizione
+ * può essere aperto alle iscrizioni o meno
+ * è  legato a uno e un solo corso
+ * 
+ * @author mrc
+ */
 public class Exam extends BaseEntity {
     
     private Course course;

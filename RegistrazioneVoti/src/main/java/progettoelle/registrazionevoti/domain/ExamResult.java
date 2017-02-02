@@ -1,5 +1,11 @@
 package progettoelle.registrazionevoti.domain;
 
+/**
+ * ExamResult è la valutazione di un esame sostenuto da uno studente
+ * 
+ * E' caratterizato da uno stato e una valutazione(grade)
+ * @author mrc
+ */
 public class ExamResult extends BaseEntity {
     
     private Student student;

@@ -2,6 +2,11 @@ package progettoelle.registrazionevoti.domain;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
+/**
+ * Rapresenta il generico utente del applicazione,
+ * caratterizzato da email, nome, cognome e password(hash)
+ * @author mrc
+ */
 public abstract class RegisteredUser extends BaseEntity {
     
     private String email;

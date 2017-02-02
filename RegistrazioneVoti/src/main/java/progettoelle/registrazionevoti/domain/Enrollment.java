@@ -1,5 +1,12 @@
 package progettoelle.registrazionevoti.domain;
 
+/**
+ *  
+ * Enrollement rapresenta la relazione studente-corso
+ * è caratterizata dalla valutazione conseguita
+ * (null se lo studente non ha completato, positivamente, un esame del corso)
+ * @author mrc
+ */
 public class Enrollment extends BaseEntity {
     
     private Course course;

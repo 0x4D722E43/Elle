@@ -1,5 +1,11 @@
 package progettoelle.registrazionevoti.domain;
 
+/**
+ * Rapressentà un corso di laurea
+ * è caratterizzata da nome 
+ * ed è legata a una facoltà principale
+ * @author mrc
+ */
 public class DegreeCourse extends BaseEntity {
 
     private String name;
