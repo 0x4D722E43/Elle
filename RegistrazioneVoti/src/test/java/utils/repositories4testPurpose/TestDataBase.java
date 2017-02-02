@@ -194,7 +194,7 @@ public class TestDataBase {
         for(int i=0; i<data.length;i++){
             String name = data[i][0];
             long id_cdl = Long.parseLong(data[i][2]),
-                    id_prof = Long.parseLong(data[i][2]);
+                    id_prof = Long.parseLong(data[i][3]);
             int cfu = Integer.parseInt(data[i][1]);
             Course tmp = new Course(name, cfu, 
                     (Professor)getById(professors, id_prof),
