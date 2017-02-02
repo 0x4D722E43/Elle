@@ -2,6 +2,7 @@ package progettoelle.registrazionevoti.repositories.hibernate;
 
 import java.util.List;
 import javax.persistence.PersistenceException;
+import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
@@ -131,4 +132,21 @@ public class ExamResultRepositoryHibernate extends HibernateRepository implement
         }
     }
 
+    @Override
+    public void deleteAllBookingsForCourse(Student student, Course course) throws DataLayerException {
+        initializeOperation();
+   
+        try {
+            transaction.begin();
+            String hql = "SELECT e FROM ExamResult e WHERE e.student=:student AND e.exam.course=:course AND e.status='BOOKED'";
+            List<ExamResult> bookingsToDelete = entityManager.createQuery(hql).setParameter("student", student).setParameter("course", course).getResultList();  
+            for (ExamResult bookingToDelete : bookingsToDelete) entityManager.remove(bookingToDelete);
+            transaction.commit();
+        } catch(PersistenceException ex) {
+            handleOperationException(ex);
+        } finally {
+            entityManager.close();
+        }
+    }
+    
 }

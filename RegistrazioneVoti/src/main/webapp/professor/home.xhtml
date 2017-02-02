@@ -34,12 +34,12 @@
                                 <h:outputText value="#{course.name}"/>
                             </p:column>
                     
-                            <p:column headerText="">
-                                <p:commandLink value="Esami" action="#{courses.redirectToCourseExams}"/>
+                            <p:column style="text-align: center">
+                                <p:commandLink value="Vedi Esami" action="#{courses.redirectToCourseExams}"/>
                             </p:column>
                         
-                            <p:column headerText="">
-                                <p:commandLink value="Iscritti" action="#{courses.redirectToCourseEnrolledStudents}"/>
+                            <p:column style="text-align: center">
+                                <p:commandLink value="Vedi Iscritti" action="#{courses.redirectToCourseEnrolledStudents}"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel>

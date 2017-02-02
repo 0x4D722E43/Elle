@@ -1,6 +1,7 @@
 package progettoelle.registrazionevoti.repositories;
 
 import java.util.List;
+import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
@@ -21,4 +22,6 @@ public interface ExamResultRepository {
     
     void deleteExamResult(ExamResult examResult) throws DataLayerException;
     
+    void deleteAllBookingsForCourse(Student student, Course course) throws DataLayerException;
+
 }

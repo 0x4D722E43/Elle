@@ -22,11 +22,11 @@
                                 <h:outputText value="#{result.student.name} #{result.student.surname}"/>
                             </p:column>
                             
-                            <p:column headerText="Matricola">
+                            <p:column headerText="Matricola" style="text-align: center">
                                 <h:outputText value="#{result.student.matriculationNumber}"/>
                             </p:column>
                         
-                            <p:column headerText="Voto">
+                            <p:column headerText="Voto" style="text-align: center">
                                 <p:cellEditor>
                                     <f:facet name="output"><h:outputText value="#{result.grade}"/></f:facet>
                                     <f:facet name="input">

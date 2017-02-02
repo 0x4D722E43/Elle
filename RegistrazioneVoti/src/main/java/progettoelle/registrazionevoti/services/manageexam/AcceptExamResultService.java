@@ -29,6 +29,8 @@ public final class AcceptExamResultService {
         examResultRepository.updateExamResult(examResult);
         
         Course course = examResult.getCourse();
+        examResultRepository.deleteAllBookingsForCourse(student, course);
+        
         Enrollment enrollment = enrollmentRepository.findEnrollmentByStudentAndCourse(student, course);
         enrollment.complete(examResult.getGrade());
         enrollmentRepository.updateEnrollment(enrollment);

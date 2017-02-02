@@ -18,18 +18,20 @@
                                 <h:outputText value="#{result.course.name}"/>
                             </p:column>
                         
-                           <p:column headerText="Data">
+                           <p:column headerText="Data" style="text-align: center">
                                <h:outputText value="#{result.exam.date.time}">
                                     <f:convertDateTime pattern="d MMMM yyyy" timeZone="Europe/Rome"/>
                                 </h:outputText>
                             </p:column>
                         
-                            <p:column headerText="Voto">
+                            <p:column headerText="Voto" style="width:64px; text-align: center">
                                 <h:outputText value="#{result.printableGrade}"/>
                             </p:column>
                         
-                            <p:column headerText="">
-                                <h:outputText value="#{result.status}"/>
+                            <p:column style="width:32px">
+                                <p:graphicImage value="/resources/images/icons/circle_green.png" rendered="#{result.accepted}"/>
+                                <p:graphicImage value="/resources/images/icons/circle_yellow.png" rendered="#{result.rejected}"/>
+                                <p:graphicImage value="/resources/images/icons/circle_yellow.png" rendered="#{result.failed}"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel> 

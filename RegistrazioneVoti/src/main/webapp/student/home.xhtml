@@ -37,13 +37,17 @@
                             <p:column headerText="Corso">
                                 <h:outputText value="#{enr.course.name}"/>
                             </p:column>
-                    
-                            <p:column headerText="Superato">
-                                <h:outputText value="SI" rendered="#{enr.completed}"/>
-                                <h:outputText value="NO" rendered="#{not enr.completed}"/>
+                            
+                            <p:column headerText="Professore">
+                                <h:outputText value="#{enr.course.professor.name} #{enr.course.professor.surname}"/>
                             </p:column>
-                    
-                            <p:column headerText="Voto">
+                            
+                            <p:column style="width:32px">
+                                <p:graphicImage value="/resources/images/icons/circle_green.png" rendered="#{enr.completed}"/>
+                                <p:graphicImage value="/resources/images/icons/circle_yellow.png" rendered="#{not enr.completed}"/>
+                            </p:column>
+                            
+                            <p:column headerText="Voto" style="width:64px; text-align: center">
                                 <h:outputText value="#{enr.printableGrade}" />
                             </p:column>
                         </p:dataTable>

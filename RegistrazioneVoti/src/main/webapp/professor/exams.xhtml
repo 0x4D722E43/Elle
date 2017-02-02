@@ -24,18 +24,18 @@
                                 <h:outputText value="#{exam.description}"/>
                             </p:column>
                         
-                            <p:column headerText="Status Iscrizioni">
-                                <h:outputText value="APERTE" rendered="#{exam.bookingOpen}"/>
-                                <h:outputText value="CHIUSE" rendered="#{not exam.bookingOpen}"/>
+                            <p:column style="text-align: center">
+                                <p:commandLink value="Vedi Esiti" action="#{courseExams.redirectToExamResults}"/>
                             </p:column>
-                    
-                            <p:column headerText="">
-                                <p:commandButton value="APRI ISCRZIONI" action="#{courseExams.openExamBookings}" rendered="#{not exam.bookingOpen}"/>
-                                <p:commandButton value="CHIUDI ISCRIZIONI" action="#{courseExams.closeExamBookings}" rendered="#{exam.bookingOpen}"/>
+                            
+                            <p:column style="text-align: center">
+                                <p:commandButton value="APRI" action="#{courseExams.openExamBookings}" rendered="#{not exam.bookingOpen}"/>
+                                <p:commandButton value="CHIUDI" action="#{courseExams.closeExamBookings}" rendered="#{exam.bookingOpen}"/>
                             </p:column>
-                        
-                            <p:column headerText="">
-                                <p:commandLink value="Esiti" action="#{courseExams.redirectToExamResults}"/>
+                            
+                            <p:column style="width:32px">
+                                <p:graphicImage value="/resources/images/icons/circle_green.png" rendered="#{exam.bookingOpen}"/>
+                                <p:graphicImage value="/resources/images/icons/circle_red.png" rendered="#{not exam.bookingOpen}"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel>

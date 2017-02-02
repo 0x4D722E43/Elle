@@ -23,6 +23,7 @@ public class Enrollment extends BaseEntity {
     }
     
     public String getPrintableGrade() {
+        if (grade == null) return "";
         if (grade < 31) return String.valueOf(grade);
         else return "30L";
     }

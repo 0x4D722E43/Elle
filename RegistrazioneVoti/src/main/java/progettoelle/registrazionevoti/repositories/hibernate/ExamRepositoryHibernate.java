@@ -53,7 +53,7 @@ public class ExamRepositoryHibernate extends HibernateRepository implements Exam
             transaction.begin();
             String hql = "SELECT e FROM Exam e WHERE e.bookingOpen is true AND e.course IN " +
                 "(SELECT enr.course FROM Enrollment enr WHERE enr.student=:student AND enr.completed is false) AND e NOT IN" +
-                "(SELECT ex.exam FROM ExamResult ex WHERE ex.student=:student AND ex.status='BOOKED')";
+                "(SELECT ex.exam FROM ExamResult ex WHERE ex.student=:student)";
             results = entityManager.createQuery(hql).setParameter("student", student).getResultList();
             transaction.commit();
         } catch(PersistenceException ex) {
