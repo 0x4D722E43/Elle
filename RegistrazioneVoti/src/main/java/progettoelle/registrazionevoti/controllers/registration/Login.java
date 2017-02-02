@@ -5,11 +5,11 @@ import javax.faces.bean.ManagedBean;
 @ManagedBean
 public class Login  {
 
-    public String goStudent(){
+    public String authenticateStudent(){
         return "/student/home.xhtml";
     }
 
-    public String goProfessor(){
+    public String authenticateProfessor(){
         return "/professor/home.xhtml";
     }
 

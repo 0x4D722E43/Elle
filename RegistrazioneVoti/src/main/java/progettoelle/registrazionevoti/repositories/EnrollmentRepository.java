@@ -13,7 +13,7 @@ public interface EnrollmentRepository {
     
     List<Enrollment> findEnrollmentByStudent(Student student) throws DataLayerException;
     
-    List<Student> findStudentsEnrolledOnCourse(Course course) throws DataLayerException;
+    List<Enrollment> findStudentsEnrolledOnCourse(Course course) throws DataLayerException;
     
     void updateEnrollment(Enrollment enrollment) throws DataLayerException;
 

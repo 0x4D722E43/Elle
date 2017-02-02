@@ -17,23 +17,23 @@
                             <p:column headerText="Corso">
                                 <h:outputText value="#{exam.course.name}" />
                             </p:column>
+                            
+                            <p:column headerText="Descrizione">
+                                <h:outputText value="#{exam.description}" />
+                            </p:column>
                               
-                            <p:column headerText="Data">
+                            <p:column headerText="Data" style="text-align: center">
                                 <h:outputText value="#{exam.date.time}">
                                     <f:convertDateTime pattern="d MMMM yyyy - hh:mm" timeZone="Europe/Rome"/>
                                 </h:outputText>
                             </p:column>
                                 
-                            <p:column headerText="Aula">
+                            <p:column headerText="Aula" style="width:96px; text-align: center">
                                 <h:outputText value="#{exam.room}" />
                             </p:column>
                         
-                            <p:column headerText="Descrizione">
-                                <h:outputText value="#{exam.description}" />
-                            </p:column>
-                        
-                            <p:column headerText="">
-                                <p:commandButton value="Prenota" action="#{bookExam.bookExam}" />
+                            <p:column style="width:136px; text-align: center">
+                                <p:commandButton value="Prenota" action="#{bookExam.bookExam}" icon="ui-icon-flag"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel>

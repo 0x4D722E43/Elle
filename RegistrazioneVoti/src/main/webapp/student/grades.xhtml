@@ -14,29 +14,40 @@
                 <h:form>
                     <p:panel header="Esiti esami">
                         <p:dataTable value="#{grades.grades}" var="result">
-                            <p:column headerText="Corso">
+                            <p:column headerText="Corso" >
                                 <h:outputText value="#{result.course.name}"/>
                             </p:column>
                         
-                            <p:column headerText="Data">
+                            <p:column headerText="Data" style="text-align: center">
                                 <h:outputText value="#{result.exam.date.time}">
                                     <f:convertDateTime pattern="d MMMM yyyy" timeZone="Europe/Rome"/>
                                 </h:outputText>
                             </p:column>
                         
-                            <p:column headerText="Voto">
+                            <p:column headerText="Voto" style="width:64px; text-align: center">
                                 <h:outputText value="#{result.printableGrade}"/>
                             </p:column>
                     
-                            <p:column headerText="">
-                                <p:commandButton value="Accetta" action="#{grades.acceptResult()}" rendered="#{result.passed}"/>
-                                <p:commandButton value="Rifiuta" action="#{grades.rejectResult()}" rendered="#{result.passed}"/>
-                                <p:commandButton value="OK" action="#{grades.aknowledgeFailedExam()}" rendered="#{result.failed}"/>
+                            <p:column style="width:230px; text-align: center">
+                                <p:commandButton value="Accetta" action="#{grades.acceptResult}" rendered="#{result.passed}" icon="ui-icon-check">
+                                    <p:confirm header="Conferma" message="Sicuro di voler accettare il voto?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                
+                                <p:commandButton value="Rifiuta" action="#{grades.rejectResult}" rendered="#{result.passed}" icon="ui-icon-close">
+                                    <p:confirm header="Conferma" message="Sicuro di voler rifiutare il voto?" icon="ui-icon-alert" />
+                                </p:commandButton>
+                                
+                                <p:commandButton value="Visto" action="#{grades.aknowledgeFailedExam}" rendered="#{result.failed}" icon="ui-icon-check"/>
                             </p:column>
                         </p:dataTable>
-                    </p:panel> 
+                    </p:panel>
                     
-                    <p:growl id="messages" showDetail="false" life="5000"/>
+                    <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                        <p:commandButton value="SI" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+                        <p:commandButton value="NO" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+                    </p:confirmDialog>
+                    
+                    <p:growl showDetail="false" life="5000"/>
                 </h:form>
             </ui:define>
         </ui:composition>

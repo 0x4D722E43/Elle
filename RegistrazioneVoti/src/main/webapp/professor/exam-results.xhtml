@@ -5,14 +5,15 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:of="http://omnifaces.org/functions">
     <body>
         <ui:composition template="/professor/home.xhtml" >
             <ui:define name="title">Esiti</ui:define>
             
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Esiti Esame">
+                    <p:panel header="Esiti Esame del #{of:formatDate(examResults.exam.date.time, 'dd.MM.yyyy')}">
                         <p:dataTable id="table" value="#{examResults.examResults}" var="result" editable="true">
                             
                             <p:ajax event="rowEdit" listener="#{examResults.onRowEdit}" />
@@ -21,11 +22,11 @@
                                 <h:outputText value="#{result.student.name} #{result.student.surname}"/>
                             </p:column>
                             
-                            <p:column headerText="Matricola">
+                            <p:column headerText="Matricola" style="text-align: center">
                                 <h:outputText value="#{result.student.matriculationNumber}"/>
                             </p:column>
                         
-                            <p:column headerText="Voto">
+                            <p:column headerText="Voto" style="text-align: center">
                                 <p:cellEditor>
                                     <f:facet name="output"><h:outputText value="#{result.grade}"/></f:facet>
                                     <f:facet name="input">

@@ -1,10 +1,9 @@
 package progettoelle.registrazionevoti.controllers.professor;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.Flash;
 import org.omnifaces.util.Faces;
@@ -18,12 +17,11 @@ import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
 
 @ManagedBean
 @ViewScoped
-public class ExamResults {
+public class ExamResults implements Serializable {
     
     private final GradeExamService service = ServiceInjection.provideGradeExamService();
     
-    @ManagedProperty(value ="#{flash['exam']}")
-    private Exam exam;
+    private Exam exam = Faces.getFlashAttribute("exam");
     private List<ExamResult> examResults;
     
     public ExamResults() {
@@ -32,19 +30,21 @@ public class ExamResults {
     
     @PostConstruct
     private void initialize() {
-        System.out.println("EXAM RESULT BEAN CALLED");
         try {
             examResults = service.getExamResults(exam);
         } catch (DataLayerException ex) {
             
         }
-        System.out.println(Faces.getFlashAttribute("exam"));
-        //keepFlashInfo(exam, exam.getCourse());
+        
+        Flash flash = Faces.getFlash();
+        flash.keep(Course.class.getName());
+        flash.keep("exam");
     }
     
     public void onRowEdit(RowEditEvent event) {
         try {
-            System.out.println(exam);
+            System.out.println("Value of Exam in the bean " + exam);
+            System.out.println("Value of Exam int the flash " + Faces.getFlashAttribute("exam"));
             ExamResult examResult = (ExamResult)event.getObject();
             
             service.gradeExam(examResult.getGrade(), examResult);
@@ -53,12 +53,6 @@ public class ExamResults {
         }
     }
     
-    private void keepFlashInfo(Exam exam, Course course) {
-        Flash flash = Faces.getFlash();
-        flash.put("course", course);
-        flash.keep("exam");
-    }
-
     public Exam getExam() {
         return exam;
     }
@@ -75,11 +69,4 @@ public class ExamResults {
         this.examResults = examResults;
     }
     
-    @PreDestroy
-    public void keepFlash() {
-        System.out.println("PRE DESTROY CALLED " + Faces.getFlashAttribute("exam"));
-        
-        Faces.getFlash().keep("exam");
-    }
-
 }

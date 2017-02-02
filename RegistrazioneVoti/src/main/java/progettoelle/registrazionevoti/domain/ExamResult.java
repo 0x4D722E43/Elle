@@ -33,9 +33,17 @@ public class ExamResult extends BaseEntity {
     }
     
     public boolean isFailed() {
-        return status == ExamResultStatus.FAILED_PENDING;
+        return (status == ExamResultStatus.FAILED_PENDING || status == ExamResultStatus.FAILED);
     }
-
+    
+    public boolean isAccepted() {
+        return status == ExamResultStatus.ACCEPTED;
+    }
+    
+    public boolean isRejected() {
+        return status == ExamResultStatus.REJECTED;
+    }
+    
     public Student getStudent() {
         return student;
     }

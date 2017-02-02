@@ -9,8 +9,8 @@ and open the template in the editor.
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <f:metadata>
-        <f:viewAction if="#{request.isUserInRole('STUDENTE')}"  action="#{login.goStudent()}" />           
-        <f:viewAction if="#{request.isUserInRole('PROFESSORE')}" action="#{login.goProfessor()}" />
+        <f:viewAction if="#{request.isUserInRole('STUDENTE')}"  action="#{login.authenticateStudent}" />           
+        <f:viewAction if="#{request.isUserInRole('PROFESSORE')}" action="#{login.authenticateProfessor}" />
     </f:metadata>
     
 </html>

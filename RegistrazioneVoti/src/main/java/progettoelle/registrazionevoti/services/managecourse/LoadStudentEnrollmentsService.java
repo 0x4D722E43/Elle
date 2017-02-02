@@ -5,8 +5,9 @@ import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 
-public final class LoadStudentEnrollmentsService {
+public final class LoadStudentEnrollmentsService extends BaseService {
     
     private final EnrollmentRepository enrollmentRepository;
 

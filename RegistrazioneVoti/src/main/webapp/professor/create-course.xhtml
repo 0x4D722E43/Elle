@@ -12,7 +12,7 @@
             
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Crea Corso">
+                    <p:panel header="Crea Nuovo Corso">
                     
                         <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="name" value="Name:" />
@@ -35,7 +35,7 @@
                         
                         <p:messages for="validation" showDetail="false" autoUpdate="true" closable="true" />
                        
-                        <p:commandButton id="submitButton" action="#{createCourse.createCourse}" value="Crea" update="grid"/>
+                        <p:commandButton id="submitButton" action="#{createCourse.createCourse}" value="Crea" update="grid" icon="ui-icon-check"/>
                     </p:panel>
                     
                     <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>

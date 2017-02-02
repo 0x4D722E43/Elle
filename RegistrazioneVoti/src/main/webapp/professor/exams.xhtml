@@ -24,18 +24,19 @@
                                 <h:outputText value="#{exam.description}"/>
                             </p:column>
                         
-                            <p:column headerText="Status Iscrizioni">
-                                <h:outputText value="APERTE" rendered="#{exam.bookingOpen}"/>
-                                <h:outputText value="CHIUSE" rendered="#{not exam.bookingOpen}"/>
+                            <p:column style="text-align: center">
+                                <p:commandLink value="Vedi Esiti" action="#{courseExams.redirectToExamResults}"/>
+                                <p:graphicImage value="/resources/images/icons/esiti.png" style="vertical-align: middle"/>
                             </p:column>
-                    
-                            <p:column headerText="">
-                                <p:commandButton value="APRI ISCRZIONI" action="#{courseExams.openExamBookings}" rendered="#{not exam.bookingOpen}"/>
-                                <p:commandButton value="CHIUDI ISCRIZIONI" action="#{courseExams.closeExamBookings}" rendered="#{exam.bookingOpen}"/>
+                            
+                            <p:column style="text-align: center">
+                                <p:commandButton value="Apri" action="#{courseExams.openExamBookings}" rendered="#{not exam.bookingOpen}" icon="ui-icon-circle-check"/>
+                                <p:commandButton value="Chiudi" action="#{courseExams.closeExamBookings}" rendered="#{exam.bookingOpen}" icon="ui-icon-circle-close"/>
                             </p:column>
-                        
-                            <p:column headerText="">
-                                <p:commandLink value="Esiti" action="#{courseExams.redirectToExamResults}"/>
+                            
+                            <p:column style="width:32px">
+                                <p:graphicImage value="/resources/images/icons/circle_green.png" rendered="#{exam.bookingOpen}"/>
+                                <p:graphicImage value="/resources/images/icons/circle_red.png" rendered="#{not exam.bookingOpen}"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel>

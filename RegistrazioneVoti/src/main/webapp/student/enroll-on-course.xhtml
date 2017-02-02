@@ -21,12 +21,12 @@
                                 <h:outputText value="#{course.professor.name} #{course.professor.surname}"/>
                             </p:column>
                         
-                            <p:column headerText="Crediti">
+                            <p:column headerText="Crediti" style="width:96px; text-align: center">
                                 <h:outputText value="#{course.credits}"/>
                             </p:column>
                         
-                            <p:column headerText="">
-                                <p:commandButton value="Iscriviti" action="#{enrollOnCourse.enrollOnCourse}"/>
+                            <p:column style="width:148px; text-align: center">
+                                <p:commandButton value="Iscriviti" action="#{enrollOnCourse.enrollOnCourse}" icon="ui-icon-pencil"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel>

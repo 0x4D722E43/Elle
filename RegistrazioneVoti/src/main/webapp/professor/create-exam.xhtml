@@ -11,7 +11,7 @@
             <ui:define name="title">Crea Esame</ui:define>
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Crea Esame">    
+                    <p:panel header="Crea Nuovo Esame">    
                         <h:panelGrid id="grid" columns="3" cellpadding="5">
                             <p:outputLabel for="course" value="Corso:" />
                             <p:selectOneMenu id="course" value="#{createExam.selectedCourse}" required="true" requiredMessage="Seleziona un Corso" converter="omnifaces.SelectItemsConverter">
@@ -33,7 +33,7 @@
                             <p:message for="description" display="text" /> 
                         </h:panelGrid>
                         
-                        <p:commandButton id="submitButton" action="#{createExam.createExam}" value="Crea" update="grid" /> 
+                        <p:commandButton id="submitButton" action="#{createExam.createExam}" value="Crea" update="grid" icon="ui-icon-check"/> 
                     </p:panel>
                     
                     <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>

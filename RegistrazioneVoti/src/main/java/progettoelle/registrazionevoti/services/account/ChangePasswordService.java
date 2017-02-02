@@ -3,9 +3,10 @@ package progettoelle.registrazionevoti.services.account;
 import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.UserRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
-public final class ChangePasswordService {
+public final class ChangePasswordService extends BaseService {
     
     private static final String INVALID_PASSWORD_MESSAGE = "La vecchia password non è corretta";
     private static final String DIFFERENT_PASSWORDS_MESSAGE = "Le password non coincidono";

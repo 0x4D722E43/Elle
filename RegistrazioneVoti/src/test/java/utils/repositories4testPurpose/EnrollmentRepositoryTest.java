@@ -44,11 +44,11 @@ public class EnrollmentRepositoryTest implements EnrollmentRepository {
     }
 
     @Override
-    public List<Student> findStudentsEnrolledOnCourse(Course course) throws DataLayerException {
-        List<Student> out = new ArrayList<>();
+    public List<Enrollment> findStudentsEnrolledOnCourse(Course course) throws DataLayerException {
+        List<Enrollment> out = new ArrayList<>();
         for (Enrollment e : db.getEnrolling()) {
             if (e.getCourse().equals(course)) {
-                out.add(e.getStudent());
+                out.add(e);
             }
         }
         return out;

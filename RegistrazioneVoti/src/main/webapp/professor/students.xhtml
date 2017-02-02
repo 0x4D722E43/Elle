@@ -12,14 +12,23 @@
             
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Iscritti al Corso">
-                        <p:dataTable value="#{courseEnrolledStudents.enrolledStudents}" var="student">
+                    <p:panel header="Iscritti al Corso di #{courseEnrolledStudents.course.name}">
+                        <p:dataTable value="#{courseEnrolledStudents.enrolledStudents}" var="enr">
                             <p:column headerText="Studente">
-                                <h:outputText value="#{student.name} #{student.surname}"/>
+                                <h:outputText value="#{enr.student.name} #{enr.student.surname}"/>
                             </p:column>
                         
                             <p:column headerText="Email">
-                                <h:outputText value="#{student.email}"/>
+                                <h:outputText value="#{enr.student.email}"/>
+                            </p:column>
+                            
+                            <p:column style="width:32px">
+                                <p:graphicImage value="/resources/images/icons/circle_green.png" rendered="#{enr.completed}"/>
+                                <p:graphicImage value="/resources/images/icons/circle_yellow.png" rendered="#{not enr.completed}"/>
+                            </p:column>
+                            
+                            <p:column headerText="Voto" style="width:64px; text-align: center">
+                                <h:outputText value="#{enr.printableGrade}" />
                             </p:column>
                         </p:dataTable>
                     </p:panel>

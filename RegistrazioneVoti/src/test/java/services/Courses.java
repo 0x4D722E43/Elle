@@ -51,7 +51,6 @@ public class Courses {
     }
     @Test 
     public void createCourse(){
-        /* COURSE REPOSITORY NON ANCORA IMPLEMENTATO
         try {
             CreateCourseService ccs = new CreateCourseService(degreeCourseRepository,
                     courseRepository);
@@ -69,12 +68,5 @@ public class Courses {
         } catch (ValidationException ex) {
             fail();
         }
-    */
     }
-
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
 }

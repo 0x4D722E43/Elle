@@ -21,11 +21,10 @@ public class Courses {
     
     private final LoadProfessorCoursesService service = ServiceInjection.provideLoadProfessorCoursesService();
     
-    private DataModel<Course> courses;
-
     @ManagedProperty(value = "#{professorManager.professor}")
     private Professor professor;
-    
+    private DataModel<Course> courses;
+
     public Courses() {
     
     }
@@ -52,15 +51,7 @@ public class Courses {
     
     private void saveSelectedCourseToFlash() {
         Course selectedCourse = courses.getRowData();
-        Faces.getFlash().put("course", selectedCourse);
-    }
-
-    public DataModel<Course> getCourses() {
-        return courses;
-    }
-
-    public void setCourses(DataModel<Course> courses) {
-        this.courses = courses;
+        Faces.getFlash().put(Course.class.getName(), selectedCourse);
     }
 
     public Professor getProfessor() {
@@ -69,6 +60,14 @@ public class Courses {
 
     public void setProfessor(Professor professor) {
         this.professor = professor;
+    }
+    
+    public DataModel<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(DataModel<Course> courses) {
+        this.courses = courses;
     }
 
 }

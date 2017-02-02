@@ -26,13 +26,13 @@ public class EnrollmentRepositoryHibernate extends HibernateRepository implement
     }
 
     @Override
-    public List<Student> findStudentsEnrolledOnCourse(Course course) throws DataLayerException {
+    public List<Enrollment> findStudentsEnrolledOnCourse(Course course) throws DataLayerException {
         initializeOperation();
-        List<Student> results = null;
+        List<Enrollment> results = null;
         
         try {
             transaction.begin();
-            String hql = "SELECT e.student FROM Enrollment e WHERE e.course=:course";
+            String hql = "SELECT e FROM Enrollment e WHERE e.course=:course";
             results = entityManager.createQuery(hql).setParameter("course", course).getResultList();
             transaction.commit();
         } catch(PersistenceException ex) {

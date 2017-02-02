@@ -16,13 +16,13 @@ public class ChangeProfessorPassword {
     
     private final ChangePasswordService service = ServiceInjection.provideChangePasswordService();
     
+    @ManagedProperty(value = "#{professorManager.professor}")
+    private Professor professor;
+    
     private String oldPassword;
     private String password;
     private String passwordConfirmation;
     
-    @ManagedProperty(value = "#{professorManager.professor}")
-    private Professor professor;
-
     public ChangeProfessorPassword() {
     
     }
@@ -40,6 +40,14 @@ public class ChangeProfessorPassword {
             Messages.create("Oooops...").add("growl");
             return null;
         }
+    }
+    
+    public Professor getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor professor) {
+        this.professor = professor;
     }
     
     public String getOldPassword() {
@@ -66,12 +74,4 @@ public class ChangeProfessorPassword {
         this.passwordConfirmation = passwordConfirmation;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-    
 }
