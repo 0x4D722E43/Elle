@@ -8,7 +8,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import org.omnifaces.util.Faces;
 import progettoelle.registrazionevoti.domain.Course;
-import progettoelle.registrazionevoti.domain.Student;
+import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
 import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudentsService;
@@ -20,7 +20,7 @@ public class CourseEnrolledStudents {
     private final LoadEnrolledStudentsService service = ServiceInjection.provideLoadEnrolledStudentsService();
     
     private Course course = Faces.getFlashAttribute(Course.class.getName());
-    private DataModel<Student> enrolledStudents;
+    private DataModel<Enrollment> enrolledStudents;
 
     public CourseEnrolledStudents() {
     
@@ -29,7 +29,7 @@ public class CourseEnrolledStudents {
     @PostConstruct
     public void initialize() {
         try {
-            List<Student> results = service.getEnrolledStudents(course);
+            List<Enrollment> results = service.getEnrolledStudents(course);
             enrolledStudents = new ListDataModel<>(results);
         } catch (DataLayerException ex) {
             
@@ -45,13 +45,13 @@ public class CourseEnrolledStudents {
     public void setCourse(Course course) {
         this.course = course;
     }
-    
-    public DataModel<Student> getEnrolledStudents() {
+
+    public DataModel<Enrollment> getEnrolledStudents() {
         return enrolledStudents;
     }
 
-    public void setEnrolledStudents(DataModel<Student> enrolledStudents) {
+    public void setEnrolledStudents(DataModel<Enrollment> enrolledStudents) {
         this.enrolledStudents = enrolledStudents;
     }
-
+    
 }
