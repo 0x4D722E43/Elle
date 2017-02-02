@@ -6,9 +6,10 @@ import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.mail.MailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.UserRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
-public final class ResetPasswordService {
+public final class ResetPasswordService extends BaseService {
     
     public static final String INEXISTENT_EMAIL_MESSAGE = "Email inesistente";
     

@@ -7,9 +7,10 @@ import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.DegreeCourseRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
-public final class CreateCourseService {
+public final class CreateCourseService extends BaseService {
     
     private static final String ALREADY_EXISTENT_COURSE = "Esiste già un corso con questo nome";
     

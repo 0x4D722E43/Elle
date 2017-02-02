@@ -8,8 +8,9 @@ import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.ExamRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 
-public final class CreateExamService {
+public final class CreateExamService extends BaseService {
 
     private final CourseRepository courseRepository;
     private final ExamRepository examRepository;

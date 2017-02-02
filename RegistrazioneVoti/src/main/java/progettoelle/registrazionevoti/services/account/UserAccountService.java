@@ -3,8 +3,9 @@ package progettoelle.registrazionevoti.services.account;
 import progettoelle.registrazionevoti.domain.RegisteredUser;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.UserRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 
-public final class UserAccountService {
+public final class UserAccountService extends BaseService {
         
     private final UserRepository userRepository;
 

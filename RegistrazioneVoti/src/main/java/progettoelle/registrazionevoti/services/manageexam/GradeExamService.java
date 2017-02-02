@@ -5,8 +5,9 @@ import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.ExamResultRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 
-public final class GradeExamService {
+public final class GradeExamService extends BaseService {
 
     private final ExamResultRepository examResultRepository;
 

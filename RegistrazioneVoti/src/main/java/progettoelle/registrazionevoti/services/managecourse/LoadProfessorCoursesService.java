@@ -5,8 +5,9 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
+import progettoelle.registrazionevoti.services.BaseService;
 
-public final class LoadProfessorCoursesService {
+public final class LoadProfessorCoursesService extends BaseService {
     
     private final CourseRepository courseRepository;
 

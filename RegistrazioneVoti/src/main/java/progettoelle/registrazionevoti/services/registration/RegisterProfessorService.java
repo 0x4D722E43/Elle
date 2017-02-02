@@ -10,9 +10,10 @@ import progettoelle.registrazionevoti.mail.MailService;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.FacultyRepository;
 import progettoelle.registrazionevoti.repositories.UserRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
-public final class RegisterProfessorService {
+public final class RegisterProfessorService extends BaseService {
     
     private static final String DOMAIN = "unipv.it";
     private static final String EMAIL_PATTERN = "^[a-z]+\\.[a-z]+@" + Pattern.quote(DOMAIN) + "$";

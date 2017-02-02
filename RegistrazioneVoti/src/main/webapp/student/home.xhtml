@@ -11,7 +11,7 @@
             <ui:define name="title">RegistrazioneVoti</ui:define>
             
             <ui:define name="nav">
-                <h:form>
+                <h:form id="form">
                     <p:menu>
                         <p:submenu label="Ciao #{studentManager.student.name}">
                             <p:menuitem value="Libretto" outcome="home" icon="ui-icon-home"/>
@@ -31,7 +31,7 @@
             </ui:define>
             
             <ui:define name="content">
-                <h:form>
+                <h:form id="content">
                     <p:panel header="I Corsi a cui sei iscritto">
                         <p:dataTable value="#{enrollments.enrollments}" var="enr">
                             <p:column headerText="Corso">
@@ -39,7 +39,9 @@
                             </p:column>
                             
                             <p:column headerText="Professore">
-                                <h:outputText value="#{enr.course.professor.name} #{enr.course.professor.surname}"/>
+                                <p:commandLink update=":content:profDetail" oncomplete="PF('profOP').show('#{component.clientId}')" value="#{enr.course.professor.name} #{enr.course.professor.surname}">
+                                    <f:setPropertyActionListener value="#{enr.course.professor}" target="#{enrollments.selectedProfessor}" />
+                                </p:commandLink>
                             </p:column>
                             
                             <p:column style="width:32px">
@@ -51,6 +53,24 @@
                                 <h:outputText value="#{enr.printableGrade}" />
                             </p:column>
                         </p:dataTable>
+                        
+                        <p:overlayPanel widgetVar="profOP" showEffect="fade" hideEffect="fade" dismissable="false" showCloseIcon="true">
+                            <p:outputPanel id="profDetail" style="text-align:center;">
+                                <p:panelGrid  columns="2" rendered="#{not empty enrollments.selectedProfessor}" columnClasses="label,value">
+                                    <h:outputText value="Email:" />
+                                    <h:outputText value="#{enrollments.selectedProfessor.email}"/>
+ 
+                                    <h:outputText value="Sito web:" />
+                                    <h:outputLink value="#{enrollments.selectedProfessor.websiteLink}">#{enrollments.selectedProfessor.websiteLink}</h:outputLink>
+ 
+                                    <h:outputText value="Orario di ricevimento:" />
+                                    <h:outputText value="#{enrollments.selectedProfessor.officeHours}"/>
+ 
+                                    <h:outputText value="Ufficio:" />
+                                    <h:outputText value="#{enrollments.selectedProfessor.officeLocation}"/>
+                                </p:panelGrid>
+                            </p:outputPanel>
+                        </p:overlayPanel>
                     </p:panel>
                     
                     <p:growl id="messages" showDetail="false" life="5000"/>

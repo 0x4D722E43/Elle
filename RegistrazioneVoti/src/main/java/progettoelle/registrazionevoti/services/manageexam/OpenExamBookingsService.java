@@ -5,8 +5,9 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.ExamRepository;
+import progettoelle.registrazionevoti.services.BaseService;
 
-public final class OpenExamBookingsService {
+public final class OpenExamBookingsService extends BaseService {
 
     private final ExamRepository examRepository;
 
