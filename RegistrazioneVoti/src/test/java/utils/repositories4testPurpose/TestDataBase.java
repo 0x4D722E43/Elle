@@ -209,7 +209,8 @@ public class TestDataBase {
         //iscrizioni aperte?, data [yyyy-MM-dd HH:mm:ss], Descrizione, aula, id_corso
         String[][] data = new String[][]{
             {"NO","2017-01-19 09:00:00","Prova scritta","EF4","1"},            
-            {"","2017-02-20 09:00:00","Prova scritta","EF2","1"},
+            {"","2017-02-20 09:00:00","Prova scritta","EF2","1"},                   
+            {"","2017-02-25 11:00:00","Prova scritta","EF2","2"},
         };
         for(int i=0;i<data.length;i++){
             Calendar cal = Calendar.getInstance();
@@ -233,11 +234,12 @@ public class TestDataBase {
         //id(progr), VOTO, STATUS(enum), id exam, id student
         String[][] data = new String[][]{
             {"18","PASSED_PENDING","1","5"},
-            {"27","PASSED_PENDING","1","6"},
             {"15","FAILED_PENDING","1","7"},
             {"21","PASSED_PENDING","1","8"},
             {"30","PASSED_PENDING","1","9"},
             {"28","PASSED_PENDING","1","10"},
+            
+            {"0","BOOKED","2","6"},
             {"0","BOOKED","2","11"},
             {"0","BOOKED","2","12"},
             {"0","BOOKED","2","13"},

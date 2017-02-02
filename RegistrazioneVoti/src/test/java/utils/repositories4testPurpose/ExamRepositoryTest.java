@@ -6,6 +6,7 @@ import progettoelle.registrazionevoti.controllers.student.EnrollOnCourse;
 import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Exam;
+import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.ExamRepository;
@@ -38,14 +39,16 @@ public class ExamRepositoryTest implements ExamRepository {
     @Override
     public List<Exam> findAvailableExamsForStudent(Student student) throws DataLayerException {
         List<Exam> out = new ArrayList<>();
+        ///esami di corsi a cui gli studenti sono iscritti,
+        ///Ma non è stato superato
         for(Enrollment eoc:db.getEnrolling()){
             if(eoc.getStudent().equals(student)){
                 if(!eoc.isCompleted()){
-                    for(Exam e:db.getExams()){
-                        if(e.isBookingOpen()&e.getCourse().equals(eoc.getCourse())){
-                            out.add(e);
-                        }
-                    }
+                   for(Exam e:findExamByCourse(eoc.getCourse())){
+                       if(e.isBookingOpen()){
+                           out.add(e);
+                       }
+                   }
                 }
             }
         }

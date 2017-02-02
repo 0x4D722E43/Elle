@@ -52,8 +52,6 @@ public class ExamResultRepositoryTest implements ExamResultRepository {
         List<ExamResult> out = new ArrayList<>();
         for (ExamResult er : db.getExamResults()) {
             if (er.getStudent().equals(student)
-                    & !er.getStatus().equals(ExamResultStatus.BOOKED)
-                    //////////////////////////////////////////////////////////////////////////NON LO SO DA VEDERE A MENTE LUCIDA
                     & !er.getExam().isBookingOpen()) {
                 out.add(er);
             }

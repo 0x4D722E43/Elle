@@ -9,5 +9,5 @@ import org.junit.runners.Suite;
  * @author mrc
  */
 @RunWith(Suite.class)
-@Suite.SuiteClasses({services.Registration.class, services.UserAccount.class, services.Exam.class, services.Courses.class})
+@Suite.SuiteClasses({services.Registration.class, services.UserAccount.class, services.Exams.class, services.Courses.class})
 public class TestService {}
