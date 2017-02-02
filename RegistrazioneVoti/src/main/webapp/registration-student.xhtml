@@ -11,7 +11,7 @@
             <ui:define name="title">Registrati</ui:define>
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Registra Studente">
+                    <p:panel id="panel" header="Registra Studente">
                         <h:panelGrid id="grid" columns="4" cellpadding="5">
                             <p:outputLabel for="email" value="Email:" />
                             <p:inputText id="email" value="#{studentRegistration.email}" required="true" requiredMessage="Il campo email non può essere vuoto"/>
@@ -46,7 +46,7 @@
                        
                         <p:commandButton id="submitButton" action="#{studentRegistration.registerStudent}" value="Registrati" update="grid" icon="ui-icon-check"/> 
                     </p:panel>
-                    
+                     
                     <p:growl for="growl" autoUpdate="true" showDetail="true" life="5000"/>
                 </h:form>
             </ui:define>
