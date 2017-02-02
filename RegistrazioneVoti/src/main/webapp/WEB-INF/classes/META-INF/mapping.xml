@@ -21,7 +21,7 @@
         <table name="FACOLTA"/>
         <attributes>
             <basic name="name">
-                <column name="FACOLTA" unique="true" nullable="false"/>
+                <column name="NOME" unique="true" nullable="false"/>
             </basic>
         </attributes>
     </entity>

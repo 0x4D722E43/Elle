@@ -22,6 +22,4 @@ public interface ExamResultRepository {
     
     void deleteExamResult(ExamResult examResult) throws DataLayerException;
     
-    void deleteAllBookingsForCourse(Student student, Course course) throws DataLayerException;
-
 }

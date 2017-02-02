@@ -132,21 +132,4 @@ public class ExamResultRepositoryHibernate extends HibernateRepository implement
         }
     }
 
-    @Override
-    public void deleteAllBookingsForCourse(Student student, Course course) throws DataLayerException {
-        initializeOperation();
-   
-        try {
-            transaction.begin();
-            String hql = "SELECT e FROM ExamResult e WHERE e.student=:student AND e.exam.course=:course AND e.status='BOOKED'";
-            List<ExamResult> bookingsToDelete = entityManager.createQuery(hql).setParameter("student", student).setParameter("course", course).getResultList();  
-            for (ExamResult bookingToDelete : bookingsToDelete) entityManager.remove(bookingToDelete);
-            transaction.commit();
-        } catch(PersistenceException ex) {
-            handleOperationException(ex);
-        } finally {
-            entityManager.close();
-        }
-    }
-    
 }
