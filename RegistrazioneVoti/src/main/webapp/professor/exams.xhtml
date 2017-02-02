@@ -26,11 +26,12 @@
                         
                             <p:column style="text-align: center">
                                 <p:commandLink value="Vedi Esiti" action="#{courseExams.redirectToExamResults}"/>
+                                <p:graphicImage value="/resources/images/icons/esiti.png" style="vertical-align: middle"/>
                             </p:column>
                             
                             <p:column style="text-align: center">
-                                <p:commandButton value="APRI" action="#{courseExams.openExamBookings}" rendered="#{not exam.bookingOpen}"/>
-                                <p:commandButton value="CHIUDI" action="#{courseExams.closeExamBookings}" rendered="#{exam.bookingOpen}"/>
+                                <p:commandButton value="Apri" action="#{courseExams.openExamBookings}" rendered="#{not exam.bookingOpen}" icon="ui-icon-circle-check"/>
+                                <p:commandButton value="Chiudi" action="#{courseExams.closeExamBookings}" rendered="#{exam.bookingOpen}" icon="ui-icon-circle-close"/>
                             </p:column>
                             
                             <p:column style="width:32px">

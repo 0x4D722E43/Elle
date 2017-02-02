@@ -12,14 +12,14 @@
             <ui:define name="nav">
                 <h:form>
                     <p:menu>
-                        <p:submenu label="Ciao #{professorManager.professor.name}">
-                            <p:menuitem value="Corsi" outcome="home" icon="ui-icon-home"/>
-                            <p:menuitem value="Crea corso" outcome="create-course" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Crea esame" outcome="create-exam" icon="ui-icon-plusthick"/>
+                        <p:submenu label="Benvenuto #{professorManager.professor.name}">
+                            <p:menuitem value="Corsi" outcome="home" icon="ui-icon-folder-open"/>
+                            <p:menuitem value="Crea corso" outcome="create-course" icon="ui-icon-pencil"/>
+                            <p:menuitem value="Crea esame" outcome="create-exam" icon="ui-icon-document"/>
                         </p:submenu>
                         <p:submenu label="Account">
-                            <p:menuitem value="Info" outcome="account-info" icon="ui-icon-plusthick"/>
-                            <p:menuitem value="Cambia Password" outcome="change-password" icon="ui-icon-plusthick"/>
+                            <p:menuitem value="Info" outcome="account-info" icon="ui-icon-person"/>
+                            <p:menuitem value="Cambia Password" outcome="change-password" icon="ui-icon-wrench"/>
                             <p:menuitem value="Logout" action="#{professorManager.logout}" immediate="true" icon="ui-icon-closethick"/>
                         </p:submenu>
                     </p:menu>
@@ -36,10 +36,12 @@
                     
                             <p:column style="text-align: center">
                                 <p:commandLink value="Vedi Esami" action="#{courses.redirectToCourseExams}"/>
+                                <p:graphicImage value="/resources/images/icons/esami.png" style="vertical-align: middle"/>
                             </p:column>
                         
                             <p:column style="text-align: center">
-                                <p:commandLink value="Vedi Iscritti" action="#{courses.redirectToCourseEnrolledStudents}"/>
+                                <p:commandLink value="Vedi Iscritti " action="#{courses.redirectToCourseEnrolledStudents}"/>
+                                <p:graphicImage value="/resources/images/icons/studenti.png" style="vertical-align: middle"/>
                             </p:column>
                         </p:dataTable>
                     </p:panel>
