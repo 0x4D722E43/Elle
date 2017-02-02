@@ -2,7 +2,6 @@ package utils.repositories4testPurpose;
 
 import java.util.ArrayList;
 import java.util.List;
-import progettoelle.registrazionevoti.domain.Course;
 
 import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.ExamResult;
@@ -99,10 +98,6 @@ public class ExamResultRepositoryTest implements ExamResultRepository {
             }
         }
         return max + 1;
-    }
-
-    @Override
-    public void deleteAllBookingsForCourse(Student student, Course course) throws DataLayerException {
     }
 
 }
