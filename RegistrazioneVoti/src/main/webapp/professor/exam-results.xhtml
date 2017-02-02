@@ -13,7 +13,7 @@
             
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Esiti Esame del #{of:formatDate(examResults.exam.date.time, 'dd.MM.yyyy')}">
+                    <p:panel header="Esiti Esame del #{of:formatDate(examResults.exam.date.time, 'dd.MM.yyyy')} di #{examResults.exam.course.name}">
                         <p:dataTable id="table" value="#{examResults.examResults}" var="result" editable="true">
                             
                             <p:ajax event="rowEdit" listener="#{examResults.onRowEdit}" />
@@ -26,7 +26,7 @@
                                 <h:outputText value="#{result.student.matriculationNumber}"/>
                             </p:column>
                         
-                            <p:column headerText="Voto" style="text-align: center">
+                            <p:column headerText="Voto" style="width:64px; text-align: center">
                                 <p:cellEditor>
                                     <f:facet name="output"><h:outputText value="#{result.grade}"/></f:facet>
                                     <f:facet name="input">
@@ -37,7 +37,7 @@
                                 </p:cellEditor>
                             </p:column>
                             
-                            <p:column style="width:32px">
+                            <p:column style="width:64px">
                                 <p:rowEditor />
                             </p:column>
                         </p:dataTable>
