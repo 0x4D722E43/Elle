@@ -15,6 +15,12 @@ public final class ManageExamBookingsService extends BaseService {
         this.examResultRepository = examResultRepository;
     }
     
+    /**
+     *
+     * @param student
+     * @return I risultati di esami non ancora effettuati(prenotati) dello studente
+     * @throws DataLayerException
+     */
     public List<ExamResult> getExamBookings(Student student) throws DataLayerException {
         return examResultRepository.findStudentBookings(student);
     }

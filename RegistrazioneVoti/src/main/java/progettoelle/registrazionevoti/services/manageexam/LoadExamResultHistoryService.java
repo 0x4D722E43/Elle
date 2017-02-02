@@ -15,6 +15,12 @@ public final class LoadExamResultHistoryService extends BaseService {
         this.examResultRepository = examResultRepository;
     }
     
+    /**
+     *
+     * @param student
+     * @return TUTTI i risultati nella carriera dello studente
+     * @throws DataLayerException
+     */
     public List<ExamResult> getExamResultHistory(Student student) throws DataLayerException {
         return examResultRepository.findStudentResultsHistory(student);
     }

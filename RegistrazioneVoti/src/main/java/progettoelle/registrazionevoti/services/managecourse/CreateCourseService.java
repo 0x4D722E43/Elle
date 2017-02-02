@@ -26,6 +26,17 @@ public final class CreateCourseService extends BaseService {
         return degreeCourseRepository.findAllDegreeCourses();
     }
 
+    /**
+     * Permette la creazione di un esame,
+     * rilascia una ValidationException 
+     * se esiste già un corso con lo stesso nome
+     * @param name
+     * @param credits
+     * @param professor
+     * @param degreeCourse
+     * @throws ValidationException
+     * @throws DataLayerException
+     */
     public void createCourse(String name, int credits, Professor professor, DegreeCourse degreeCourse) throws ValidationException, DataLayerException {
         if (courseRepository.findCourseByName(name) != null) throw new ValidationException(ALREADY_EXISTENT_COURSE);
         

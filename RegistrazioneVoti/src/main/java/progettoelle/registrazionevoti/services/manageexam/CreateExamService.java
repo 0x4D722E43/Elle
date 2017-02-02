@@ -20,6 +20,12 @@ public final class CreateExamService extends BaseService {
         this.examRepository = examRepository;
     }
     
+    /**
+     *
+     * @param professor
+     * @return I corsi di cui il professore è responsabile
+     * @throws DataLayerException
+     */
     public List<Course> getPossibleCourses(Professor professor) throws DataLayerException {
         return courseRepository.findCourseByProfessor(professor); 
     }

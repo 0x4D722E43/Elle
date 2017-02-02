@@ -15,6 +15,12 @@ public final class LoadProfessorCoursesService extends BaseService {
         this.courseRepository = courseRepository;
     }
     
+    /**
+     *
+     * @param professor
+     * @return i corsi di cui il professore è responsabile
+     * @throws DataLayerException
+     */
     public List<Course> getCourses(Professor professor) throws DataLayerException {
         return courseRepository.findCourseByProfessor(professor);
     }

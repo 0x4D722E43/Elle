@@ -23,6 +23,12 @@ public final class BookExamService extends BaseService {
         return examRepository.findAvailableExamsForStudent(student);
     }
 
+    /**
+     * Lo studente prenota l'esame
+     * @param student
+     * @param exam
+     * @throws DataLayerException
+     */
     public void bookExam(Student student, Exam exam) throws DataLayerException {
         ExamResult examResult = new ExamResult(student, exam);
         examResultRepository.createExamResult(examResult);

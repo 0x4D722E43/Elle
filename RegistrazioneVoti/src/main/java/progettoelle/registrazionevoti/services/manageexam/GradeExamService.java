@@ -14,11 +14,24 @@ public final class GradeExamService extends BaseService {
     public GradeExamService(ExamResultRepository examResultRepository) {
         this.examResultRepository = examResultRepository;
     }
-
+    
+    /**
+     *
+     * @param exam
+     * @return I risultati(valutati o meno) del esame
+     * @throws DataLayerException
+     */
     public List<ExamResult> getExamResults(Exam exam) throws DataLayerException {
         return examResultRepository.findExamResultByExam(exam);
     }
 
+    /**
+     * Assegna una valutazione al risultato di un esame
+     * 
+     * @param mark
+     * @param examResult
+     * @throws DataLayerException
+     */
     public void gradeExam(int mark, ExamResult examResult) throws DataLayerException {
         examResult.grade(mark);
         examResultRepository.updateExamResult(examResult);

@@ -15,15 +15,31 @@ public final class OpenExamBookingsService extends BaseService {
         this.examRepository = examRepository;
     }
     
+    /**
+     *
+     * @param course
+     * @return Esami del corso
+     * @throws DataLayerException
+     */
     public List<Exam> getExams(Course course) throws DataLayerException {
         return examRepository.findExamByCourse(course);
     }
 
+    /**
+     *  Apre le prenotazione del esame
+     * @param exam
+     * @throws DataLayerException
+     */
     public void openExamBookings(Exam exam) throws DataLayerException {
         exam.openBookings();
         examRepository.updateExam(exam);
     }
 
+    /**
+     * Chiude la prenotazione del esame
+     * @param exam
+     * @throws DataLayerException
+     */
     public void closeExamBookings(Exam exam) throws DataLayerException {
         exam.closeBookings();
         examRepository.updateExam(exam);

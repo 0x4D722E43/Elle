@@ -21,6 +21,12 @@ public final class AcceptExamResultService extends BaseService {
         this.enrollmentRepository = enrollmentRepository;
     }
 
+    /**
+     *
+     * @param student
+     * @return I risultati in attesa di rifiuto/accettazione dello studente
+     * @throws DataLayerException
+     */
     public List<ExamResult> getExamsResults(Student student) throws DataLayerException {
         return examResultRepository.findStudentResults(student);
     }

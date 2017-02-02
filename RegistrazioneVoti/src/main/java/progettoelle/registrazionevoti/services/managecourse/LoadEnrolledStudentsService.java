@@ -15,6 +15,12 @@ public final class LoadEnrolledStudentsService extends BaseService {
         this.enrollmentRepository = enrollmentRepository;
     }
 
+    /**
+     *
+     * @param course
+     * @return Le iscrizioni al corso 
+     * @throws DataLayerException
+     */
     public List<Enrollment> getEnrolledStudents(Course course) throws DataLayerException {
         return enrollmentRepository.findStudentsEnrolledOnCourse(course);
     }
