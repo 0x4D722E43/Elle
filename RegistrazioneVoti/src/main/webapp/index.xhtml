@@ -29,8 +29,13 @@
             
             <ui:define name="content">
                 <h:form>
-                    <p:panel header="Benvenuto nella piattaforma di registrazione voti"/>
-                    
+                    <p:panel header="Benvenuto nella piattaforma di registrazione voti">
+                        Per poter accedere o registrarsi è per il momento necessario disporre di account fornito dall'Università di Pavia.
+                        Per gli studenti deve quindi essere del tipo " nome.cognome01@universitadipavia.it ", mentre per i professori 
+                        " nome.cognome@unipv.it ". Al momento della registrazione verrà inviata all'indirizzo email fornito una password
+                        casuale che può essere cambiata dopo il primo accesso.
+                    </p:panel>
+                        
                     <p:growl autoUpdate="true" showDetail="true" life="5000"/>
                 </h:form>
             </ui:define>
