@@ -2,9 +2,9 @@
 
 RegistrazioneVoti è un progetto che mira alla realizzazione di una Applicazione Web fruibile da studenti e professori dell’Università di Pavia, che permetta in modo semplice l'iscrizione agli esami e la registrazione dei voti. Nella Wiki viene esposto il Development Case che contiene la documentazione prodotta in fase di sviluppo del progetto.
 
-L'applicazione implenta implementa i casi d'uso presentati nella wiki. Attualmente si trova nella fase finale di test.
+L'applicazione implenta implementa i casi d'uso presentati nella wiki. Attualmente si trova nella fase finale di verifca e convalida.
 
-_Da notare_: il MailService che si dovrebbe occupare dell'invio delle mail con la prima password per l'acesso è implementanto utilizzando una MockService che stampa l'ipotetico messaggio contenuto nella mail nel Logger dell'applicazione. 
+_Da notare_: il MailService che si dovrebbe occupare dell'invio delle mail con la prima password per l'accesso è implementanto utilizzando una MockService che stampa l'ipotetico messaggio contenuto nella mail nel Logger dell'applicazione. 
 
 #### Eseguire il progetto
 
