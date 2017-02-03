@@ -1,4 +1,4 @@
-# Progetto Elle
+# RegistrazioneVoti - Progetto Elle
 
 RegistrazioneVoti è un progetto che mira alla realizzazione di una Applicazione Web fruibile da studenti e professori dell’Università di Pavia, che permetta in modo semplice l'iscrizione agli esami e la registrazione dei voti. 
 
