@@ -16,7 +16,7 @@ import progettoelle.registrazionevoti.services.ValidationException;
 @RequestScoped
 public class StudentRegistration {
     
-    private final RegisterStudentService service = ServiceInjection.provideRegisterStudentService();
+    private final RegisterStudentService service = ServiceInjection.provideRegisterService();
 
     private String email;
     private String name;

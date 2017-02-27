@@ -1,33 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<Context path="/RegistrazioneVoti">
-    
-    <Resource 
-        name="jdbc/MYSQLRegistrazioneVoti" 
-        auth="Container" 
-        type="javax.sql.DataSource"
-	maxTotal="100" 
-        maxIdle="30" 
-        maxWaitMillis="10000"
-        username="sql11156820" 
-        password="KknpNPR3if" 
-        driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11156820"/>
-    
-    <Realm 
-        className="org.apache.catalina.realm.DataSourceRealm" 
-        dataSourceName="jdbc/MYSQLRegistrazioneVoti"
-        userTable="UTENTI" 
-        userNameCol="EMAIL" 
-        userCredCol="PASSWORD"
-        userRoleTable="UTENTI" 
-        roleNameCol="RUOLO" 
-        localDataSource="true" >
-        
-        <CredentialHandler
-            className="org.apache.catalina.realm.MessageDigestCredentialHandler"
-            algorithm="md5" />
-    
-    </Realm>
-
+<Context path="/Elle">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" maxIdle="30" maxTotal="100" maxWaitMillis="10000" name="jdbc/MYSQLRegistrazioneVoti" password="KknpNPR3if" type="javax.sql.DataSource" url="jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11156820" username="sql11156820"/>
+  <Realm className="org.apache.catalina.realm.DataSourceRealm" dataSourceName="jdbc/MYSQLRegistrazioneVoti" localDataSource="true" roleNameCol="RUOLO" userCredCol="PASSWORD" userNameCol="EMAIL" userRoleTable="UTENTI" userTable="UTENTI">
+    <CredentialHandler algorithm="md5" className="org.apache.catalina.realm.MessageDigestCredentialHandler"/>
+  </Realm>
 </Context>
