@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package progettoelle.registrazionevoti.services.registration;
+package progettoelle.registrazionevoti.services.account;
 
 import java.util.List;
 import progettoelle.registrazionevoti.domain.Faculty;

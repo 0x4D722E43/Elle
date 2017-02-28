@@ -19,8 +19,8 @@ import progettoelle.registrazionevoti.domain.Student;
 
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.UserRepository;
-import progettoelle.registrazionevoti.services.manageexam.BookingExamService;
-import progettoelle.registrazionevoti.services.manageexam.CreateExamService;
+import progettoelle.registrazionevoti.services.exams.BookingExamService;
+import progettoelle.registrazionevoti.services.exams.CreateExamService;
 
 import utils.repositories4testPurpose.CourseRepositoryTest;
 import utils.repositories4testPurpose.ExamRepositoryTest;
@@ -31,9 +31,9 @@ import utils.repositories4testPurpose.UserRepositoryTest;
 import static org.junit.Assert.*;
 import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
-import progettoelle.registrazionevoti.services.manageexam.ConcreteProfessorExamService;
-import progettoelle.registrazionevoti.services.manageexam.ConcreteStudentExamsService;
-import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
+import progettoelle.registrazionevoti.services.exams.ConcreteProfessorExamService;
+import progettoelle.registrazionevoti.services.exams.ConcreteStudentExamsService;
+import progettoelle.registrazionevoti.services.exams.GradeExamService;
 import utils.repositories4testPurpose.EnrollmentRepositoryTest;
 
 /**

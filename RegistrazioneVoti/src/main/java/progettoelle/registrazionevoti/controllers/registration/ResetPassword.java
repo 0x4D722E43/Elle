@@ -6,8 +6,9 @@ import org.omnifaces.util.Messages;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
+import progettoelle.registrazionevoti.services.account.ConcretePasswordService;
 import progettoelle.registrazionevoti.services.ValidationException;
+import progettoelle.registrazionevoti.services.account.ResetPasswordService;
 
 @ManagedBean
 @RequestScoped

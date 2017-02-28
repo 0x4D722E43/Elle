@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package progettoelle.registrazionevoti.services.manageexam;
+package progettoelle.registrazionevoti.services.courses;
 
 import java.util.List;
-import progettoelle.registrazionevoti.domain.ExamResult;
+import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 
@@ -14,16 +14,14 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
  *
  * @author jan
  */
-public interface ManageExamBookingsService {
-
-    void cancelExamBooking(ExamResult examResult) throws DataLayerException;
+public interface LoadStudentEnrollmentsService {
 
     /**
      *
      * @param student
-     * @return I risultati di esami non ancora effettuati(prenotati) dello studente
+     * @return Le iscrizioni dello studente
      * @throws DataLayerException
      */
-    List<ExamResult> getExamBookings(Student student) throws DataLayerException;
+    List<Enrollment> getEnrollments(Student student) throws DataLayerException;
     
 }

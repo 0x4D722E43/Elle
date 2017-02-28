@@ -1,4 +1,4 @@
-package progettoelle.registrazionevoti.services.managecourse;
+package progettoelle.registrazionevoti.services.courses;
 
 import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;

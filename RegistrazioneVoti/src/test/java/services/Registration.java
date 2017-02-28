@@ -24,10 +24,10 @@ import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ValidationException;
-import progettoelle.registrazionevoti.services.registration.RegisterProfessorService;
-import progettoelle.registrazionevoti.services.registration.ConcreteRegisterService;
-import progettoelle.registrazionevoti.services.registration.RegisterStudentService;
-import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
+import progettoelle.registrazionevoti.services.account.RegisterProfessorService;
+import progettoelle.registrazionevoti.services.account.ConcreteRegisterService;
+import progettoelle.registrazionevoti.services.account.RegisterStudentService;
+import progettoelle.registrazionevoti.services.account.ConcretePasswordService;
 
 import utils.MailServiceTest;
 import utils.repositories4testPurpose.DegreeCourseRepositoryTest;
@@ -129,7 +129,7 @@ public class Registration {
 
     @Test
     public void resetPasswordByEmail() {
-        ResetPasswordService rps = new ResetPasswordService(ur, ms);
+        ConcretePasswordService rps = new ConcretePasswordService(ur, ms);
         RegisteredUser user = null;
         try {
             user = ur.findUserByEmail("alessandro.delpiero01@universitadipavia.it");

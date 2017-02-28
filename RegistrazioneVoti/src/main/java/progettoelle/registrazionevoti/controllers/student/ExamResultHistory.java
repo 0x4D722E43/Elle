@@ -10,7 +10,7 @@ import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.manageexam.LoadResultsHistoryService;
+import progettoelle.registrazionevoti.services.exams.LoadResultsHistoryService;
 
 @ManagedBean
 @RequestScoped

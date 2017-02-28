@@ -26,8 +26,8 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 import progettoelle.registrazionevoti.services.ValidationException;
 
-import progettoelle.registrazionevoti.services.managecourse.ConcreteCoursesService;
-import progettoelle.registrazionevoti.services.managecourse.ConcreteEnrollmentsService;
+import progettoelle.registrazionevoti.services.courses.ConcreteCoursesService;
+import progettoelle.registrazionevoti.services.courses.ConcreteEnrollmentsService;
 import utils.MailServiceTest;
 
 import utils.repositories4testPurpose.CourseRepositoryTest;
@@ -35,8 +35,8 @@ import utils.repositories4testPurpose.DegreeCourseRepositoryTest;
 import utils.repositories4testPurpose.EnrollmentRepositoryTest;
 import utils.repositories4testPurpose.TestDataBase;
 import utils.repositories4testPurpose.UserRepositoryTest;
-import progettoelle.registrazionevoti.services.managecourse.LoadStudentEnrollmentsService;
-import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudentsService;
+import progettoelle.registrazionevoti.services.courses.LoadStudentEnrollmentsService;
+import progettoelle.registrazionevoti.services.courses.LoadEnrolledStudentsService;
 
 /**
  *

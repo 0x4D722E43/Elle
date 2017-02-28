@@ -10,19 +10,20 @@ import progettoelle.registrazionevoti.repositories.hibernate.FacultyRepositoryHi
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
 import progettoelle.registrazionevoti.services.account.ChangePasswordService;
 import progettoelle.registrazionevoti.services.account.UserAccountService;
-import progettoelle.registrazionevoti.services.managecourse.ConcreteCoursesService;
-import progettoelle.registrazionevoti.services.managecourse.ConcreteEnrollmentsService;
-import progettoelle.registrazionevoti.services.manageexam.BookingExamService;
-import progettoelle.registrazionevoti.services.manageexam.ConcreteStudentExamsService;
-import progettoelle.registrazionevoti.services.manageexam.CreateExamService;
-import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
-import progettoelle.registrazionevoti.services.manageexam.LoadResultsHistoryService;
-import progettoelle.registrazionevoti.services.manageexam.ManageExamBookingsService;
-import progettoelle.registrazionevoti.services.registration.ConcreteRegisterService;
-import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
-import progettoelle.registrazionevoti.services.manageexam.AcceptExamResultService;
-import progettoelle.registrazionevoti.services.manageexam.ConcreteProfessorExamService;
-import progettoelle.registrazionevoti.services.manageexam.OpenExamBookingsService;
+import progettoelle.registrazionevoti.services.courses.ConcreteCoursesService;
+import progettoelle.registrazionevoti.services.courses.ConcreteEnrollmentsService;
+import progettoelle.registrazionevoti.services.exams.BookingExamService;
+import progettoelle.registrazionevoti.services.exams.ConcreteStudentExamsService;
+import progettoelle.registrazionevoti.services.exams.CreateExamService;
+import progettoelle.registrazionevoti.services.exams.GradeExamService;
+import progettoelle.registrazionevoti.services.exams.LoadResultsHistoryService;
+import progettoelle.registrazionevoti.services.exams.ManageExamBookingsService;
+import progettoelle.registrazionevoti.services.account.ConcreteRegisterService;
+import progettoelle.registrazionevoti.services.account.ConcretePasswordService;
+import progettoelle.registrazionevoti.services.account.ResetPasswordService;
+import progettoelle.registrazionevoti.services.exams.AcceptExamResultService;
+import progettoelle.registrazionevoti.services.exams.ConcreteProfessorExamService;
+import progettoelle.registrazionevoti.services.exams.OpenExamBookingsService;
 
 public class ServiceInjection {
 
@@ -30,8 +31,8 @@ public class ServiceInjection {
         return new UserAccountService(new UserRepositoryHibernate());
     }
 
-    public static ChangePasswordService provideChangePasswordService() {
-        return new ChangePasswordService(new UserRepositoryHibernate());
+    public static ChangePasswordService provideChangePasswordService() {        
+        return new ConcretePasswordService(new UserRepositoryHibernate(), new MockEmailService());
     }
 
     public static ConcreteCoursesService provideCourseService() {
@@ -79,7 +80,7 @@ public class ServiceInjection {
     }
 
     public static ResetPasswordService provideResetPasswordService() {
-        return new ResetPasswordService(new UserRepositoryHibernate(), new MockEmailService());
+        return new ConcretePasswordService(new UserRepositoryHibernate(), new MockEmailService());
     }
 
     public static ConcreteRegisterService provideRegisterService() {

@@ -9,7 +9,7 @@ import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.registration.RegisterStudentService;
+import progettoelle.registrazionevoti.services.account.RegisterStudentService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean
