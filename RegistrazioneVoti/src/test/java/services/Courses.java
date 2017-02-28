@@ -26,11 +26,10 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 import progettoelle.registrazionevoti.services.ValidationException;
 
-import progettoelle.registrazionevoti.services.managecourse.CreateCourseService;
-import progettoelle.registrazionevoti.services.managecourse.EnrollOnCourseService;
-import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudentsService;
-import progettoelle.registrazionevoti.services.managecourse.LoadProfessorCoursesService;
-import progettoelle.registrazionevoti.services.managecourse.LoadStudentEnrollmentsService;
+import progettoelle.registrazionevoti.services.managecourse.CourseService;
+import progettoelle.registrazionevoti.services.managecourse.EnrollmentService;
+import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudents;
+import progettoelle.registrazionevoti.services.managecourse.LoadStudentEnrollments;
 import utils.MailServiceTest;
 
 import utils.repositories4testPurpose.CourseRepositoryTest;
@@ -65,8 +64,8 @@ public class Courses {
     @Test
     public void createCourse() {
         try {
-            CreateCourseService ccs = new CreateCourseService(degreeCourseRepository,
-                    courseRepository);
+            CourseService ccs = new CourseService(degreeCourseRepository,
+                    courseRepository,enrollRepository);
             int index = (new Random()).nextInt(ccs.getPossibleDegreeCourses().size());
             DegreeCourse dc = ccs.getPossibleDegreeCourses().get(index);
             Professor professor = (Professor) userRepositoryTest.findUserById(0);
@@ -85,7 +84,7 @@ public class Courses {
 
     @Test
     public void enrollOnCourse() {
-        EnrollOnCourseService ecs = new EnrollOnCourseService(courseRepository,
+        EnrollmentService ecs = new EnrollmentService(courseRepository,
                 enrollRepository);
         Student student = null;
         try {
@@ -114,7 +113,7 @@ public class Courses {
 
     @Test
     public void loadProfessorCourses() {
-        LoadProfessorCoursesService lpcs = new LoadProfessorCoursesService(courseRepository);
+        CourseService lpcs = new CourseService(degreeCourseRepository, courseRepository, enrollRepository);
         Professor albert = null, boole = null;
         try {
             albert = (Professor) userRepositoryTest.findUserById(1);
@@ -136,8 +135,8 @@ public class Courses {
 
     @Test
     public void loadEnrollement() {
-        LoadStudentEnrollmentsService lses = new LoadStudentEnrollmentsService(enrollRepository);
-        LoadEnrolledStudentsService less = new LoadEnrolledStudentsService(enrollRepository);
+        LoadStudentEnrollments lses = new EnrollmentService(courseRepository, enrollRepository);
+        LoadEnrolledStudents less = new CourseService(degreeCourseRepository, courseRepository, enrollRepository);
         Student delPiero = null, totti = null;
         Course analisi = null;
         try {

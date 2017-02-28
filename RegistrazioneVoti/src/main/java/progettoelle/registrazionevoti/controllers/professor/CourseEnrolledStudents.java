@@ -11,13 +11,13 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Enrollment;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudentsService;
+import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudents;
 
 @ManagedBean
 @RequestScoped
 public class CourseEnrolledStudents {
     
-    private final LoadEnrolledStudentsService service = ServiceInjection.provideLoadEnrolledStudentsService();
+    private final  LoadEnrolledStudents service = ServiceInjection.provideCourseService();
     
     private Course course = Faces.getFlashAttribute(Course.class.getName());
     private DataModel<Enrollment> enrolledStudents;
