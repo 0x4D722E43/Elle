@@ -9,12 +9,12 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
 import progettoelle.registrazionevoti.services.BaseService;
 
-public final class EnrollmentService extends BaseService implements EnrollmentManager,LoadStudentEnrollments {
+public final class ConcreteEnrollmentsService extends BaseService implements EnrollmentsService,LoadStudentEnrollmentsService {
     
     private final CourseRepository courseRepository;
     private final EnrollmentRepository enrollmentRepository;
 
-    public EnrollmentService(CourseRepository courseRepository, EnrollmentRepository enrollmentRepository) {
+    public ConcreteEnrollmentsService(CourseRepository courseRepository, EnrollmentRepository enrollmentRepository) {
         this.courseRepository = courseRepository;
         this.enrollmentRepository = enrollmentRepository;
     }

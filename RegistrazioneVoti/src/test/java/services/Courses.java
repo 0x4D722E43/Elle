@@ -26,10 +26,8 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
 
 import progettoelle.registrazionevoti.services.ValidationException;
 
-import progettoelle.registrazionevoti.services.managecourse.CourseService;
-import progettoelle.registrazionevoti.services.managecourse.EnrollmentService;
-import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudents;
-import progettoelle.registrazionevoti.services.managecourse.LoadStudentEnrollments;
+import progettoelle.registrazionevoti.services.managecourse.ConcreteCoursesService;
+import progettoelle.registrazionevoti.services.managecourse.ConcreteEnrollmentsService;
 import utils.MailServiceTest;
 
 import utils.repositories4testPurpose.CourseRepositoryTest;
@@ -37,6 +35,8 @@ import utils.repositories4testPurpose.DegreeCourseRepositoryTest;
 import utils.repositories4testPurpose.EnrollmentRepositoryTest;
 import utils.repositories4testPurpose.TestDataBase;
 import utils.repositories4testPurpose.UserRepositoryTest;
+import progettoelle.registrazionevoti.services.managecourse.LoadStudentEnrollmentsService;
+import progettoelle.registrazionevoti.services.managecourse.LoadEnrolledStudentsService;
 
 /**
  *
@@ -64,7 +64,7 @@ public class Courses {
     @Test
     public void createCourse() {
         try {
-            CourseService ccs = new CourseService(degreeCourseRepository,
+            ConcreteCoursesService ccs = new ConcreteCoursesService(degreeCourseRepository,
                     courseRepository,enrollRepository);
             int index = (new Random()).nextInt(ccs.getPossibleDegreeCourses().size());
             DegreeCourse dc = ccs.getPossibleDegreeCourses().get(index);
@@ -84,7 +84,7 @@ public class Courses {
 
     @Test
     public void enrollOnCourse() {
-        EnrollmentService ecs = new EnrollmentService(courseRepository,
+        ConcreteEnrollmentsService ecs = new ConcreteEnrollmentsService(courseRepository,
                 enrollRepository);
         Student student = null;
         try {
@@ -113,7 +113,7 @@ public class Courses {
 
     @Test
     public void loadProfessorCourses() {
-        CourseService lpcs = new CourseService(degreeCourseRepository, courseRepository, enrollRepository);
+        ConcreteCoursesService lpcs = new ConcreteCoursesService(degreeCourseRepository, courseRepository, enrollRepository);
         Professor albert = null, boole = null;
         try {
             albert = (Professor) userRepositoryTest.findUserById(1);
@@ -135,8 +135,8 @@ public class Courses {
 
     @Test
     public void loadEnrollement() {
-        LoadStudentEnrollments lses = new EnrollmentService(courseRepository, enrollRepository);
-        LoadEnrolledStudents less = new CourseService(degreeCourseRepository, courseRepository, enrollRepository);
+        LoadStudentEnrollmentsService lses = new ConcreteEnrollmentsService(courseRepository, enrollRepository);
+        LoadEnrolledStudentsService less = new ConcreteCoursesService(degreeCourseRepository, courseRepository, enrollRepository);
         Student delPiero = null, totti = null;
         Course analisi = null;
         try {

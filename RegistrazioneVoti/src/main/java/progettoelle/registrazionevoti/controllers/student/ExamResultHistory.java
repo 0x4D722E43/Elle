@@ -10,13 +10,13 @@ import progettoelle.registrazionevoti.domain.ExamResult;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.manageexam.LoadExamResultHistoryService;
+import progettoelle.registrazionevoti.services.manageexam.LoadResultsHistoryService;
 
 @ManagedBean
 @RequestScoped
 public class ExamResultHistory {
     
-    private final LoadExamResultHistoryService service = ServiceInjection.provideLoadExamResultHistoryService();
+    private final LoadResultsHistoryService service = ServiceInjection.provideLoadExamResultHistoryService();
     
     private List<ExamResult> examResults;
 

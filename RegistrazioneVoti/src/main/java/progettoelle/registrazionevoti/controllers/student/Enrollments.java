@@ -13,13 +13,13 @@ import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.managecourse.EnrollmentManager;
+import progettoelle.registrazionevoti.services.managecourse.EnrollmentsService;
 
 @ManagedBean
 @RequestScoped
 public class Enrollments {
     
-    private final EnrollmentManager service = ServiceInjection.provideEnrollmentService();
+    private final EnrollmentsService service = ServiceInjection.provideEnrollmentService();
     
     private DataModel<Enrollment> enrollments;
     private Professor selectedProfessor;

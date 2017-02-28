@@ -14,16 +14,14 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
  *
  * @author jan
  */
-public interface ManageExamBookingsService {
-
-    void cancelExamBooking(ExamResult examResult) throws DataLayerException;
+public interface LoadResultsHistoryService {
 
     /**
      *
      * @param student
-     * @return I risultati di esami non ancora effettuati(prenotati) dello studente
+     * @return TUTTI i risultati nella carriera dello studente
      * @throws DataLayerException
      */
-    List<ExamResult> getExamBookings(Student student) throws DataLayerException;
+    List<ExamResult> getExamResultHistory(Student student) throws DataLayerException;
     
 }

@@ -12,13 +12,13 @@ import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.Student;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.manageexam.BookExamService;
+import progettoelle.registrazionevoti.services.manageexam.BookingExamService;
 
 @ManagedBean
 @RequestScoped
 public class BookExam {
 
-    private final BookExamService service = ServiceInjection.provideBookExamService();
+    private final BookingExamService service = ServiceInjection.provideBookExamService();
     
     private DataModel<Exam> availableExams;
     

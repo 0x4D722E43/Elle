@@ -14,7 +14,7 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
  *
  * @author 0x4d722e43
  */
-public interface EnrollmentManager extends LoadStudentEnrollments {
+public interface EnrollmentsService extends LoadStudentEnrollmentsService {
 
     /**
      * Permette di iscrivere uno studente a un corso

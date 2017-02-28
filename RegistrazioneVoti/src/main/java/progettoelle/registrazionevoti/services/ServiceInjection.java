@@ -10,17 +10,19 @@ import progettoelle.registrazionevoti.repositories.hibernate.FacultyRepositoryHi
 import progettoelle.registrazionevoti.repositories.hibernate.UserRepositoryHibernate;
 import progettoelle.registrazionevoti.services.account.ChangePasswordService;
 import progettoelle.registrazionevoti.services.account.UserAccountService;
-import progettoelle.registrazionevoti.services.managecourse.CourseService;
-import progettoelle.registrazionevoti.services.managecourse.EnrollmentService;
-import progettoelle.registrazionevoti.services.manageexam.AcceptExamResultService;
-import progettoelle.registrazionevoti.services.manageexam.BookExamService;
+import progettoelle.registrazionevoti.services.managecourse.ConcreteCoursesService;
+import progettoelle.registrazionevoti.services.managecourse.ConcreteEnrollmentsService;
+import progettoelle.registrazionevoti.services.manageexam.BookingExamService;
+import progettoelle.registrazionevoti.services.manageexam.ConcreteStudentExamsService;
 import progettoelle.registrazionevoti.services.manageexam.CreateExamService;
 import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
-import progettoelle.registrazionevoti.services.manageexam.LoadExamResultHistoryService;
+import progettoelle.registrazionevoti.services.manageexam.LoadResultsHistoryService;
 import progettoelle.registrazionevoti.services.manageexam.ManageExamBookingsService;
-import progettoelle.registrazionevoti.services.manageexam.OpenExamBookingsService;
-import progettoelle.registrazionevoti.services.registration.RegisterService;
+import progettoelle.registrazionevoti.services.registration.ConcreteRegisterService;
 import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
+import progettoelle.registrazionevoti.services.manageexam.AcceptExamResultService;
+import progettoelle.registrazionevoti.services.manageexam.ConcreteProfessorExamService;
+import progettoelle.registrazionevoti.services.manageexam.OpenExamBookingsService;
 
 public class ServiceInjection {
 
@@ -32,51 +34,56 @@ public class ServiceInjection {
         return new ChangePasswordService(new UserRepositoryHibernate());
     }
 
-    public static CourseService provideCourseService() {
-        return new CourseService(new DegreeCourseRepositoryHibernate(), new CourseRepositoryHibernate(),new EnrollmentRepositoryHibernate());
+    public static ConcreteCoursesService provideCourseService() {
+        return new ConcreteCoursesService(new DegreeCourseRepositoryHibernate(), new CourseRepositoryHibernate(), new EnrollmentRepositoryHibernate());
     }
 
-    public static EnrollmentService provideEnrollmentService() {
-        return new EnrollmentService(new CourseRepositoryHibernate(), new EnrollmentRepositoryHibernate());
+    public static ConcreteEnrollmentsService provideEnrollmentService() {
+        return new ConcreteEnrollmentsService(new CourseRepositoryHibernate(), new EnrollmentRepositoryHibernate());
     }
 
-
-    public static AcceptExamResultService provideAcceptExamResultService() {
-        return new AcceptExamResultService(new ExamResultRepositoryHibernate(), new EnrollmentRepositoryHibernate());
+    public static AcceptExamResultService provideStudentExamService() {
+        return new ConcreteStudentExamsService(new ExamResultRepositoryHibernate(),
+                new EnrollmentRepositoryHibernate(), new ExamRepositoryHibernate());
     }
 
-    public static BookExamService provideBookExamService() {
-        return new BookExamService(new ExamRepositoryHibernate(), new ExamResultRepositoryHibernate());
+    public static BookingExamService provideBookExamService() {
+        return new ConcreteStudentExamsService(new ExamResultRepositoryHibernate(),
+                new EnrollmentRepositoryHibernate(), new ExamRepositoryHibernate());
     }
 
     public static CreateExamService provideCreateExamService() {
-        return new CreateExamService(new CourseRepositoryHibernate(), new ExamRepositoryHibernate());
+        return new ConcreteProfessorExamService(new CourseRepositoryHibernate(),
+                new ExamRepositoryHibernate(), new ExamResultRepositoryHibernate());
     }
 
     public static GradeExamService provideGradeExamService() {
-        return new GradeExamService(new ExamResultRepositoryHibernate());
+        return new ConcreteProfessorExamService(new CourseRepositoryHibernate(),
+                new ExamRepositoryHibernate(), new ExamResultRepositoryHibernate());
     }
 
-    public static LoadExamResultHistoryService provideLoadExamResultHistoryService() {
-        return new LoadExamResultHistoryService(new ExamResultRepositoryHibernate());
+    public static LoadResultsHistoryService provideLoadExamResultHistoryService() {
+        return new ConcreteStudentExamsService(new ExamResultRepositoryHibernate(),
+                new EnrollmentRepositoryHibernate(), new ExamRepositoryHibernate());
     }
 
     public static ManageExamBookingsService provideManageExamBookingsService() {
-        return new ManageExamBookingsService(new ExamResultRepositoryHibernate());
+        return new ConcreteProfessorExamService(new CourseRepositoryHibernate(),
+                new ExamRepositoryHibernate(), new ExamResultRepositoryHibernate());
     }
 
     public static OpenExamBookingsService provideOpenExamBookingsService() {
-        return new OpenExamBookingsService(new ExamRepositoryHibernate());
+
+        return new ConcreteProfessorExamService(new CourseRepositoryHibernate(),
+                new ExamRepositoryHibernate(), new ExamResultRepositoryHibernate());
     }
 
     public static ResetPasswordService provideResetPasswordService() {
         return new ResetPasswordService(new UserRepositoryHibernate(), new MockEmailService());
     }
 
-    public static RegisterService provideRegisterService() {
-        return new RegisterService(new FacultyRepositoryHibernate(), new DegreeCourseRepositoryHibernate(), new UserRepositoryHibernate(), new MockEmailService());
+    public static ConcreteRegisterService provideRegisterService() {
+        return new ConcreteRegisterService(new FacultyRepositoryHibernate(), new DegreeCourseRepositoryHibernate(), new UserRepositoryHibernate(), new MockEmailService());
     }
-
-
 
 }

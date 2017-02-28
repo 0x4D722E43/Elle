@@ -13,13 +13,13 @@ import progettoelle.registrazionevoti.domain.Course;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.managecourse.CourseManager;
+import progettoelle.registrazionevoti.services.managecourse.CoursesService;
 
 @ManagedBean
 @RequestScoped
 public class Courses {
     
-    private final CourseManager service = ServiceInjection.provideCourseService();
+    private final CoursesService service = ServiceInjection.provideCourseService();
     
     @ManagedProperty(value = "#{professorManager.professor}")
     private Professor professor;

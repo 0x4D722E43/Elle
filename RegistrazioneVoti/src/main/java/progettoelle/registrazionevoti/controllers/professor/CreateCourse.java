@@ -10,14 +10,14 @@ import progettoelle.registrazionevoti.domain.DegreeCourse;
 import progettoelle.registrazionevoti.domain.Professor;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ServiceInjection;
-import progettoelle.registrazionevoti.services.managecourse.CourseService;
+import progettoelle.registrazionevoti.services.managecourse.ConcreteCoursesService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
 @ManagedBean
 @RequestScoped
 public class CreateCourse {
 
-    private final CourseService service = ServiceInjection.provideCourseService();
+    private final ConcreteCoursesService service = ServiceInjection.provideCourseService();
     
     private String name;
     private int credits = 6;

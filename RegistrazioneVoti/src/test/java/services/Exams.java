@@ -19,7 +19,7 @@ import progettoelle.registrazionevoti.domain.Student;
 
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.repositories.UserRepository;
-import progettoelle.registrazionevoti.services.manageexam.BookExamService;
+import progettoelle.registrazionevoti.services.manageexam.BookingExamService;
 import progettoelle.registrazionevoti.services.manageexam.CreateExamService;
 
 import utils.repositories4testPurpose.CourseRepositoryTest;
@@ -30,7 +30,11 @@ import utils.repositories4testPurpose.UserRepositoryTest;
 
 import static org.junit.Assert.*;
 import progettoelle.registrazionevoti.domain.ExamResult;
+import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
+import progettoelle.registrazionevoti.services.manageexam.ConcreteProfessorExamService;
+import progettoelle.registrazionevoti.services.manageexam.ConcreteStudentExamsService;
 import progettoelle.registrazionevoti.services.manageexam.GradeExamService;
+import utils.repositories4testPurpose.EnrollmentRepositoryTest;
 
 /**
  *
@@ -43,6 +47,7 @@ public class Exams {
     private UserRepositoryTest userRepository;
     private ExamRepositoryTest examRepository;
     private ExamResultRepositoryTest examResultRepository;
+    private EnrollmentRepository enrollmentRepository;
 
     @Before
     public void setUp() {
@@ -52,11 +57,12 @@ public class Exams {
         examRepository = new ExamRepositoryTest(db);
         userRepository = new UserRepositoryTest(db);
         examResultRepository = new ExamResultRepositoryTest(db);
+        enrollmentRepository = new EnrollmentRepositoryTest(db);
     }
 
     @Test
     public void createExam() {
-        CreateExamService ces = new CreateExamService(courseRepository, examRepository);
+        CreateExamService ces = new ConcreteProfessorExamService(courseRepository, examRepository, examResultRepository);
         try {
             Professor prof = (Professor) userRepository.findUserById(1);
             Course c = courseRepository.findCourseByProfessor(prof).get(0);
@@ -72,8 +78,8 @@ public class Exams {
     //@Test 
     public void bookExam(){
         try {
-            BookExamService bes = new BookExamService(examRepository,
-                    examResultRepository);
+            BookingExamService bes = new ConcreteStudentExamsService(examResultRepository,
+                    enrollmentRepository, examRepository);
             Student totti = (Student) userRepository.findUserById(6);
             List<Exam> exams = bes.getBookableExams(totti);
             assertNotNull(exams);
@@ -89,7 +95,7 @@ public class Exams {
     //@Test
     public void gradeExam(){
         try{
-            GradeExamService ges = new GradeExamService(examResultRepository);
+            GradeExamService ges = new ConcreteProfessorExamService(courseRepository, examRepository, examResultRepository);
             Student delPiero = (Student) userRepository.findUserById(5);            
             List<ExamResult> ers = ges.getExamResults(
                     examRepository.findAvailableExamsForStudent(delPiero).get(0));

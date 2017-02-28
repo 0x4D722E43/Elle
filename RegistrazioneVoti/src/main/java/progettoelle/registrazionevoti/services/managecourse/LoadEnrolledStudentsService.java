@@ -14,7 +14,7 @@ import progettoelle.registrazionevoti.repositories.DataLayerException;
  *
  * @author jan
  */
-public interface LoadEnrolledStudents {
+public interface LoadEnrolledStudentsService {
 
     /**
      *

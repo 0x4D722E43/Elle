@@ -1,38 +1,30 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package progettoelle.registrazionevoti.services.manageexam;
 
 import java.util.Calendar;
 import java.util.List;
 import progettoelle.registrazionevoti.domain.Course;
-import progettoelle.registrazionevoti.domain.Exam;
 import progettoelle.registrazionevoti.domain.Professor;
-import progettoelle.registrazionevoti.repositories.CourseRepository;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
-import progettoelle.registrazionevoti.repositories.ExamRepository;
-import progettoelle.registrazionevoti.services.BaseService;
 
-public final class CreateExamService extends BaseService {
+/**
+ *
+ * @author jan
+ */
+public interface CreateExamService {
 
-    private final CourseRepository courseRepository;
-    private final ExamRepository examRepository;
+    void createExam(Course course, Calendar date, String room, String description) throws DataLayerException;
 
-    public CreateExamService(CourseRepository courseRepository, ExamRepository examRepository) {
-        this.courseRepository = courseRepository;
-        this.examRepository = examRepository;
-    }
-    
     /**
      *
      * @param professor
      * @return I corsi di cui il professore è responsabile
      * @throws DataLayerException
      */
-    public List<Course> getPossibleCourses(Professor professor) throws DataLayerException {
-        return courseRepository.findCourseByProfessor(professor); 
-    }
-
-    public void createExam(Course course, Calendar date, String room, String description) throws DataLayerException {
-        Exam exam = new Exam(course, date, room, description);
-        examRepository.createExam(exam);
-    }
+    List<Course> getPossibleCourses(Professor professor) throws DataLayerException;
     
 }

@@ -25,7 +25,7 @@ import progettoelle.registrazionevoti.services.ValidationException;
  *
  * @author jan
  */
-public class RegisterService extends BaseService implements RegisterProfessorService, RegisterStudentService {
+public class ConcreteRegisterService extends BaseService implements RegisterProfessorService, RegisterStudentService {
 
     private static final String PROFESSOR_EMAIL_PATTERN = "^[a-z0-9]+\\.[a-z0-9]+@" + Pattern.quote("unipv.it") + "$";
     private static final String STUDENT_EMAIL_PATTERN = "^[a-z]+\\.[a-z]+[0-9]+@" + Pattern.quote("universitadipavia.it") + "$";
@@ -37,19 +37,19 @@ public class RegisterService extends BaseService implements RegisterProfessorSer
     private MailService mailService;
     private DegreeCourseRepository degreeCourseRepository;
 
-    public RegisterService(FacultyRepository facultyRepository, UserRepository userRepository, MailService mailService) {
+    public ConcreteRegisterService(FacultyRepository facultyRepository, UserRepository userRepository, MailService mailService) {
         this.facultyRepository = facultyRepository;
         this.userRepository = userRepository;
         this.mailService = mailService;
     }
 
-    public RegisterService(DegreeCourseRepository degreeCourseRepository, UserRepository userRepository, MailService mailService) {
+    public ConcreteRegisterService(DegreeCourseRepository degreeCourseRepository, UserRepository userRepository, MailService mailService) {
         this.degreeCourseRepository = degreeCourseRepository;
         this.userRepository = userRepository;
         this.mailService = mailService;
     }
 
-    public RegisterService(FacultyRepository facultyRepository, DegreeCourseRepository degreeCourseRepository, UserRepository userRepository, MailService mailService) {
+    public ConcreteRegisterService(FacultyRepository facultyRepository, DegreeCourseRepository degreeCourseRepository, UserRepository userRepository, MailService mailService) {
         this.facultyRepository = facultyRepository;
         this.degreeCourseRepository = degreeCourseRepository;
         this.userRepository = userRepository;

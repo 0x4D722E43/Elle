@@ -25,7 +25,7 @@ import progettoelle.registrazionevoti.mail.MailException;
 import progettoelle.registrazionevoti.repositories.DataLayerException;
 import progettoelle.registrazionevoti.services.ValidationException;
 import progettoelle.registrazionevoti.services.registration.RegisterProfessorService;
-import progettoelle.registrazionevoti.services.registration.RegisterService;
+import progettoelle.registrazionevoti.services.registration.ConcreteRegisterService;
 import progettoelle.registrazionevoti.services.registration.RegisterStudentService;
 import progettoelle.registrazionevoti.services.registration.ResetPasswordService;
 
@@ -63,7 +63,7 @@ public class Registration {
 
     @Test
     public void registerStudents() {
-        RegisterStudentService rss = new RegisterService(dcr, ur, ms);
+        RegisterStudentService rss = new ConcreteRegisterService(dcr, ur, ms);
         List<Student> ss = getStudents();
         for (final Student s : ss) {
             try {
@@ -96,7 +96,7 @@ public class Registration {
 
     @Test
     public void registerProfessor() {
-        RegisterProfessorService rps = new RegisterService(fr, ur, ms);
+        RegisterProfessorService rps = new ConcreteRegisterService(fr, ur, ms);
         List<Professor> ps = getNewProfessors();
         for (final Professor p : ps) {
             try {

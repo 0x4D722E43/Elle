@@ -12,7 +12,7 @@ import progettoelle.registrazionevoti.repositories.EnrollmentRepository;
 import progettoelle.registrazionevoti.services.BaseService;
 import progettoelle.registrazionevoti.services.ValidationException;
 
-public final class CourseService extends BaseService implements CourseManager,LoadEnrolledStudents {
+public final class ConcreteCoursesService extends BaseService implements CoursesService,LoadEnrolledStudentsService {
     
     private static final String ALREADY_EXISTENT_COURSE = "Esiste già un corso con questo nome";
     
@@ -20,7 +20,7 @@ public final class CourseService extends BaseService implements CourseManager,Lo
     private final CourseRepository courseRepository;
     private final EnrollmentRepository enrollmentRepository;
 
-    public CourseService(DegreeCourseRepository degreeCourseRepository, CourseRepository courseRepository,EnrollmentRepository enrollmentRepository) {
+    public ConcreteCoursesService(DegreeCourseRepository degreeCourseRepository, CourseRepository courseRepository,EnrollmentRepository enrollmentRepository) {
         this.degreeCourseRepository = degreeCourseRepository;
         this.courseRepository = courseRepository;
         this.enrollmentRepository = enrollmentRepository;

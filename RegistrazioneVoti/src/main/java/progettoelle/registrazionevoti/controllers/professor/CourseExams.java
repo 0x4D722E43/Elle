@@ -2,7 +2,6 @@ package progettoelle.registrazionevoti.controllers.professor;
 
 import java.util.List;
 import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.model.DataModel;

@@ -17,7 +17,7 @@ import progettoelle.registrazionevoti.services.ValidationException;
  *
  * @author jan
  */
-public interface CourseManager extends LoadEnrolledStudents {
+public interface CoursesService extends LoadEnrolledStudentsService {
 
     /**
      * Permette la creazione di un esame, rilascia una ValidationException se

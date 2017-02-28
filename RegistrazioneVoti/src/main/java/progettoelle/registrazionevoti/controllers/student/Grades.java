@@ -18,7 +18,7 @@ import progettoelle.registrazionevoti.services.manageexam.AcceptExamResultServic
 @RequestScoped
 public class Grades {
     
-    private final AcceptExamResultService service = ServiceInjection.provideAcceptExamResultService();
+    private final AcceptExamResultService service = ServiceInjection.provideStudentExamService();
     
     private DataModel<ExamResult> grades;
     
