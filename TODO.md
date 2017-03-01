@@ -1,5 +1,7 @@
-[]Rewrite readme
-[]Translate doc.
-[]Brutal refactoring
-[]services tests
-[]Selenium tests
+#To do
+
+- [ ] Rewrite readme
+- [ ] Translate doc.
+- [ ] Mailservice rewrite
+- [ ] services tests
+- [ ] Selenium tests
